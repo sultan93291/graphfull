@@ -83,10 +83,10 @@ const Footer = () => {
             <img src={logo} alt="site logo" className="w-[127px] h-[25px]" />
           </Link>
           <ul className="flex flex-row gap-x-3 items-center ">
-            <li className="flex items-center justify-center p-4 rounded-[8px] bg-primary-green  ">
+            <li className="flex cursor-pointer items-center justify-center p-4 rounded-[8px] bg-primary-green  ">
               <InstaSvg />
             </li>
-            <li className="flex items-center justify-center p-4 rounded-[8px] bg-primary-yellow  ">
+            <li className="flex cursor-pointer items-center justify-center p-4 rounded-[8px] bg-primary-yellow  ">
               <LinkdeinSvg />
             </li>
           </ul>
