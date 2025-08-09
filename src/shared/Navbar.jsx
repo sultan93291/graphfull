@@ -72,7 +72,6 @@ const Navbar = () => {
           <ul ref={navRef} className="flex flex-row gap-x-8">
             {navLinks.map((item, idx) => (
               <li key={idx} className="relative">
-                {/* Menu Item */}
                 {item.subItems ? (
                   <div className="flex flex-row gap-x-2 items-center">
                     <NavLink
