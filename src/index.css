@@ -1,16 +1,15 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import "tailwindcss";
 
 @theme {
   --color-primary-color: #060c12;
   --color-primary-yellow: #ff6610;
   --color-primary-dark-blue: #04090d;
   --color-primary-light-white: #9fadb9;
-  --color-primary-green:#00DF82;
+  --color-primary-green: #00df82;
 
   /* Container */
   /* customize your container from here */
-
   --container-max-width: 1720px;
   --container-padding-x: 1rem;
   --container-padding-y: 2rem;
@@ -18,13 +17,11 @@
   --color-transparent-gray: rgba(70, 70, 70, 0.5);
 
   /* Font family */
-  /* add your fonts custom fonts here */
-
+  /* add your custom fonts here */
   --font-family-nunito: "Nunito", sans-serif;
 
   /* Breakpoints */
-  /* customize your break poing if needed */
-
+  /* customize your breakpoints if needed */
   --breakpoint-xs: 375px;
   --breakpoint-sm: 480px;
   --breakpoint-md: 576px;
@@ -34,14 +31,40 @@
   --breakpoint-3xl: 1440px;
 }
 
-.container {
-  max-width: var(--container-max-width);
-  padding-left: var(--container-padding-x);
-  padding-right: var(--container-padding-x);
-  margin-left: auto;
-  margin-right: auto;
-}
+@layer components {
+  body {
+    @apply font-family-nunito;
+  }
 
-body {
-  @apply font-family-nunito ;
+  .container {
+    max-width: var(--container-max-width);
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .glass-effect {
+    background: rgba(6, 12, 18, 0.656);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .dropdown-wrapper {
+    padding: 40px 96px; 
+    overflow: hidden;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+  }
+
+  @keyframes scrollUp {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+  }
+
+  .marquee-content {
+    will-change: transform;
+  }
 }

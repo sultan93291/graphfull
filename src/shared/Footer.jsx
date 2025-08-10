@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo/logo.svg";
 import { InstaSvg, LinkdeinSvg, SmileFace } from "../SvgContainer/SvgContainer";
 import Heading from "../components/Heading/Heading";
@@ -24,6 +24,7 @@ const FooterNavLink = {
 };
 
 const Footer = () => {
+  const [isHovering, setisHovering] = useState(false);
   return (
     <footer className="h-auto w-full py-20 bg-primary-color ">
       <div className="  container flex flex-col  gap-y-20 ">
@@ -45,8 +46,29 @@ const Footer = () => {
                 }
               />
             </div>
-            <div className="flex items-center justify-center h-auto w-auto max-w-10 p-2 rounded-[8px] bg-primary-green ">
-              <SmileFace />
+            <div
+              onMouseEnter={() => setisHovering(true)}
+              onMouseLeave={() => setisHovering(false)}
+              className={`flex items-center  font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-green overflow-hidden transition-all duration-300 ${
+                isHovering ? "w-36" : "w-10"
+              }`}
+            >
+              <div
+                className={`flex-shrink-0 transition-opacity duration-300 ${
+                  isHovering ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                <SmileFace />
+              </div>
+              <span
+                className={` whitespace-nowrap transition-all duration-300 ${
+                  isHovering
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-2"
+                }`}
+              >
+                Book a Call
+              </span>
             </div>
           </div>
           <div className="flex flex-row gap-x-8 ">
@@ -79,7 +101,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-row justify-between ">
-          <Link to={'/'} className="cursor-pointer" >
+          <Link to={"/"} className="cursor-pointer">
             <img src={logo} alt="site logo" className="w-[127px] h-[25px]" />
           </Link>
           <ul className="flex flex-row gap-x-3 items-center ">
