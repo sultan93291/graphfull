@@ -167,7 +167,7 @@ const Hero = () => {
         <div
           onMouseEnter={() => setisHovering(true)}
           onMouseLeave={() => setisHovering(false)}
-          className={`flex items-center  font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-green overflow-hidden transition-all duration-300 ${
+          className={`flex items-center  font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
             isHovering ? "w-36" : "w-10"
           }`}
         >
