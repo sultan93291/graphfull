@@ -16,26 +16,15 @@ import coffee from "../../../assets/img/slider-img/coffe.png";
 import dope from "../../../assets/img/slider-img/dope.png";
 
 const Hero = () => {
-  const [isHovering, setIsHovering] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [videoReady, setVideoReady] = useState({});
+  const [isHovering, setisHovering] = useState(false);
 
   const colorCodes = [
-    {
-      id: 1,
-      name: "green",
-      color: "#21694A",
-    },
-    {
-      id: 2,
-      name: "purple",
-      color: "#7D5B94",
-    },
+    { id: 1, name: "green", color: "#21694A" },
+    { id: 2, name: "purple", color: "#7D5B94" },
     { id: 3, name: "yellow", color: "#D8EA68" },
-    {
-      id: 4,
-      name: "red",
-      color: "#21694A",
-    },
+    { id: 4, name: "red", color: "#21694A" },
     { id: 5, name: "orange", color: "#F26129" },
   ];
 
@@ -51,7 +40,6 @@ const Hero = () => {
     {
       id: 2,
       img: illusion,
-      svg: Illusion,
       colorSlug: "purple",
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
@@ -63,7 +51,6 @@ const Hero = () => {
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
     },
-
     {
       id: 4,
       img: jar,
@@ -97,36 +84,57 @@ const Hero = () => {
 
   const repeatedImages = [...itemsArr, ...itemsArr];
 
+  const handleVideoCanPlay = key => {
+    setVideoReady(prev => ({ ...prev, [key]: true }));
+  };
+
   const renderImages = prefix =>
     repeatedImages.map((item, idx) => {
-      const matchedColor = colorCodes.find(c => c.name === item.colorSlug);
-      const colorValue = matchedColor ? matchedColor.color : "defaultColor";
-      const Svg = item.svg;
-
       const key = `${prefix}-${idx}`;
       const isHovered = hoveredIndex === key;
+      const isReady = videoReady[key] === true;
+
+      const matchedColor = colorCodes.find(c => c.name === item.colorSlug);
+      const colorValue = matchedColor ? matchedColor.color : "transparent";
+      const Svg = item.svg;
 
       return (
         <div
           key={key}
           className="w-[210px] cursor-pointer h-[316px] relative my-2.5 rounded-[12px]"
-          onMouseEnter={() => setHoveredIndex(key)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          onMouseEnter={() => {
+            setHoveredIndex(key);
+            setVideoReady(prev => ({ ...prev, [key]: false }));
+          }}
+          onMouseLeave={() => {
+            setHoveredIndex(null);
+            setVideoReady(prev => ({ ...prev, [key]: false }));
+          }}
         >
+          {/* Image always there, fades out when video ready */}
           <img
-            className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-10 select-none transition-opacity duration-500"
             src={item.img}
             alt={`${prefix}-slider-${idx}`}
-            style={{ opacity: isHovered ? 0 : 1 }}
+            loading="lazy"
+            draggable={false}
+            className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-10 select-none transition-opacity duration-700"
+            style={{ opacity: isHovered && isReady ? 0 : 1 }}
           />
-          <video
-            src={item.videoUrl}
-            autoPlay
-            muted
-            loop
-            className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-20 select-none transition-opacity duration-500"
-            style={{ opacity: isHovered ? 1 : 0 }}
-          />
+
+          {/* Video fades in when ready */}
+          {isHovered && (
+            <video
+              src={item.videoUrl}
+              autoPlay
+              muted
+              loop
+              preload="auto"
+              playsInline
+              onCanPlay={() => handleVideoCanPlay(key)}
+              className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-20 select-none transition-opacity duration-700"
+              style={{ opacity: isReady ? 1 : 0, pointerEvents: "none" }}
+            />
+          )}
 
           {Svg && (
             <div
@@ -157,9 +165,9 @@ const Hero = () => {
           />
         </div>
         <div
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-          className={`flex items-center font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
+          onMouseEnter={() => setisHovering(true)}
+          onMouseLeave={() => setisHovering(false)}
+          className={`flex items-center  font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-green overflow-hidden transition-all duration-300 ${
             isHovering ? "w-36" : "w-10"
           }`}
         >
@@ -171,7 +179,7 @@ const Hero = () => {
             <SmileFace />
           </div>
           <span
-            className={`whitespace-nowrap transition-all duration-300 ${
+            className={` whitespace-nowrap transition-all duration-300 ${
               isHovering
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-2"
@@ -186,7 +194,6 @@ const Hero = () => {
         className="flex flex-row gap-x-2.5"
         style={{ userSelect: "none", height: "700px", width: "700px" }}
       >
-        {/* Left Column - scroll down */}
         <div className="marquee-column">
           <div
             className="marquee-content scroll-down"
@@ -196,7 +203,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Middle Column - scroll up */}
         <div className="marquee-column">
           <div
             className="marquee-content scroll-up"
