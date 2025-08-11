@@ -1,29 +1,144 @@
 import React, { useState } from "react";
-import { SmileFace } from "../../../SvgContainer/SvgContainer";
+import {
+  Dope,
+  FigmaIcon,
+  Illusion,
+  Poco,
+  SmileFace,
+} from "../../../SvgContainer/SvgContainer";
 import Heading from "../../Heading/Heading";
 import Paragraph from "../../Paragraph/Paragraph";
-import one from "../../../assets/img/slider-img/one.png";
-import two from "../../../assets/img/slider-img/two.png";
-import three from "../../../assets/img/slider-img/three.jpeg";
-import four from "../../../assets/img/slider-img/four.png";
+import medicine from "../../../assets/img/slider-img/medicine.png";
+import illusion from "../../../assets/img/slider-img/illusion.png";
+import cookie from "../../../assets/img/slider-img/cookie.png";
+import jar from "../../../assets/img/slider-img/jar.jpg";
+import coffee from "../../../assets/img/slider-img/coffe.png";
+import dope from "../../../assets/img/slider-img/dope.png";
 
 const Hero = () => {
   const [isHovering, setIsHovering] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const imgArr = [one, two, three, four];
+  const colorCodes = [
+    {
+      id: 1,
+      name: "green",
+      color: "#21694A",
+    },
+    {
+      id: 2,
+      name: "purple",
+      color: "#7D5B94",
+    },
+    { id: 3, name: "yellow", color: "#D8EA68" },
+    {
+      id: 4,
+      name: "red",
+      color: "#21694A",
+    },
+    { id: 5, name: "orange", color: "#F26129" },
+  ];
+
+  const itemsArr = [
+    {
+      id: 1,
+      img: medicine,
+      svg: FigmaIcon,
+      colorSlug: "green",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+    {
+      id: 2,
+      img: illusion,
+      svg: Illusion,
+      colorSlug: "purple",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+    {
+      id: 3,
+      img: cookie,
+      colorSlug: "yellow",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+
+    {
+      id: 4,
+      img: jar,
+      colorSlug: "yellow",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+    {
+      id: 5,
+      img: medicine,
+      svg: FigmaIcon,
+      colorSlug: "green",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+    {
+      id: 6,
+      img: coffee,
+      colorSlug: "green",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+    {
+      id: 7,
+      img: dope,
+      colorSlug: "red",
+      videoUrl:
+        "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
+    },
+  ];
+
+  const repeatedImages = [...itemsArr, ...itemsArr];
 
   const renderImages = prefix =>
-    [...imgArr, ...imgArr, ...imgArr, ...imgArr, ...imgArr, ...imgArr].map(
-      (item, idx) => (
-        <img
-          key={`${prefix}-${idx}`}
-          className="w-[210px] h-[316px] my-2.5 object-cover rounded-[12px] flex-shrink-0"
-          src={item}
-          alt={`${prefix}-slider-${idx}`}
-          style={{ userSelect: "none" }}
-        />
-      )
-    );
+    repeatedImages.map((item, idx) => {
+      const matchedColor = colorCodes.find(c => c.name === item.colorSlug);
+      const colorValue = matchedColor ? matchedColor.color : "defaultColor";
+      const Svg = item.svg;
+
+      const key = `${prefix}-${idx}`;
+      const isHovered = hoveredIndex === key;
+
+      return (
+        <div
+          key={key}
+          className="w-[210px] cursor-pointer h-[316px] relative my-2.5 rounded-[12px]"
+          onMouseEnter={() => setHoveredIndex(key)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <img
+            className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-10 select-none transition-opacity duration-500"
+            src={item.img}
+            alt={`${prefix}-slider-${idx}`}
+            style={{ opacity: isHovered ? 0 : 1 }}
+          />
+          <video
+            src={item.videoUrl}
+            autoPlay
+            muted
+            loop
+            className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-20 select-none transition-opacity duration-500"
+            style={{ opacity: isHovered ? 1 : 0 }}
+          />
+
+          {Svg && (
+            <div
+              style={{ backgroundColor: colorValue }}
+              className="absolute top-0 left-0 h-auto p-2 rounded-[6.51px] overflow-hidden w-auto mt-2.5 ml-2 z-30 flex items-center"
+            >
+              <Svg />
+            </div>
+          )}
+        </div>
+      );
+    });
 
   return (
     <section className="flex flex-row justify-between items-center container">
@@ -66,56 +181,35 @@ const Hero = () => {
           </span>
         </div>
       </div>
+
       <div
-        className="flex flex-row gap-x-2.5 overflow-hidden h-[700px] w-[700px]"
-        style={{ userSelect: "none" }}
+        className="flex flex-row gap-x-2.5"
+        style={{ userSelect: "none", height: "700px", width: "700px" }}
       >
-        {/* Left Column - Scroll Down */}
-        <div
-          className="w-[233px] overflow-hidden"
-          style={{ willChange: "transform" }}
-        >
+        {/* Left Column - scroll down */}
+        <div className="marquee-column">
           <div
-            className="marquee-content"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              animation: "scrollDown 70s linear infinite",
-            }}
+            className="marquee-content scroll-down"
+            style={hoveredIndex ? { animationPlayState: "paused" } : {}}
           >
             {renderImages("left")}
           </div>
         </div>
 
-        {/* Middle Column - Scroll Up */}
-        <div
-          className="w-[233px] overflow-hidden"
-          style={{ willChange: "transform" }}
-        >
+        {/* Middle Column - scroll up */}
+        <div className="marquee-column">
           <div
-            className="marquee-content"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              animation: "scrollUp 70s linear infinite",
-            }}
+            className="marquee-content scroll-up"
+            style={hoveredIndex ? { animationPlayState: "paused" } : {}}
           >
             {renderImages("middle")}
           </div>
         </div>
 
-        {/* Right Column - Scroll Down */}
-        <div
-          className="w-[233px] overflow-hidden"
-          style={{ willChange: "transform" }}
-        >
+        <div className="marquee-column">
           <div
-            className="marquee-content"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              animation: "scrollDown 70s linear infinite",
-            }}
+            className="marquee-content scroll-down"
+            style={hoveredIndex ? { animationPlayState: "paused" } : {}}
           >
             {renderImages("right")}
           </div>
