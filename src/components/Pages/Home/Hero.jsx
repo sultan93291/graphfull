@@ -17,6 +17,7 @@ import dope from "../../../assets/img/slider-img/dope.png";
 
 const Hero = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredColumn, setHoveredColumn] = useState(null);
   const [videoReady, setVideoReady] = useState({});
   const [isHovering, setisHovering] = useState(false);
 
@@ -104,10 +105,12 @@ const Hero = () => {
           className="w-[210px] cursor-pointer h-[316px] relative my-2.5 rounded-[12px]"
           onMouseEnter={() => {
             setHoveredIndex(key);
+            setHoveredColumn(prefix);
             setVideoReady(prev => ({ ...prev, [key]: false }));
           }}
           onMouseLeave={() => {
             setHoveredIndex(null);
+            setHoveredColumn(null);
             setVideoReady(prev => ({ ...prev, [key]: false }));
           }}
         >
@@ -197,7 +200,9 @@ const Hero = () => {
         <div className="marquee-column">
           <div
             className="marquee-content scroll-down"
-            style={hoveredIndex ? { animationPlayState: "paused" } : {}}
+            style={
+              hoveredColumn === "left" ? { animationPlayState: "paused" } : {}
+            }
           >
             {renderImages("left")}
           </div>
@@ -206,7 +211,9 @@ const Hero = () => {
         <div className="marquee-column">
           <div
             className="marquee-content scroll-up"
-            style={hoveredIndex ? { animationPlayState: "paused" } : {}}
+            style={
+              hoveredColumn === "middle" ? { animationPlayState: "paused" } : {}
+            }
           >
             {renderImages("middle")}
           </div>
@@ -215,7 +222,9 @@ const Hero = () => {
         <div className="marquee-column">
           <div
             className="marquee-content scroll-down"
-            style={hoveredIndex ? { animationPlayState: "paused" } : {}}
+            style={
+              hoveredColumn === "right" ? { animationPlayState: "paused" } : {}
+            }
           >
             {renderImages("right")}
           </div>
