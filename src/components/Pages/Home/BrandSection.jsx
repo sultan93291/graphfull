@@ -20,7 +20,7 @@ const BrandSection = () => {
     relume,
   ];
   return (
-    <section className="h-auto w-full py-20 flex flex-col items-center gap-y-12  ">
+    <section className="h-auto bg-[#0C1924] w-full py-20 flex flex-col items-center gap-y-12  ">
       <Heading
         Variant={"h6"}
         Txt={"trusted by 150+ brands"}
