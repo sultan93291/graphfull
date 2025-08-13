@@ -238,3 +238,20 @@ export const Poco = () => {
     </svg>
   );
 }
+
+export const ArrowSvg = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M9.70703 16.9492L15.414 11.2422L9.70703 5.53516L8.29303 6.94916L12.586 11.2422L8.29303 15.5352L9.70703 16.9492Z"
+        fill="#E7E8EA"
+      />
+    </svg>
+  );
+}

@@ -3,10 +3,12 @@
 
 @theme {
   --color-primary-color: #060c12;
+  --color-primary-white: #e7e8ea;
   --color-primary-yellow: #ff6610;
   --color-primary-dark-blue: #04090d;
   --color-primary-light-white: #9fadb9;
   --color-primary-green: #00df82;
+  --color-primary-gray: #9FADB933;
 
   /* Container */
   /* customize your container from here */

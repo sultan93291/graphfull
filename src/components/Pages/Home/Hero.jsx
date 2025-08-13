@@ -114,7 +114,6 @@ const Hero = () => {
             setVideoReady(prev => ({ ...prev, [key]: false }));
           }}
         >
-          {/* Image always there, fades out when video ready */}
           <img
             src={item.img}
             alt={`${prefix}-slider-${idx}`}
@@ -124,7 +123,6 @@ const Hero = () => {
             style={{ opacity: isHovered && isReady ? 0 : 1 }}
           />
 
-          {/* Video fades in when ready */}
           {isHovered && (
             <video
               src={item.videoUrl}

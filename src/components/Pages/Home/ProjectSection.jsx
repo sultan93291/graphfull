@@ -1,0 +1,68 @@
+import Heading from "../../Heading/Heading";
+import medicine from "../../../assets/img/slider-img/medicine.png";
+import dope from "../../../assets/img/slider-img/dope.png";
+import illusion from "../../../assets/img/slider-img/illusion.png";
+import ProjectCard from "../../Cards/ProjectCard";
+
+const projectList = [
+  {
+    id: 1,
+    quote:
+      "Since launching, we’ve been getting a ton of compliments on the site.",
+    descreption:
+      "It’s made a big difference in how we present ourselves. Big shoutout to the team at Graphfull, can’t recommend them enough.”",
+    bgImg: medicine,
+    redirectLink: "/",
+    btnTxt: "SEE PROJECT",
+  },
+  {
+    id: 2,
+    quote:
+      "Since launching, we’ve been getting a ton of compliments on the site.",
+    descreption:
+      "It’s made a big difference in how we present ourselves. Big shoutout to the team at Graphfull, can’t recommend them enough.”",
+    bgImg: dope,
+    redirectLink: "/",
+    btnTxt: "SEE PROJECT",
+  },
+  {
+    id: 3,
+    quote:
+      "Since launching, we’ve been getting a ton of compliments on the site.",
+    descreption:
+      "It’s made a big difference in how we present ourselves. Big shoutout to the team at Graphfull, can’t recommend them enough.”",
+    bgImg: illusion,
+    redirectLink: "/",
+    btnTxt: "SEE PROJECT",
+  },
+];
+
+const ProjectSection = () => {
+  return (
+    <section className="h-auto w-full py-[120px] container flex flex-col gap-y-20 items-center  ">
+      <div className="flex flex-col gap-y-4 items-center ">
+        <Heading
+          Variant={"h6"}
+          Txt={"PROJECTS"}
+          className={
+            "text-base capitalize text-primary-light-white font-extrabold leading-[150%] tracking-[1.92px] "
+          }
+        />
+        <Heading
+          Variant={"h3"}
+          Txt={"From “we need something” to “this is great”"}
+          className={
+            "text-[40px] capitalize text-primary-white font-bold leading-[150%] tracking-[-0.4px] max-w-[560px] text-center "
+          }
+        />
+      </div>
+      <div className="flex flex-row gap-x-8 ">
+        {projectList.map(item => (
+          <ProjectCard key={item.id} item={item} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default ProjectSection;
