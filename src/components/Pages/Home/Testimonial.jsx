@@ -93,6 +93,7 @@ const Testimonial = () => {
             autoplay={{
               delay: 1500,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             spaceBetween={42}
             loop={true}
