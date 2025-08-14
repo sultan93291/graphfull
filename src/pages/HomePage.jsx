@@ -3,6 +3,7 @@ import Hero from "../components/Pages/Home/Hero";
 import BrandSection from "../components/Pages/Home/BrandSection";
 import ProjectSection from "../components/Pages/Home/ProjectSection";
 import ServiceSection from "../components/Pages/ServiceSection";
+import Testimonial from "../components/Pages/Home/Testimonial";
 
 
 const HomePage = () => {
@@ -11,7 +12,8 @@ const HomePage = () => {
       <Hero />
       <BrandSection />
       <ProjectSection />
-      <ServiceSection/>
+      <ServiceSection />
+      <Testimonial/>
     </section>
   );
 };

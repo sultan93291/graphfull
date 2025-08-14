@@ -204,7 +204,12 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <Button btnTxt={"Book a call"} />
+          <Button
+            className={
+              "h-auto w-auto px-5 py-2 bg-primary-yellow text-primary-dark-blue font-bold rounded-[8px] cursor-pointer ease-in-out duration-500 hover:bg-transparent border-[1px] border-transparent hover:border-solid hover:border-primary-yellow hover:text-primary-yellow  "
+            }
+            btnTxt={"Book a call"}
+          />
         </div>
       </div>
 
@@ -231,7 +236,10 @@ const Navbar = () => {
               />
               <ul className="flex flex-col gap-y-6">
                 {menu.menuList.map((item, idx2) => (
-                  <li key={idx2} className="flex cursor-pointer flex-col gap-y-3">
+                  <li
+                    key={idx2}
+                    className="flex cursor-pointer flex-col gap-y-3"
+                  >
                     <div className="flex  flex-row gap-x-2">
                       <BoxSvg />
                       <div className="flex flex-col gap-y-1">
@@ -261,7 +269,10 @@ const Navbar = () => {
           />
           <div className="flex flex-col gap-y-10">
             {latestArticles.map((article, idx) => (
-              <div key={idx} className="flex cursor-pointer flex-row gap-x-6 w-auto">
+              <div
+                key={idx}
+                className="flex cursor-pointer flex-row gap-x-6 w-auto"
+              >
                 <img
                   src={article.img}
                   alt="not found"
