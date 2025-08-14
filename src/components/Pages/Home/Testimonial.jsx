@@ -11,8 +11,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import reviw_girl from "../../../assets/img/review.avif";
+
 
 const testimonials = [
   {
@@ -87,11 +88,15 @@ const Testimonial = () => {
         <div className="flex flex-col gap-y-12 w-full max-w-[808px]">
           <Swiper
             ref={swiperRef}
-            slidesPerView="auto" 
-            centeredSlides={true} // 
-            spaceBetween={32} 
+            slidesPerView="auto"
+            centeredSlides={false}
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
+            spaceBetween={42}
             loop={true}
-            modules={[Pagination, Navigation]}
+            modules={[Pagination, Navigation, Autoplay]}
             pagination={{ clickable: true, el: paginationEl }}
             navigation={{ prevEl, nextEl }}
             className="w-full"
@@ -102,7 +107,7 @@ const Testimonial = () => {
                 <SwiperSlide
                   key={item.id}
                   className="flex justify-center"
-                  style={{ width: "616px" }} 
+                  style={{ width: "616px" }}
                 >
                   <div className="h-auto cursor-pointer w-full flex flex-col gap-y-12 bg-extra-blue rounded-[16px] p-8 text-white">
                     <Svg />
@@ -142,13 +147,13 @@ const Testimonial = () => {
             <div className="flex gap-x-4">
               <Button
                 ref={setPrevEl}
-                className="h-auto w-auto p-3 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer"
+                className="h-auto w-auto p-3 ease-in-out duration-300 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer"
                 btnTxt={
                   <>
-                    <div className="block group-hover:hidden">
+                    <div className="block ease-in-out duration-300 group-hover:hidden">
                       <ArrowSvgRight />
                     </div>
-                    <div className="hidden group-hover:block rotate-[180deg]">
+                    <div className="hidden ease-in-out duration-300 group-hover:block rotate-[180deg]">
                       <ArrowSvgRightWhite />
                     </div>
                   </>
@@ -157,13 +162,13 @@ const Testimonial = () => {
               />
               <Button
                 ref={setNextEl}
-                className="h-auto w-auto p-3 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer rotate-[180deg]"
+                className="h-auto w-auto ease-in-out duration-300 p-3 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer rotate-[180deg]"
                 btnTxt={
                   <>
-                    <div className="block group-hover:hidden">
+                    <div className="block ease-in-out duration-300 group-hover:hidden">
                       <ArrowSvgRight />
                     </div>
-                    <div className="hidden group-hover:block rotate-[180deg]">
+                    <div className="hidden ease-in-out duration-300 group-hover:block rotate-[180deg]">
                       <ArrowSvgRightWhite />
                     </div>
                   </>

@@ -4,6 +4,7 @@ import BrandSection from "../components/Pages/Home/BrandSection";
 import ProjectSection from "../components/Pages/Home/ProjectSection";
 import ServiceSection from "../components/Pages/ServiceSection";
 import Testimonial from "../components/Pages/Home/Testimonial";
+import FeaturedProject from "../components/Pages/Home/FeaturedProject";
 
 
 const HomePage = () => {
@@ -13,7 +14,8 @@ const HomePage = () => {
       <BrandSection />
       <ProjectSection />
       <ServiceSection />
-      <Testimonial/>
+      <Testimonial />
+      <FeaturedProject/>
     </section>
   );
 };
