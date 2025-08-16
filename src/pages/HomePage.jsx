@@ -5,7 +5,9 @@ import ProjectSection from "../components/Pages/Home/ProjectSection";
 import ServiceSection from "../components/Pages/ServiceSection";
 import Testimonial from "../components/Pages/Home/Testimonial";
 import FeaturedProject from "../components/Pages/Home/FeaturedProject";
-
+import Overview from "../components/Pages/Home/Overview";
+import Insights from "../components/Pages/Home/Insights";
+import BreakDown from "../components/Pages/Home/BreakDown";
 
 const HomePage = () => {
   return (
@@ -15,7 +17,10 @@ const HomePage = () => {
       <ProjectSection />
       <ServiceSection />
       <Testimonial />
-      <FeaturedProject/>
+      <FeaturedProject />
+      <Overview />
+      <BreakDown />
+      <Insights/>
     </section>
   );
 };
