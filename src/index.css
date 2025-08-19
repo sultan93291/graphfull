@@ -38,6 +38,9 @@
   --breakpoint-3xl: 1440px;
 }
 
+
+
+
 @layer components {
   body {
     @apply font-family-nunito;
