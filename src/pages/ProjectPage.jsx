@@ -1,8 +1,11 @@
 import React from 'react'
+import Industry from '../components/Pages/Projects/Industry'
 
 const ProjectPage = () => {
   return (
-    <div>ProjectPage</div>
+    <>
+      <Industry/>
+    </>
   )
 }
 

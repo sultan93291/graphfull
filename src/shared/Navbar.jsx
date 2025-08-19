@@ -12,6 +12,7 @@ import gsap from "gsap";
 const navLinks = [
   { label: "work", redirectLink: "/demo" },
   { label: "about", redirectLink: "/demo" },
+  { label: "projects", redirectLink: "/projects" },
   {
     label: "service",
     redirectLink: "/demo",
@@ -212,8 +213,6 @@ const Navbar = () => {
           />
         </div>
       </div>
-
-      {/* Dropdown */}
       <div
         ref={dropdownRef}
         onMouseEnter={handleMouseEnterDropdown}

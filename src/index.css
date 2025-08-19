@@ -11,9 +11,10 @@
   --color-primary-gray: #9fadb933;
   --color-extra-blue: #0c1924;
   --color-light-blue: #108cff;
-  --color-metal-white:#C2CFDC;
-  --color-metal-gray:#62707D;
-  --color-border-blue:#10202D;
+  --color-metal-white: #c2cfdc;
+  --color-metal-gray: #62707d;
+  --color-border-blue: #10202d;
+  --color-secondary-off-gray: #9fadb926;
 
   /* Container */
   /* customize your container from here */
@@ -37,9 +38,6 @@
   --breakpoint-2xl: 1280px;
   --breakpoint-3xl: 1440px;
 }
-
-
-
 
 @layer components {
   body {
@@ -99,17 +97,14 @@
     animation-name: scrollUp;
   }
 
- 
   .my-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #C2CFDC !important; /* inactive bullet */
-  opacity: 1;
-}
+    width: 12px;
+    height: 12px;
+    background-color: #c2cfdc !important; /* inactive bullet */
+    opacity: 1;
+  }
 
-.my-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
-  background-color: #108CFF !important; /* active bullet */
-}
-
-
+  .my-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background-color: #108cff !important; /* active bullet */
+  }
 }
