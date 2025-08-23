@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { GettaSvg } from "../../../SvgContainer/SvgContainer";
 import Heading from "../../Heading/Heading";
 import Paragraph from "./../../Paragraph/Paragraph";
@@ -16,7 +16,7 @@ const cardArr = [
   {
     title:
       "Since launching, we’ve been getting a ton of compliments on the site.",
-    text: "Since launching, we've been getting a ton of compliments on the site. I had the pleasure of working with Teo & the team at Graphfull to relaunch the JMA website in November 2023. Specifically, I worked with Teo to make my site function better for my audience...without losing the vibe' of the JMA brand. Teo delivered on the ask exceptionally well, by injecting her team's design & UX expertise into JMA's existing creative aesthetic, managing to improve the site's load time by 2X whilst enlivening the overall feel of the site. I was particularly impressed by Teo's ability to come up with new ways to deliver on the design effectiveness principles of 2023: this includes building for the smartphone rather than desktop & developing content management solutions that ensure my latest work can be uploaded quickly & easily. My recommendation is to let Teo have a look at your website, even if you think it's perfect. She'll find a way to improve it, without losing what made it great in the first place. And better yet, she can execute her recommendations in a collaborative & timely fashion. That's what I did...and now my business is in a much better spot!",
+    text: "Since launching, we've been getting a ton of compliments on the site. I had the pleasure of working with Teo & the team at Graphfull to relaunch the JMA website in November 2023. Specifically, I worked with Teo to make my site function better for my audience...without losing the vibe' of the JMA brand. Teo delivered on the ask exceptionally well, by injecting her team's design & UX expertise into JMA's existing creative aesthetic, managing to improve the site's load time by 2X whilst enlivening the overall feel of the site. My recommendation is to let Teo have a look at your website, even if you think it's perfect.",
     name: "Name Surname",
     position: "Position, Company name",
     img: coffee,
@@ -24,7 +24,7 @@ const cardArr = [
   {
     title:
       "Since launching, we’ve been getting a ton of compliments on the site.",
-    text: "Since launching, we've been getting a ton of compliments on the site. I had the pleasure of working with Teo & the team at Graphfull to relaunch the JMA website in November 2023. Specifically, I worked with Teo to make my site function better for my audience...without losing the vibe' of the JMA brand. Teo delivered on the ask exceptionally well, by injecting her team's design & UX expertise into JMA's existing creative aesthetic, managing to improve the site's load time by 2X whilst enlivening the overall feel of the site. I was particularly impressed by Teo's ability to come up with new ways to deliver on the design effectiveness principles of 2023: this includes building for the smartphone rather than desktop & developing content management solutions that ensure my latest work can be uploaded quickly & easily. My recommendation is to let Teo have a look at your website, even if you think it's perfect. She'll find a way to improve it, without losing what made it great in the first place. And better yet, she can execute her recommendations in a collaborative & timely fashion. That's what I did...and now my business is in a much better spot!",
+    text: "Since launching, we've been getting a ton of compliments on the site. I had the pleasure of working with Teo & the team at Graphfull to relaunch the JMA website in November 2023. Specifically, I worked with Teo to make my site function better for my audience...without losing the vibe' of the JMA brand. Teo delivered on the ask exceptionally well, by injecting her team's design & UX expertise into JMA's existing creative aesthetic, managing to improve the site's load time by 2X whilst enlivening the overall feel of the site. My recommendation is to let Teo have a look at your website, even if you think it's perfect.",
     name: "Name Surname",
     position: "Position, Company name",
     img: coffee,
@@ -33,50 +33,60 @@ const cardArr = [
 
 const layout = [
   { type: "single", img: coffee },
-  {
-    type: "grid",
-    cols: 3,
-    img: person,
-  },
+  { type: "grid", cols: 3, img: person },
   { type: "single", img: coffee },
-  {
-    type: "grid",
-    cols: 2,
-    img: person,
-  },
-  {
-    type: "single",
-    img: coffee,
-  },
-  {
-    type: "grid",
-    cols: 2,
-    img: person,
-  },
-  {
-    type: "single",
-    img: coffee,
-  },
+  { type: "grid", cols: 2, img: person },
+  { type: "single", img: coffee },
+  { type: "grid", cols: 2, img: person },
+  { type: "single", img: coffee },
 ];
 
-// Generate placeholder URL based on size (using via.placeholder.com with fixed dimensions)
-
 const Industry = () => {
-  const [expanded, setExpanded] = useState(Array(cardArr.length).fill(false)); // track which cards are expanded
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const sectionRef = useRef(null);
+  const imageRef = useRef(null);
 
   const toggleExpand = index => {
-    const newExpanded = [...expanded];
-    newExpanded[index] = !newExpanded[index];
-    setExpanded(newExpanded);
+    setExpandedIndex(expandedIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    const handleWheel = e => {
+      const section = sectionRef.current;
+      const images = imageRef.current;
+      if (!section || !images) return;
+
+      const rect = section.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (!inView) return; // Only scroll-jack if section is visible
+
+      // Only block scroll if images haven't finished scrolling
+      const maxScroll = images.scrollHeight - images.clientHeight;
+      const atBottom = images.scrollTop >= maxScroll && e.deltaY > 0;
+      const atTop = images.scrollTop <= 0 && e.deltaY < 0;
+
+      if (!atBottom && !atTop) {
+        e.preventDefault(); // block page scroll
+        images.scrollTop += e.deltaY; // scroll images instead
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, []);
+
   return (
-    <section className="h-auto w-full bg-primary-color py-[112px] ">
-      <div className="container gap-x-[80px] flex flex-row">
-        <div className="flex 3xl:min-w-[495px] flex-col gap-y-8 ">
-          <div className="flex flex-col gap-y-[56px] ">
+    <section
+      ref={sectionRef}
+      className="h-auto w-full bg-primary-color py-[112px]"
+    >
+      <div className="container flex gap-x-[80px]">
+        {/* Left Column */}
+        <div className="flex flex-col gap-y-8 3xl:min-w-[495px]">
+          <div className="flex flex-col gap-y-[56px]">
             <GettaSvg />
-            <div className="flex flex-col gap-y-8 ">
+            <div className="flex flex-col gap-y-8">
               <Heading
                 Variant="h6"
                 Txt="Industry"
@@ -87,7 +97,7 @@ const Industry = () => {
                 Txt="Short heading goes here"
                 className="text-[40px] capitalize text-primary-white font-bold"
               />
-              <div className="flex flex-row gap-x-2 items-center ">
+              <div className="flex flex-row gap-x-2 items-center">
                 {tagLineArr.map((tag, idx) => (
                   <div
                     key={idx}
@@ -97,7 +107,7 @@ const Industry = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col gap-y-8 max-w-[495px] ">
+              <div className="flex flex-col gap-y-8 max-w-[495px]">
                 {paraArr.map((para, idx) => (
                   <Paragraph
                     key={idx}
@@ -109,56 +119,50 @@ const Industry = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-y-8 ">
+          {/* Reviews */}
+          <div className="flex flex-col gap-y-8 max-h-[80vh] overflow-y-auto">
             {cardArr.map((card, idx) => (
               <div
                 key={idx}
                 className="h-auto p-8 w-auto max-w-[495px] bg-extra-blue rounded-[16px]"
               >
                 <Heading
-                  Variant={"h3"}
+                  Variant="h3"
                   Txt={"“"}
                   className="text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white"
                 />
-
-                <div className="flex flex-col gap-y-4 ">
+                <div className="flex flex-col gap-y-4">
                   <Heading
-                    Variant={"h3"}
+                    Variant="h3"
                     Txt={card.title}
                     className="text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white"
                   />
-
                   <Paragraph
                     Txt={
-                      expanded[idx]
+                      expandedIndex === idx
                         ? card.text
                         : card.text.slice(0, 200) + "..."
                     }
                     className="text-xs font-normal leading-[140%] text-metal-white"
                   />
-
-                  <div className="flex flex-row w-full justify-between items-center ">
-                    <div className="flex flex-row gap-x-3 items-center ">
+                  <div className="flex flex-row w-full justify-between items-center">
+                    <div className="flex flex-row gap-x-3 items-center">
                       <div>
                         <img
                           src={card.img}
-                          className="w-8 h-8 object-cover rounded-[8px] "
+                          className="w-8 h-8 object-cover rounded-[8px]"
                           alt="not found"
                         />
                       </div>
-                      <div className="flex flex-col gap-y-1  ">
+                      <div className="flex flex-col gap-y-1">
                         <Heading
                           Variant={"h4"}
-                          className={
-                            "text-xs font-medium leading-[150%] text-metal-white "
-                          }
+                          className="text-xs font-medium leading-[150%] text-metal-white"
                           Txt={card.name}
                         />
                         <Heading
                           Variant={"h4"}
-                          className={
-                            "text-xs font-medium leading-[150%] text-metal-gray "
-                          }
+                          className="text-xs font-medium leading-[150%] text-metal-gray"
                           Txt={card.position}
                         />
                       </div>
@@ -169,25 +173,9 @@ const Industry = () => {
                     >
                       <Heading
                         Variant="h6"
-                        Txt={expanded[idx] ? "Show Less" : "Show More"}
+                        Txt={expandedIndex === idx ? "Show Less" : "Show More"}
                         className="text-base capitalize text-metal-white font-extrabold"
                       />
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d={
-                            expanded[idx]
-                              ? "M7.70697 15.707L12 11.414L16.293 15.707L17.707 14.293L12 8.58594L6.29297 14.293L7.70697 15.707Z"
-                              : "M16.293 8.29297L12 12.586L7.70697 8.29297L6.29297 9.70697L12 15.414L17.707 9.70697L16.293 8.29297Z" // Down arrow
-                          }
-                          fill="#C2CFDC"
-                        />
-                      </svg>
                     </div>
                   </div>
                 </div>
@@ -195,18 +183,23 @@ const Industry = () => {
             ))}
           </div>
         </div>
-        <div className="w-full">
+
+        {/* Right Images */}
+        <div
+          ref={imageRef}
+          className="w-full max-h-[80vh] overflow-hidden flex flex-col gap-4"
+        >
           {layout.map((section, index) => (
-            <div key={index} className={section.className}>
+            <div key={index}>
               {section.type === "single" ? (
                 <img
                   src={section.img}
                   alt={`Placeholder ${index}`}
-                  className="w-full mb-4 h-[401px] object-cover rounded-[11.3px]"
+                  className="w-full h-[401px] object-cover rounded-[11.3px]"
                 />
               ) : (
                 <div
-                  className={`grid w-full relative gap-4 ${
+                  className={`grid w-full gap-4 ${
                     section.cols === 2
                       ? "grid-cols-2"
                       : section.cols === 3
@@ -219,7 +212,7 @@ const Industry = () => {
                       key={i}
                       src={section.img}
                       alt={`Placeholder ${index}-${i}`}
-                      className={`object-cover mb-4 rounded-[11.3px] ${
+                      className={`object-cover rounded-[11.3px] ${
                         section.cols === 3
                           ? "h-[227px] w-full"
                           : "h-[349px] w-full"

@@ -14,6 +14,7 @@ const projectList = [
     bgImg: medicine,
     redirectLink: "/",
     btnTxt: "SEE PROJECT",
+    colorCode: "#108CFF",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const projectList = [
     bgImg: dope,
     redirectLink: "/",
     btnTxt: "SEE PROJECT",
+    colorCode: "#FF61A6",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const projectList = [
     bgImg: illusion,
     redirectLink: "/",
     btnTxt: "SEE PROJECT",
+    colorCode: "#108CFF",
   },
 ];
 
@@ -45,14 +48,14 @@ const ProjectSection = () => {
           Variant={"h6"}
           Txt={"PROJECTS"}
           className={
-            "text-base capitalize text-primary-light-white font-extrabold leading-[150%] tracking-[1.92px] "
+            "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
           }
         />
         <Heading
           Variant={"h3"}
           Txt={"From “we need something” to “this is great”"}
           className={
-            "text-[40px] capitalize text-primary-white font-bold leading-[150%] tracking-[-0.4px] max-w-[560px] text-center "
+            "text-[40px] capitalize text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
           }
         />
       </div>

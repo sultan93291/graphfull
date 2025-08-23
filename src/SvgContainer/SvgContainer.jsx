@@ -487,3 +487,21 @@ export const CuteSmileFace = () => {
   );
 }
 
+export const ArrowLeft = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M10.75 8L14.0429 11.2929C14.4334 11.6834 14.4334 12.3166 14.0429 12.7071L10.75 16"
+        stroke="#9FADB9"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+}

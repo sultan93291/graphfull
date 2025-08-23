@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import logo from "../assets/logo/logo.svg";
 import Button from "../components/Buttons/Button";
 import { Link, NavLink } from "react-router-dom";
-import { BoxSvg, Dropdown } from "../SvgContainer/SvgContainer";
+import { ArrowLeft, BoxSvg, Dropdown } from "../SvgContainer/SvgContainer";
 import email from "../assets/img/navbar/email.jpeg";
 import marketing from "../assets/img/navbar/marketing.jpeg";
 import Heading from "../components/Heading/Heading";
@@ -30,60 +30,67 @@ const navLinks = [
 
 const subMenu = [
   {
-    title: "Our Services",
     menuList: [
       {
-        title: "Email Campaigns",
-        desc: "Transform your email marketing with our expertise.",
+        title: "Branding",
+        desc: "Strategic identities to resonate, adapt, and stand apart.",
       },
       {
-        title: "Brand Identity",
-        desc: "Crafting unique brands that resonate with audiences.",
+        title: "Web Design",
+        desc: "Modern, responsive websites built to convert.",
       },
       {
-        title: "Web Solutions",
-        desc: "Building responsive websites that engage users.",
+        title: "UI/UX",
+        desc: "User-first systems that make every interaction intuitive.",
       },
       {
-        title: "UI/UX Design",
-        desc: "Enhancing user experience through thoughtful design.",
+        title: "Email Marketing",
+        desc: "On-brand designs that drive engagement and conversions.",
+      },
+      {
+        title: "Landing Pages",
+        desc: "Conversion-optimized pages tailored for action.",
       },
     ],
   },
   {
-    title: "More Services",
     menuList: [
       {
-        title: "Ad Creatives",
-        desc: "Engaging ads that capture attention and drive results.",
+        title: "Presentations",
+        desc: "Pitch decks, sales decks, internal comms, investor decks.",
       },
       {
-        title: "Client Success",
-        desc: "Discover how we've helped our clients thrive.",
+        title: "Social & Ad Creatives",
+        desc: "Thumb-stopping visuals built for performance.",
       },
       {
-        title: "Case Studies",
-        desc: "Explore our successful projects and their outcomes.",
+        title: "Print & Packaging",
+        desc: "Premium experiences that bring brands into the real world.",
       },
       {
-        title: "Testimonials",
-        desc: "Hear from our satisfied clients and partners.",
+        title: "Video Editing",
+        desc: "Short-form content, ads, explainers, reels, UGC.",
       },
     ],
   },
 ];
 
+
+
 const latestArticles = [
   {
     img: email,
-    title: "Email Marketing",
-    desc: "Strategies to enhance your email outreach.",
+    title: "Getta Snacks: branding & packaging",
     link: "#",
   },
   {
     img: marketing,
-    title: "Brand Strategy",
-    desc: "Building a brand that stands out in the market.",
+    title: "DOPE Marketing: lorem ipsum dolor sit amet consectetuer",
+    link: "#",
+  },
+  {
+    img: email,
+    title: "Army Pink: lorem ipsum dolor sit",
     link: "#",
   },
 ];
@@ -128,7 +135,7 @@ const Navbar = () => {
           overflow: "hidden",
         },
         {
-          height: dropdownRef.current.scrollHeight + 40,
+          height: dropdownRef.current.scrollHeight + 32,
           opacity: 1,
           y: 0,
           pointerEvents: "auto",
@@ -154,7 +161,7 @@ const Navbar = () => {
   }, [activeItem]);
 
   return (
-    <nav className="relative bg-primary-color py-4.5 z-50">
+    <nav className="sticky top-0 left-0 bg-primary-color py-4.5 z-50">
       <div className="container relative flex flex-row items-center justify-between">
         <Link to="/" className="cursor-pointer">
           <img src={logo} alt="site logo" className="w-[127px] h-[25px]" />
@@ -217,7 +224,7 @@ const Navbar = () => {
         ref={dropdownRef}
         onMouseEnter={handleMouseEnterDropdown}
         onMouseLeave={handleMouseLeaveDropdown}
-        className="dropdown-wrapper absolute top-full left-0 w-full glass-effect border-b border-primary-light-white shadow-md py-10 px-24 flex gap-x-[120px] "
+        className="dropdown-wrapper absolute     top-full left-0 w-full glass-effect border-b border-primary-light-white shadow-md   flex gap-x-[120px] "
         style={{
           overflow: "hidden",
           height: 0,
@@ -225,31 +232,28 @@ const Navbar = () => {
           pointerEvents: "none",
         }}
       >
-        <div className="flex flex-row w-[60%] justify-between max-w-[1200px] mx-auto">
+        <div className="flex flex-row  w-auto p-8 gap-x-24     mx-auto">
           {subMenu.map((menu, idx) => (
-            <div key={idx} className="flex flex-col gap-y-10 items-start">
-              <Heading
-                Variant={"h3"}
-                Txt={menu.title}
-                className="text-primary-light-white font-bold leading-[170%]"
-              />
-              <ul className="flex flex-col gap-y-6">
+            <div key={idx} className="flex flex-col gap-y-0 items-start">
+              <ul className="flex flex-col gap-y-10">
                 {menu.menuList.map((item, idx2) => (
                   <li
                     key={idx2}
-                    className="flex cursor-pointer flex-col gap-y-3"
+                    className="flex group cursor-pointer flex-col gap-y-6"
                   >
                     <div className="flex  flex-row gap-x-2">
-                      <BoxSvg />
+                      <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300 " >
+                        
+                     </div>
                       <div className="flex flex-col gap-y-1">
                         <Heading
                           Variant={"h3"}
                           Txt={item.title}
-                          className="text-primary-light-white font-bold leading-[170%]"
+                          className="text-primary-white text-sm font-bold leading-[150%]"
                         />
                         <Paragraph
                           Txt={item.desc}
-                          className="text-primary-light-white text-sm font-bold leading-[170%]"
+                          className="text-primary-light-white text-xs font-noraml leading-[150%]"
                         />
                       </div>
                     </div>
@@ -260,45 +264,37 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-y-10 w-[30%] max-w-[480px]">
-          <Heading
-            Variant={"h3"}
-            Txt={"Latest Articles"}
-            className="text-primary-light-white font-bold leading-[170%]"
-          />
+        <div className="flex  bg-extra-blue py-8 pl-8 pr-[96px] flex-col  gap-y-6 w-[30%] ">
           <div className="flex flex-col gap-y-10">
             {latestArticles.map((article, idx) => (
-              <div
+              <Link
+                to={article.link}
                 key={idx}
-                className="flex cursor-pointer flex-row gap-x-6 w-auto"
+                className="flex  cursor-pointer flex-row gap-x-6 w-auto"
               >
                 <img
                   src={article.img}
                   alt="not found"
-                  className="h-[150px] w-[250px] rounded-[20px] object-cover"
+                  className="h-[80px] w-[120px] rounded-[8px] object-cover"
                 />
-                <div className="flex flex-col gap-y-5 mt-2">
-                  <Heading
-                    Variant={"h3"}
-                    Txt={article.title}
-                    className="text-primary-light-white text-base font-bold leading-[170%]"
-                  />
-                  <div className="flex flex-col gap-y-2">
-                    <Paragraph
-                      Txt={article.desc}
-                      className="text-primary-light-white text-sm font-medium leading-[170%]"
-                    />
-                    <Link
-                      to={article.link}
-                      className="text-primary-light-white text-base font-bold leading-[170%] underline"
-                    >
-                      Read More
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                <Heading
+                  Variant={"h3"}
+                  Txt={article.title}
+                  className="text-primary-white   text-sm font-bold leading-[150%]"
+                />
+              </Link>
             ))}
           </div>
+          <Button
+            className={
+              "flex flex-row gap-x-3 text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white "
+            }
+            btnTxt={
+              <>
+                See all <ArrowLeft />{" "}
+              </>
+            }
+          />
         </div>
       </div>
     </nav>

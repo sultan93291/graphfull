@@ -129,7 +129,9 @@ const Overview = () => {
                   <Heading
                     Variant="h6"
                     Txt={Overview?.title}
-                    className="text-sm font-[600] leading-[150%] max-w-[120px] text-primary-light-white"
+                    className={
+                      "text-sm capitalize max-w-[120px]   text-primary-light-white font-[600] leading-[150%]  "
+                    }
                   />
                   <div className="flex items-end justify-end">
                     <Paragraph
@@ -160,7 +162,7 @@ const Overview = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {isInView &&
-                    elements.map((el, index) => (
+                    elements.reverse().map((el, index) => (
                       <motion.g
                         key={index}
                         initial={{ y: -400, x: getRandomX(), opacity: 0 }}
@@ -189,7 +191,7 @@ const Overview = () => {
             Txt={"Numbers don’t define us. But they do say a lot."}
           />
           <Paragraph
-            className="text-sm font-medium leading-[150%] text-primary-light-white"
+            className="text-sm font-medium leading-[150%] text-primary-light-white tracking-[-0.32px]"
             Txt={
               "Every project has a face, a brand, and a goal. This is the work we show up for, and we’ve done it more than once."
             }

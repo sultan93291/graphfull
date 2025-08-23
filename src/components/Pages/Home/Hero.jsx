@@ -156,7 +156,7 @@ const Hero = () => {
           <Heading
             Variant={"h3"}
             Txt={"Design that makes sense, and makes moves"}
-            className="text-primary-light-white text-[40px] font-bold leading-[120%] tracking-[-0.04px] max-w-[496px]"
+            className="text-primary-white text-[40px] font-bold leading-[120%] tracking-[-0.04px] max-w-[496px]"
           />
           <Paragraph
             Txt={

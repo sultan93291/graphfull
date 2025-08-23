@@ -54,34 +54,32 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
 
   return (
     <div ref={itemRef} className="relative flex items-start mb-16">
-      {/* Dot */}
       <div
         className={`w-4 h-4 rounded-full absolute -left-[7px] top-2 z-10 transition-colors duration-300 ${
-          isActive ? "bg-orange-500" : "bg-gray-400"
+          isActive ? "bg-primary-yellow" : "bg-gray-400"
         }`}
       />
-      {/* Line */}
       <div
         className={`absolute left-0 top-6 w-[3px] h-full transition-colors duration-300 ${
-          isActive ? "bg-orange-500" : "bg-gray-400"
+          isActive ? "bg-primary-yellow" : "bg-gray-400"
         }`}
       />
-      {/* Text */}
       <div className="flex flex-col gap-y-2 " style={{ marginLeft: "78.6px" }}>
         <Paragraph
           className=" text-primary-yellow leading-[150%] tracking-[1.92px] font-extra-bold text-sm "
           Txt={number}
         />
-
         <Heading
           Variant={"h3"}
-          className={`text-2xl font-bold leading-[140%]  tracking-[-0.24px]  ${
-            isActive ? " text-primary-white" : " text-primary-light-white"
+          className={`text-2xl font-bold leading-[140%] tracking-[-0.24px] ${
+            isActive ? "text-primary-white" : "text-primary-light-white"
           }`}
           Txt={title}
         />
         <Paragraph
-          className={`text-base font-medium leading-[150%] ${isActive ? "text-metal-gray" : "text-gray-500"}`}
+          className={`text-base font-medium leading-[150%] ${
+            isActive ? "text-metal-gray" : "text-gray-500"
+          }`}
           Txt={desc}
         />
       </div>
@@ -120,23 +118,25 @@ const Insights = () => {
 
   return (
     <section className="h-auto w-full bg-primary-color py-[112px]">
-      <div className="container flex flex-row justify-between ">
-        {/* Section Heading */}
-        <div className="flex flex-col gap-y-4">
+      <div className="container flex flex-row justify-between">
+        {/* Sticky Heading Section */}
+        <div className="flex flex-col gap-y-4 sticky top-[112px] self-start">
           <Heading
             Variant="h6"
             Txt="insights"
-            className="text-base capitalize text-primary-light-white font-extrabold leading-[150%] tracking-[1.92px]"
+            className={
+              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
+            }
           />
           <div className="flex flex-col gap-y-6">
             <Heading
               Variant="h3"
               Txt="Here’s what we bring to the table"
-              className="text-[40px] text-primary-white font-bold leading-[150%] tracking-[-0.4px] max-w-[464px]"
+              className="text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[464px]"
             />
             <Paragraph
               Txt="Design is the output. Clear thinking is the foundation."
-              className="text-sm text-primary-light-white font-medium leading-[150%] tracking-[-0.4px]"
+              className="text-sm text-primary-light-white font-medium leading-[150%] "
             />
           </div>
         </div>

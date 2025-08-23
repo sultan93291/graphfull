@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Heading from "../../Heading/Heading";
-import { CuteSmileFace, SmileFace } from "../../../SvgContainer/SvgContainer";
+import { ArrowLeft, CuteSmileFace, SmileFace } from "../../../SvgContainer/SvgContainer";
 
 import person from "../../../assets/img/review.avif";
 import coffee from "../../../assets/img/slider-img/coffe.png";
@@ -10,7 +10,26 @@ import medicine from "../../../assets/img/slider-img/medicine.png";
 const Portfolio = () => {
   const imgArr = [coffee, cookie, medicine];
 
+  const projectArr = [
+    {
+      img: coffee,
+      title: "Smart branding for a food safety and quality consultancy",
+      btnTxt: "see more",
+    },
+    {
+      img: cookie,
+      title: "Smart branding for a food safety and quality consultancy",
+      btnTxt: "see more",
+    },
+    {
+      img: medicine,
+      title: "Smart branding for a food safety and quality consultancy",
+      btnTxt: "see more",
+    },
+  ];
+
   const [isHovering, setisHovering] = useState(false);
+
   return (
     <section className="h-auto w-full bg-primary-color  py-[112px] overflow-hidden">
       <div className="container flex flex-col gap-y-20 ">
@@ -19,7 +38,9 @@ const Portfolio = () => {
             <Heading
               Variant="h6"
               Txt="Portfolio"
-              className="text-base capitalize text-primary-light-white font-extrabold leading-[150%] tracking-[1.92px]"
+              className={
+                "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
+              }
             />
             <div className="flex flex-col gap-y-6">
               <Heading
@@ -57,14 +78,36 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="flex flex-row gap-x-4  w-full relative ">
-          {imgArr.map((img, idx) => {
+          {projectArr.map((project, idx) => {
             return (
-              <img
-                src={img}
+              <div
+                className="h-[240px] cursor-pointer w-[33.33%] group relative rounded-[16px] overflow-hidden transition-all duration-[1000ms] ease-in-out hover:w-[40%]"
                 key={idx}
-                alt="not found"
-                className="h-[240px] w-[33.33%] object-cover rounded-[16px] "
-              />
+              >
+                {/* Image zoom */}
+                <img
+                  src={project.img}
+                  alt="not found"
+                  className="h-full w-full object-cover rounded-[16px] transition-transform duration-[1000ms] ease-in-out group-hover:scale-105"
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/30 rounded-[16px] flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-[1000ms] ease-in-out z-10">
+                  <div className="flex flex-col gap-y-3">
+                    {/* Title with stagger */}
+                    <Heading
+                      className="text-base font-medium leading-[120%] text-white drop-shadow-md transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-200"
+                      Txt={project.title}
+                      Variant={"h3"}
+                    />
+                    {/* Button with stagger */}
+                    <button className="flex flex-row items-center gap-x-2 text-xs uppercase text-white font-extrabold leading-[150%] tracking-[1.92px] transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-400">
+                      <span>{project.btnTxt}</span>
+                      <ArrowLeft />
+                    </button>
+                  </div>
+                </div>
+              </div>
             );
           })}
         </div>

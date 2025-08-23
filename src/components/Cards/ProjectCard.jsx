@@ -4,56 +4,54 @@ import Heading from "../Heading/Heading";
 import { ArrowSvg } from "../../SvgContainer/SvgContainer";
 
 const ProjectCard = ({ item }) => {
+  const containerRef = useRef(null);
   const descRef = useRef(null);
   const btnRef = useRef(null);
-  const containerRef = useRef(null);
 
   const handleMouseEnter = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
 
+    // Scale card and change background
     gsap.to(containerRef.current, {
       scale: 1.05,
       duration: 0.5,
       ease: "power2.out",
+      backgroundColor: item.colorCode,
+      backgroundImage: "none",
     });
-    gsap.to(descRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 0.7,
+
+    // Hide description and button
+    gsap.to([descRef.current, btnRef.current], {
+      opacity: 0,
+      y: 20,
+      pointerEvents: "none",
+      duration: 0.5,
       ease: "power2.out",
-      pointerEvents: "auto",
-    });
-    gsap.to(btnRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 0.7,
-      delay: 0.15,
-      ease: "power2.out",
-      pointerEvents: "auto",
     });
   };
 
   const handleMouseLeave = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
 
+    // Reset card scale and background
     gsap.to(containerRef.current, {
       scale: 1,
       duration: 0.5,
       ease: "power2.in",
+      backgroundImage: `linear-gradient(180deg, rgba(12, 25, 36, 0.10) 0%, rgba(12, 25, 36, 0.70) 50%), url(${item.bgImg})`,
+      backgroundColor: "transparent",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     });
-    gsap.to(descRef.current, {
-      y: 20,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.in",
-      pointerEvents: "none",
-    });
-    gsap.to(btnRef.current, {
-      y: 20,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.in",
-      pointerEvents: "none",
+
+    // Show description and button
+    gsap.to([descRef.current, btnRef.current], {
+      opacity: 1,
+      y: 0,
+      pointerEvents: "auto",
+      duration: 0.7,
+      ease: "power2.out",
     });
   };
 
@@ -62,7 +60,7 @@ const ProjectCard = ({ item }) => {
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="w-[461px] h-[630px] rounded-[20px] relative cursor-pointer overflow-hidden"
+      className="w-[461px] h-[630px] group rounded-[20px] relative cursor-pointer overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(180deg, rgba(12, 25, 36, 0.10) 0%, rgba(12, 25, 36, 0.70) 50%), url(${item.bgImg})`,
         backgroundRepeat: "no-repeat",
@@ -72,6 +70,7 @@ const ProjectCard = ({ item }) => {
       }}
     >
       <div className="absolute left-0 bottom-0 w-full rounded-[20px] flex flex-col gap-y-8 items-start p-8">
+        {/* Quote section - always visible */}
         <div className="flex flex-col gap-y-2 items-start">
           <Heading
             Txt={"“"}
@@ -85,28 +84,30 @@ const ProjectCard = ({ item }) => {
           />
         </div>
 
+        {/* Description - visible by default, hidden on hover */}
         <Heading
           ref={descRef}
           Txt={item.descreption}
-          className="text-base text-primary-white font-normal leading-[150%] max-w-[352px]"
+          className="text-base group-hover:hidden ease-in-out duration-300 text-primary-white font-normal leading-[150%] max-w-[352px]"
           style={{
-            opacity: 0,
-            transform: "translateY(20px)",
-            pointerEvents: "none",
+            transform: "translateY(0px)",
+            opacity: 1,
+            pointerEvents: "auto",
           }}
           Variant="h5"
         />
 
+        {/* Button - visible by default, hidden on hover */}
         <button
           ref={btnRef}
-          className="text-base capitalize cursor-pointer text-primary-white font-extrabold leading-[150%] tracking-[1.92px]"
+          className="text-xs itec uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
           style={{
-            opacity: 0,
-            transform: "translateY(20px)",
-            pointerEvents: "none",
+            transform: "translateY(0px)",
+            opacity: 1,
+            pointerEvents: "auto",
           }}
         >
-          <div className="flex flex-row gap-x-2">
+          <div className="flex items-center flex-row gap-x-2">
             {item.btnTxt} <ArrowSvg />
           </div>
         </button>

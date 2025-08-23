@@ -71,16 +71,18 @@ const Testimonial = () => {
           <Heading
             Variant="h6"
             Txt="Feedback"
-            className="text-base capitalize text-primary-light-white font-extrabold leading-[150%] tracking-[1.92px]"
+            className={
+              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
+            }
           />
           <Heading
             Variant="h3"
             Txt="Clients say it better than we could"
-            className="text-[40px] text-primary-white font-bold leading-[150%] tracking-[-0.4px] max-w-[424px]"
+            className="text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[424px]"
           />
           <Paragraph
             Txt="We take pride in the feedback from our clients and partners."
-            className="text-sm text-primary-light-white font-medium leading-[150%] tracking-[-0.4px] max-w-[450px]"
+            className="text-sm text-metal-white font-medium leading-[150%]  max-w-[450px]"
           />
         </div>
 
@@ -114,7 +116,7 @@ const Testimonial = () => {
                     <Svg />
                     <Paragraph
                       Txt={item.quote}
-                      className={"text-lg font-normal leading-[150%] "}
+                      className={"text-lg text-metal-white italic font-normal leading-[150%] "}
                     />
                     <div className="flex items-center gap-5">
                       <img

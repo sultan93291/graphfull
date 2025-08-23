@@ -15,7 +15,7 @@ const serviceArr = [
 
 const ServiceSection = () => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -32,15 +32,17 @@ const ServiceSection = () => {
   return (
     <section className="h-auto w-full container  flex flex-row justify-between    py-[64px] ">
       <div className="relative !w-[555px] !h-[832px] rounded-[24px] overflow-hidden">
+        const [isPlaying, setIsPlaying] = useState(true);
         <video
           ref={videoRef}
           className="!w-full !h-full object-cover rounded-[24px]"
-          src="https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4"
+          src="https://firebasestorage.googleapis.com/v0/b/alap-b18ad.appspot.com/o/Graphfull-Mascot%2Bresize.mp4?alt=media&token=9860e4fd-09d7-4b7b-a567-cbae8b858841"
           muted
           loop
+          autoPlay
           playsInline
-        ></video>
-
+          type="video/mp4"
+        />
         <button
           onClick={togglePlay}
           aria-label={isPlaying ? "Pause video" : "Play video"}
@@ -91,14 +93,14 @@ const ServiceSection = () => {
             Variant={"h6"}
             Txt={"SERVICES"}
             className={
-              "text-base capitalize text-primary-light-white font-extrabold leading-[150%] tracking-[1.92px] "
+              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
             }
           />
           <Heading
             Variant={"h3"}
             Txt={"Creative work we’re built to handle"}
             className={
-              "text-[40px]  text-primary-white font-bold leading-[150%] tracking-[-0.4px] max-w-[450px]  "
+              "text-[40px]  text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
             }
           />
         </div>

@@ -105,12 +105,16 @@ const FeaturedProject = () => {
           <Heading
             Variant="h6"
             Txt="Projects"
-            className="text-base capitalize text-primary-light-white font-extrabold"
+            className={
+              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
+            }
           />
           <Heading
             Variant="h3"
             Txt="take a look"
-            className="text-[40px] capitalize text-primary-white font-bold"
+            className={
+              "text-[40px]  text-primary-white capitalize font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
+            }
           />
         </div>
 

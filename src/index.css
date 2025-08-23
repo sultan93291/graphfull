@@ -15,6 +15,8 @@
   --color-metal-gray: #62707d;
   --color-border-blue: #10202d;
   --color-secondary-off-gray: #9fadb926;
+  --color-extra-blue:#10202DE6;
+  --color-secondary-blue:#108CFF;
 
   /* Container */
   /* customize your container from here */
@@ -57,10 +59,10 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
-  .dropdown-wrapper {
+  /* .dropdown-wrapper {
     padding: 40px 96px;
     overflow: hidden;
-  }
+  } */
 
   @keyframes scrollDown {
     0% {
@@ -107,4 +109,9 @@
   .my-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
     background-color: #108cff !important; /* active bullet */
   }
+}
+
+::-webkit-scrollbar{
+  height: 0;
+  width: 0;
 }
