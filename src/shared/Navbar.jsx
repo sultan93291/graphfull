@@ -242,9 +242,7 @@ const Navbar = () => {
                     className="flex group cursor-pointer flex-col gap-y-6"
                   >
                     <div className="flex  flex-row gap-x-2">
-                      <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300 " >
-                        
-                     </div>
+                      <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300 "></div>
                       <div className="flex flex-col gap-y-1">
                         <Heading
                           Variant={"h3"}
@@ -276,6 +274,7 @@ const Navbar = () => {
                   src={article.img}
                   alt="not found"
                   className="h-[80px] w-[120px] rounded-[8px] object-cover"
+                  style={{ flex: "0 0 auto" }} // same effect as flex-shrink-0
                 />
                 <Heading
                   Variant={"h3"}
