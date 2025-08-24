@@ -42,7 +42,7 @@ const projectList = [
 
 const ProjectSection = () => {
   return (
-    <section className="h-auto w-full py-[120px] container flex flex-col gap-y-20 items-center  ">
+    <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px] container flex flex-col gap-y-20 items-center  ">
       <div className="flex flex-col gap-y-4 items-center ">
         <Heading
           Variant={"h6"}
@@ -55,11 +55,11 @@ const ProjectSection = () => {
           Variant={"h3"}
           Txt={"From “we need something” to “this is great”"}
           className={
-            "text-[40px] capitalize text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
+            "md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
           }
         />
       </div>
-      <div className="flex flex-row gap-x-8 ">
+      <div className="flex flex-row flex-wrap 3xl:flex-nowrap items-center justify-center 3xl:justify-normal gap-6 3xl:gap-8 ">
         {projectList.map(item => (
           <ProjectCard key={item.id} item={item} />
         ))}

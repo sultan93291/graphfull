@@ -60,7 +60,7 @@ const ProjectCard = ({ item }) => {
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="w-[461px] h-[630px] group rounded-[20px] relative cursor-pointer overflow-hidden"
+      className=" w-[335px] 3xl:w-[461px] h-[450px] 3xl:h-[630px] group rounded-[20px] relative cursor-pointer overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(180deg, rgba(12, 25, 36, 0.10) 0%, rgba(12, 25, 36, 0.70) 50%), url(${item.bgImg})`,
         backgroundRepeat: "no-repeat",
@@ -69,7 +69,7 @@ const ProjectCard = ({ item }) => {
         transformOrigin: "center center",
       }}
     >
-      <div className="absolute left-0 bottom-0 w-full rounded-[20px] flex flex-col gap-y-8 items-start p-8">
+      <div className="absolute left-0 bottom-0 w-full rounded-[20px] flex flex-col gap-y-8 items-start p-6 2xl:p-8">
         {/* Quote section - always visible */}
         <div className="flex flex-col gap-y-2 items-start">
           <Heading

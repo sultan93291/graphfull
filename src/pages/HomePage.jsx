@@ -20,7 +20,7 @@ const HomePage = () => {
       <FeaturedProject />
       <Overview />
       <BreakDown />
-      <Insights/>
+      <Insights/> 
     </section>
   );
 };

@@ -26,23 +26,23 @@ const FooterNavLink = {
 const Footer = () => {
   const [isHovering, setisHovering] = useState(false);
   return (
-    <footer className="h-auto w-full py-20 bg-primary-color ">
+    <footer className="h-auto w-full py-10  2xl:py-12 3xl:py-20 bg-primary-color ">
       <div className="  container flex flex-col  gap-y-20 ">
-        <div className="flex flex-row justify-between items-center ">
+        <div className="flex flex-col gap-y-10 xl:flex-row justify-between  ">
           <div className="flex flex-col gap-y-8 ">
-            <div className="flex flex-col gap-y-6 ">
+            <div className="flex flex-col gap-y-3 xl:gap-y-6 ">
               <Heading
                 Txt={"Why leave it here?"}
                 Variant={"h2"}
                 className={
-                  "text-[40px] font-bold leading-[120%] tracking-[-0.4px] text-primary-light-white "
+                  " text-[28px] 3xl:text-[40px] font-bold leading-[120%] tracking-[-0.4px] text-primary-light-white "
                 }
               />
               <Heading
                 Txt={"Let’s connect."}
                 Variant={"h2"}
                 className={
-                  "text-[40px] font-bold leading-[120%] tracking-[-0.4px] text-primary-green "
+                  "text-[28px] 3xl:text-[40px] font-bold leading-[120%] tracking-[-0.4px] text-primary-green "
                 }
               />
             </div>
@@ -71,7 +71,7 @@ const Footer = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-row gap-x-8 ">
+          <div className="flex xl:flex-row flex-col gap-y-4 gap-x-8 ">
             <ul className="flex flex-col gap-y-4 min-w-[178px] ">
               {FooterNavLink?.leftSideLink?.map((item, idx) => {
                 return (
@@ -100,15 +100,15 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-row justify-between ">
+        <div className="flex flex-row xl:items-center items-start justify-between ">
           <Link to={"/"} className="cursor-pointer">
             <img src={logo} alt="site logo" className="w-[127px] h-[25px]" />
           </Link>
           <ul className="flex flex-row gap-x-3 items-center ">
-            <li className="flex cursor-pointer items-center justify-center p-4 rounded-[8px] bg-primary-green  ">
+            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-green  ">
               <InstaSvg />
             </li>
-            <li className="flex cursor-pointer items-center justify-center p-4 rounded-[8px] bg-primary-yellow  ">
+            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-yellow  ">
               <LinkdeinSvg />
             </li>
           </ul>

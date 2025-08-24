@@ -30,9 +30,8 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="h-auto w-full container  flex flex-row justify-between    py-[64px] ">
-      <div className="relative !w-[555px] !h-[832px] rounded-[24px] overflow-hidden">
-        const [isPlaying, setIsPlaying] = useState(true);
+    <section className="h-auto w-full container  flex flex-col-reverse 2xl:flex-row justify-between gap-y-10  py-10  3xl:py-[64px] ">
+      <div className="relative w-full h-[500px] xs:w-[335px]  sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px]  2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden">
         <video
           ref={videoRef}
           className="!w-full !h-full object-cover rounded-[24px]"
@@ -87,8 +86,8 @@ const ServiceSection = () => {
         </button>
       </div>
 
-      <div className="flex flex-col w-[605px] relative gap-y-12 py-[64px] ">
-        <div className="flex flex-col gap-y-8 ">
+      <div className="flex flex-col w-full 2xl:w-[605px] relative gap-y-12 py-[64px] ">
+        <div className="flex flex-col gap-y-4 3xl:gap-y-8 ">
           <Heading
             Variant={"h6"}
             Txt={"SERVICES"}
@@ -100,11 +99,11 @@ const ServiceSection = () => {
             Variant={"h3"}
             Txt={"Creative work we’re built to handle"}
             className={
-              "text-[40px]  text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
+              "md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px]  text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
             }
           />
         </div>
-        <div className="flex flex-col w-full relative gap-y-8 ">
+        <div className="flex flex-col w-full relative gap-y-6 xl:gap-y-8 ">
           {serviceArr.map((service, idx) => {
             console.log(service);
 
@@ -117,11 +116,11 @@ const ServiceSection = () => {
                   Variant={"h6"}
                   Txt={service}
                   className={
-                    "text-xl group-hover:text-[48px] ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-primary-gray "
+                    " text-lg xl:text-xl group-hover:text-[32px] xl:group-hover:text-[48px] ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-primary-gray "
                   }
                 />
                 <Heading Variant={"h4"}>{service}</Heading>
-                <div className=" h-[22px] w-[22px] group-hover:w-20 group-hover:h-20 rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow "></div>
+                <div className=" h-[22px] w-[22px] group-hover:w-10 group-hover:h-10  lg:group-hover:w-16 lg:group-hover:h-16 xl:group-hover:w-20 xl:group-hover:h-20 rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow "></div>
               </div>
             );
           })}

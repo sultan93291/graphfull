@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-import {
-  Dope,
-  FigmaIcon,
-  Illusion,
-  Poco,
-  SmileFace,
-} from "../../../SvgContainer/SvgContainer";
+import React, { useState, useEffect } from "react";
+import { FigmaIcon, SmileFace } from "../../../SvgContainer/SvgContainer";
 import Heading from "../../Heading/Heading";
 import Paragraph from "../../Paragraph/Paragraph";
 import medicine from "../../../assets/img/slider-img/medicine.png";
@@ -19,7 +13,15 @@ const Hero = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoveredColumn, setHoveredColumn] = useState(null);
   const [videoReady, setVideoReady] = useState({});
-  const [isHovering, setisHovering] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1280);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const colorCodes = [
     { id: 1, name: "green", color: "#21694A" },
@@ -85,16 +87,14 @@ const Hero = () => {
 
   const repeatedImages = [...itemsArr, ...itemsArr];
 
-  const handleVideoCanPlay = key => {
+  const handleVideoCanPlay = key =>
     setVideoReady(prev => ({ ...prev, [key]: true }));
-  };
 
   const renderImages = prefix =>
     repeatedImages.map((item, idx) => {
       const key = `${prefix}-${idx}`;
       const isHovered = hoveredIndex === key;
       const isReady = videoReady[key] === true;
-
       const matchedColor = colorCodes.find(c => c.name === item.colorSlug);
       const colorValue = matchedColor ? matchedColor.color : "transparent";
       const Svg = item.svg;
@@ -102,7 +102,12 @@ const Hero = () => {
       return (
         <div
           key={key}
-          className="w-[210px] cursor-pointer h-[316px] relative my-2.5 rounded-[12px]"
+          className="cursor-pointer  z-0 relative flex-shrink-0 m-2 rounded-[12px]"
+          style={
+            isMobile
+              ? { width: "154px", aspectRatio: "4.5 / 5" } // Mobile: use aspect ratio to prevent cropping
+              : { width: "210.667px", height: "316px" }
+          }
           onMouseEnter={() => {
             setHoveredIndex(key);
             setHoveredColumn(prefix);
@@ -114,33 +119,30 @@ const Hero = () => {
             setVideoReady(prev => ({ ...prev, [key]: false }));
           }}
         >
-          <img
-            src={item.img}
-            alt={`${prefix}-slider-${idx}`}
-            loading="lazy"
-            draggable={false}
-            className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-10 select-none transition-opacity duration-700"
-            style={{ opacity: isHovered && isReady ? 0 : 1 }}
-          />
-
-          {isHovered && (
-            <video
-              src={item.videoUrl}
-              autoPlay
-              muted
-              loop
-              preload="auto"
-              playsInline
-              onCanPlay={() => handleVideoCanPlay(key)}
-              className="absolute top-0 left-0 h-full w-full object-cover rounded-[12px] z-20 select-none transition-opacity duration-700"
-              style={{ opacity: isReady ? 1 : 0, pointerEvents: "none" }}
+          <div className="absolute inset-0 rounded-[12px] overflow-hidden">
+            <img
+              src={item.img}
+              alt={`${prefix}-${idx}`}
+              className="w-full h-full object-cover transition-opacity duration-700"
+              style={{ opacity: isHovered && isReady ? 0 : 1 }}
             />
-          )}
-
+            {isHovered && (
+              <video
+                src={item.videoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+                onCanPlay={() => handleVideoCanPlay(key)}
+                className="w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-700"
+                style={{ opacity: isReady ? 1 : 0 }}
+              />
+            )}
+          </div>
           {Svg && (
             <div
               style={{ backgroundColor: colorValue }}
-              className="absolute top-0 left-0 h-auto p-2 rounded-[6.51px] overflow-hidden w-auto mt-2.5 ml-2 z-30 flex items-center"
+              className="absolute top-2 left-2 p-2 rounded-[6.5px] flex items-center z-10"
             >
               <Svg />
             </div>
@@ -150,25 +152,23 @@ const Hero = () => {
     });
 
   return (
-    <section className="flex flex-row justify-between items-center container">
+    <section className="flex py-10 2xl:py-0 flex-col 2xl:flex-row gap-y-10 justify-between 2xl:items-center container">
       <div className="flex flex-col gap-y-8">
         <div className="flex flex-col gap-y-6">
           <Heading
-            Variant={"h3"}
-            Txt={"Design that makes sense, and makes moves"}
-            className="text-primary-white text-[40px] font-bold leading-[120%] tracking-[-0.04px] max-w-[496px]"
+            Variant="h3"
+            Txt="Design that makes sense, and makes moves"
+            className="text-primary-white md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[496px]"
           />
           <Paragraph
-            Txt={
-              "Senior team delivering thoughtful design with clarity and purpose"
-            }
+            Txt="Senior team delivering thoughtful design with clarity and purpose"
             className="text-primary-light-white text-sm font-medium leading-[150%]"
           />
         </div>
         <div
-          onMouseEnter={() => setisHovering(true)}
-          onMouseLeave={() => setisHovering(false)}
-          className={`flex items-center  font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          className={`flex items-center font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
             isHovering ? "w-36" : "w-10"
           }`}
         >
@@ -180,7 +180,7 @@ const Hero = () => {
             <SmileFace />
           </div>
           <span
-            className={` whitespace-nowrap transition-all duration-300 ${
+            className={`whitespace-nowrap transition-all duration-300 ${
               isHovering
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-2"
@@ -192,41 +192,58 @@ const Hero = () => {
       </div>
 
       <div
-        className="flex flex-row gap-x-2.5"
-        style={{ userSelect: "none", height: "700px", width: "700px" }}
+        className="flex gap-2"
+        style={{
+          width: isMobile ? "100%" : "700px",
+          height: isMobile ? "400px" : "700px",
+          userSelect: "none",
+        }}
       >
-        <div className="marquee-column">
-          <div
-            className="marquee-content scroll-down"
-            style={
-              hoveredColumn === "left" ? { animationPlayState: "paused" } : {}
-            }
-          >
-            {renderImages("left")}
+        {isMobile ? (
+          <div className="flex flex-col gap-2 w-full">
+            <div className="marquee-column horizontal w-full overflow-hidden">
+              <div
+                className="marquee-content scroll-left flex gap-2"
+                style={
+                  hoveredColumn === "left"
+                    ? { animationPlayState: "paused" }
+                    : {}
+                }
+              >
+                {renderImages("left")}
+              </div>
+            </div>
+            <div className="marquee-column horizontal w-full overflow-hidden">
+              <div
+                className="marquee-content scroll-right flex gap-2"
+                style={
+                  hoveredColumn === "right"
+                    ? { animationPlayState: "paused" }
+                    : {}
+                }
+              >
+                {renderImages("right")}
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="marquee-column">
-          <div
-            className="marquee-content scroll-up"
-            style={
-              hoveredColumn === "middle" ? { animationPlayState: "paused" } : {}
-            }
-          >
-            {renderImages("middle")}
-          </div>
-        </div>
-
-        <div className="marquee-column">
-          <div
-            className="marquee-content scroll-down"
-            style={
-              hoveredColumn === "right" ? { animationPlayState: "paused" } : {}
-            }
-          >
-            {renderImages("right")}
-          </div>
-        </div>
+        ) : (
+          ["left", "middle", "right"].map((prefix, i) => (
+            <div key={i} className="marquee-column vertical">
+              <div
+                className={`marquee-content ${
+                  i % 2 === 0 ? "scroll-down" : "scroll-up"
+                }`}
+                style={
+                  hoveredColumn === prefix
+                    ? { animationPlayState: "paused" }
+                    : {}
+                }
+              >
+                {renderImages(prefix)}
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </section>
   );
