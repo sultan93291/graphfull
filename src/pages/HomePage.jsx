@@ -17,8 +17,10 @@ const HomePage = () => {
       <ProjectSection />
       <ServiceSection />
       <Testimonial />
-      {/* <FeaturedProject />
+      <FeaturedProject />
       <Overview />
+      {/* 
+      
       <BreakDown />
       <Insights/>  */}
     </section>

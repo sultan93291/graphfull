@@ -116,26 +116,26 @@ const Overview = () => {
   const isInView = useInView(svgRef, { once: true });
 
   return (
-    <section className="h-auto w-full py-[112px]">
-      <div className="flex flex-row container justify-between items-center">
-        <div className="grid grid-cols-2 gap-4 max-w-[820px]">
+    <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px] ">
+      <div className="flex flex-col-reverse gap-y-12 xl:flex-row container gap-x-20 justify-between items-center">
+        <div className="grid grid-cols-2 gap-4 w-full 2xl:max-w-[820px]">
           {OverviewArr.map((Overview, idx) => {
             if (!Overview.slug) {
               return (
                 <div
                   key={idx}
-                  className="h-auto w-full max-w-[392px] 3xl:min-w-[392px] p-6 rounded-[16px] bg-extra-blue shadow-md flex flex-col gap-y-[56px]"
+                  className="h-auto gap-y-2.5 w-full max-w-[392px] 3xl:min-w-[392px] p-6 rounded-[16px] bg-extra-blue shadow-md flex flex-col 2xl:gap-y-[56px] items-center justify-center "
                 >
                   <Heading
                     Variant="h6"
                     Txt={Overview?.title}
                     className={
-                      "text-sm capitalize max-w-[120px]   text-primary-light-white font-[600] leading-[150%]  "
+                      "text-sm capitalize text-center max-w-[120px]  2xl:text-left   text-primary-light-white font-[600] leading-[150%]  "
                     }
                   />
                   <div className="flex items-end justify-end">
                     <Paragraph
-                      className="text-[80px] font-bold leading-[120%] text-primary-white tracking-[-0.8px]"
+                      className=" text-[32px] 2xl:text-[80px] font-bold leading-[120%] text-primary-white tracking-[-0.8px]"
                       Txt={
                         <CountUp
                           end={Overview?.value}
@@ -155,11 +155,10 @@ const Overview = () => {
                 <svg
                   ref={svgRef}
                   key={idx}
-                  width="392"
-                  height="242"
                   viewBox="0 0 392 242"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
+                  className="w-full h-auto"
                 >
                   {isInView &&
                     elements.reverse().map((el, index) => (
@@ -184,14 +183,14 @@ const Overview = () => {
           })}
         </div>
 
-        <div className="flex flex-col gap-y-6 items-center max-w-[384px]">
+        <div className="flex flex-col gap-y-3 lg:gap-y-6 items-center max-w-[384px]">
           <Heading
-            className="text-[32px] font-medium leading-[120%] tracking-[-0.32px] text-primary-white"
+            className=" text-2xl text-center lg:text-left 2xl:text-[32px] font-medium leading-[120%] tracking-[-0.32px] text-primary-white"
             Variant="h4"
             Txt={"Numbers don’t define us. But they do say a lot."}
           />
           <Paragraph
-            className="text-sm font-medium leading-[150%] text-primary-light-white tracking-[-0.32px]"
+            className="text-sm text-center lg:text-left font-medium leading-[150%] text-primary-light-white tracking-[-0.32px]"
             Txt={
               "Every project has a face, a brand, and a goal. This is the work we show up for, and we’ve done it more than once."
             }

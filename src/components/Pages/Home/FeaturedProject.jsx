@@ -98,10 +98,10 @@ const FeaturedProject = () => {
   };
 
   return (
-    <section className="h-auto w-full py-[112px] overflow-hidden">
-      <div className="container flex flex-col gap-y-20">
+    <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]  overflow-hidden">
+      <div className="container flex flex-col gap-y-10 xl:gap-y-12 2xl:gap-y-20">
         {/* Titles */}
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-3 xl:gap-y-6">
           <Heading
             Variant="h6"
             Txt="Projects"
@@ -113,23 +113,37 @@ const FeaturedProject = () => {
             Variant="h3"
             Txt="take a look"
             className={
-              "text-[40px]  text-primary-white capitalize font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
+              " md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px]  text-primary-white capitalize font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
             }
           />
         </div>
 
         {/* Swiper */}
-        <div className="flex flex-col gap-y-12 w-full">
+        <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
           <Swiper
             ref={swiperRef}
             slidesPerView={2.6}
+            breakpoints={{
+              320: { slidesPerView: 1.4, spaceBetween: 24 },
+              480: { slidesPerView: 2 },
+              576: { slidesPerView: 2.4 },
+              1024: {
+                slidesPerView: 3,
+              },
+              1280: {
+                slidesPerView: 4,
+              },
+              1440: {
+                slidesPerView: 2.8,
+                spaceBetween:32
+              },
+            }}
             centeredSlides={false}
             autoplay={{
               delay: 1500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            spaceBetween={32}
             loop={true}
             modules={[Pagination, Navigation, Autoplay]}
             pagination={{ clickable: true, el: paginationEl }}
@@ -143,7 +157,7 @@ const FeaturedProject = () => {
               return (
                 <SwiperSlide key={key} className="flex justify-center">
                   <div
-                    className="relative w-[520px] shadow-md h-[780px] rounded-[16px] overflow-hidden cursor-pointer"
+                    className="relative w-[209px] lg:w-[270px] xl:w-[300px] 3xl:w-[480px] 4xl:w-[520px] h-[314px] lg:h-[350px] xl:h-[400px] shadow-md 3xl:h-[650px] 4xl:h-[780px] rounded-[16px] overflow-hidden cursor-pointer"
                     onMouseEnter={() => {
                       setHoveredIndex(key);
                       setVideoReady(prev => ({ ...prev, [key]: false }));
@@ -186,7 +200,7 @@ const FeaturedProject = () => {
             <div className="flex gap-x-4">
               <Button
                 ref={setPrevEl}
-                className="h-auto w-auto p-3 ease-in-out duration-300 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer"
+                className="h-auto w-auto p-2 lg:p-3 ease-in-out duration-300 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer"
                 btnTxt={
                   <>
                     <div className="block ease-in-out duration-300 group-hover:hidden">
@@ -201,7 +215,7 @@ const FeaturedProject = () => {
               />
               <Button
                 ref={setNextEl}
-                className="h-auto w-auto ease-in-out duration-300 p-3 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer rotate-[180deg]"
+                className="h-auto w-auto ease-in-out duration-300 p-2 lg:p-3 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer rotate-[180deg]"
                 btnTxt={
                   <>
                     <div className="block ease-in-out duration-300 group-hover:hidden">

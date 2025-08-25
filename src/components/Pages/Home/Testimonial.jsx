@@ -87,7 +87,7 @@ const Testimonial = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full 2xl:max-w-[808px]">
+        <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full 3xl:max-w-[808px]">
           <Swiper
             ref={swiperRef}
             slidesPerView="auto"
