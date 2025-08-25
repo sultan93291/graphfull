@@ -185,12 +185,12 @@ const Overview = () => {
 
         <div className="flex flex-col gap-y-3 lg:gap-y-6 items-center max-w-[384px]">
           <Heading
-            className=" text-2xl text-center lg:text-left 2xl:text-[32px] font-medium leading-[120%] tracking-[-0.32px] text-primary-white"
+            className=" text-2xl text-center xl:text-left 2xl:text-[32px] font-medium leading-[120%] tracking-[-0.32px] text-primary-white"
             Variant="h4"
             Txt={"Numbers don’t define us. But they do say a lot."}
           />
           <Paragraph
-            className="text-sm text-center lg:text-left font-medium leading-[150%] text-primary-light-white tracking-[-0.32px]"
+            className="text-sm text-center xl:text-left font-medium leading-[150%] text-primary-light-white tracking-[-0.32px]"
             Txt={
               "Every project has a face, a brand, and a goal. This is the work we show up for, and we’ve done it more than once."
             }

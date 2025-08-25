@@ -19,9 +19,10 @@ const HomePage = () => {
       <Testimonial />
       <FeaturedProject />
       <Overview />
+      <BreakDown />
       {/* 
       
-      <BreakDown />
+      
       <Insights/>  */}
     </section>
   );

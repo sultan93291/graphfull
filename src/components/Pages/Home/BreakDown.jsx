@@ -115,30 +115,59 @@ const comparisonData = {
   },
 };
 
+const symbolTitles = {
+  checkmark: "Advantage",
+  cross: "Disadvantage",
+  circle: "Neutral",
+};
+
 const BreakDown = () => {
   const [isHovering, setisHovering] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("Graphfull");
+
+  const renderSymbol = symbol => {
+    const title = symbolTitles[symbol] || "";
+    let Icon;
+    switch (symbol) {
+      case "checkmark":
+        Icon = CheckMark;
+        break;
+      case "cross":
+        Icon = CrossMark;
+        break;
+      case "circle":
+        Icon = CirleMark;
+        break;
+      default:
+        return null;
+    }
+    return (
+      <div title={title} className="cursor-help">
+        <Icon />
+      </div>
+    );
+  };
+
   return (
-    <section className="h-auto w-full bg-extra-blue  py-[112px] overflow-hidden">
-      <div className="container flex flex-col gap-y-20 ">
-        {/* Left Section */}
+    <section className="h-auto w-full bg-extra-blue py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]">
+      <div className="container flex flex-col gap-y-10 xl:gap-y-20">
+        {/* Header */}
         <div className="flex flex-row justify-between">
-          <div className="flex flex-col gap-y-4 mb-12 lg:mb-0">
+          <div className="flex flex-col gap-y-4">
             <Heading
               Variant="h6"
               Txt="breakdown"
-              className={
-                "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-              }
+              className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
             />
             <div className="flex flex-col gap-y-6">
               <Heading
                 Variant="h3"
                 Txt="Freelancer, agency, in-house or Graphfull?"
-                className="text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] "
+                className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
               />
               <Paragraph
                 Txt="See the trade-offs of each model, so you can pick what matches your goals and budget"
-                className="text-lg text-primary-light-white font-normal leading-[150%] tracking-[-0.4px] "
+                className="text-lg text-primary-light-white font-normal leading-[150%] tracking-[-0.4px]"
               />
             </div>
           </div>
@@ -146,7 +175,7 @@ const BreakDown = () => {
             <div
               onMouseEnter={() => setisHovering(true)}
               onMouseLeave={() => setisHovering(false)}
-              className={`flex items-center h-auto  font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
+              className={`hidden xl:flex items-center h-auto font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
                 isHovering ? "w-36" : "w-10"
               }`}
             >
@@ -158,7 +187,7 @@ const BreakDown = () => {
                 <SmileFace />
               </div>
               <span
-                className={` whitespace-nowrap transition-all duration-300 ${
+                className={`whitespace-nowrap transition-all duration-300 ${
                   isHovering
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-2"
@@ -169,91 +198,120 @@ const BreakDown = () => {
             </div>
           </div>
         </div>
-        <table id="comparison-table">
-          <thead>
-            <tr>
-              <th></th>
-              {comparisonData.options.map((option, idx) => (
-                <th
-                  className={`py-6 h-auto text-lg ${
-                    idx !== comparisonData.options.length - 1 &&
-                    "border-r-[2px] border-solid border-border-blue"
-                  } text-primary-white border-b-[2px] border-solid border-border-blue font-bold leading-[150%] bg-primary-color w-auto ${
-                    idx === 0 && "rounded-tl-[16px] text-[36px]  font-extrabold"
-                  } ${
-                    idx === comparisonData.options.length - 1 &&
-                    "rounded-tr-[16px]"
-                  }`}
-                  key={option}
-                >
-                  {option}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {comparisonData.categories.map((category, index) => {
-              return (
-                <tr
-                  className={`bg-primary-color ${
-                    index !== comparisonData.categories.length - 1 &&
-                    "border-b-[2px] border-solid border-border-blue"
-                  } text-sm font-bold leading-[150%] px-6 text-primary-light-white`}
-                  key={category}
-                >
-                  <td
-                    className={`px-6 ${
-                      index === 0 && "px-6 rounded-tl-[16px]"
+
+        
+
+        {/* Mobile Responsive View */}
+        <div className="xl:hidden flex flex-col gap-4">
+          {/* Dropdown for options */}
+          <select
+            value={selectedOption}
+            onChange={e => setSelectedOption(e.target.value)}
+            className="px-4 py-3 rounded-md font-bold bg-primary-color text-primary-white"
+          >
+            {comparisonData.options.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+
+          {/* Selected option details */}
+          <div className="flex-1 flex flex-col gap-y-3">
+            {comparisonData.categories.map((category, idx) => (
+              <div
+                key={category}
+                className="flex flex-col bg-primary-color p-3 rounded-md"
+              >
+                <span className="text-sm font-semibold text-primary-white mb-1">
+                  {category}
+                </span>
+                <div className="flex items-center gap-2">
+                  {renderSymbol(comparisonData.symbols[selectedOption][idx])}
+                  <span className="text-primary-light-white text-sm">
+                    {comparisonData.data[selectedOption][idx]}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Table */}
+        <div className="overflow-x-scroll xl:block hidden w-full">
+          <table
+            id="comparison-table"
+            className="xl:min-w-[600px] w-full border-collapse"
+          >
+            <thead>
+              <tr>
+                <th></th>
+                {comparisonData.options.map((option, idx) => (
+                  <th
+                    key={option}
+                    className={`py-6 text-lg ${
+                      idx !== comparisonData.options.length - 1 &&
+                      "border-r-[2px] border-solid border-border-blue"
+                    } text-primary-white border-b-[2px] border-solid border-border-blue font-bold leading-[150%] bg-primary-color w-auto ${
+                      idx === 0 &&
+                      "rounded-tl-[16px] text-[36px] font-extrabold"
                     } ${
-                      index === comparisonData.categories.length - 1 &&
-                      "rounded-bl-[16px]"
+                      idx === comparisonData.options.length - 1 &&
+                      "rounded-tr-[16px]"
                     }`}
                   >
-                    {category}
-                  </td>
-                  {comparisonData.options.map((option, optIndex) => {
-                    const lastIndex = comparisonData.data[option].length - 1;
-                    const isLastOption =
-                      optIndex === comparisonData.options.length - 1;
-                    const isLastItem = index === lastIndex && isLastOption;
-                    const symbol = comparisonData.symbols[option][index];
+                    {option}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.categories.map((category, index) => {
+                const lastIndex = comparisonData.categories.length - 1;
+                return (
+                  <tr
+                    key={category}
+                    className={`bg-primary-color ${
+                      index !== lastIndex &&
+                      "border-b-[2px] border-solid border-border-blue"
+                    } text-sm font-bold leading-[150%] text-primary-light-white`}
+                  >
+                    <td
+                      className={`px-6 ${index === 0 && "rounded-tl-[16px]"} ${
+                        index === lastIndex && "rounded-bl-[16px]"
+                      }`}
+                    >
+                      {category}
+                    </td>
+                    {comparisonData.options.map((option, optIndex) => {
+                      const isLastOption =
+                        optIndex === comparisonData.options.length - 1;
+                      const isLastItem = index === lastIndex && isLastOption;
+                      const symbol = comparisonData.symbols[option][index];
 
-                    // Render SVG based on symbol identifier
-                    const renderSymbol = () => {
-                      switch (symbol) {
-                        case "checkmark":
-                          return <CheckMark />;
-                        case "cross":
-                          return <CrossMark />;
-                        case "circle":
-                          return <CirleMark />;
-                        default:
-                          return null;
-                      }
-                    };
-
-                    return (
-                      <td
-                        className={`py-5 px-2 ${
-                          isLastItem ? "rounded-br-[16px]" : ""
-                        } ${option === "Graphfull" ? "text-white" : ""}`}
-                        key={`${option}-${category}`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          {renderSymbol()}
-                          <span>{comparisonData.data[option][index]}</span>
-                        </div>
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                      return (
+                        <td
+                          key={`${option}-${category}`}
+                          className={`py-5 px-2 ${
+                            isLastItem ? "rounded-br-[16px]" : ""
+                          } ${option === "Graphfull" ? "text-white" : ""}`}
+                        >
+                          <div className="flex items-center space-x-3">
+                            {renderSymbol(symbol)}
+                            <span>{comparisonData.data[option][index]}</span>
+                          </div>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );
-}
+};
 
-export default BreakDown
+export default BreakDown;

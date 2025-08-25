@@ -71,7 +71,7 @@ const Footer = () => {
               </span>
             </div>
           </div>
-          <div className="flex xl:flex-row flex-col gap-y-4 gap-x-8 ">
+          <div className="flex lg:flex-row justify-between 2xl:justify-normal flex-col gap-y-4 gap-x-8 ">
             <ul className="flex flex-col gap-y-4 min-w-[178px] ">
               {FooterNavLink?.leftSideLink?.map((item, idx) => {
                 return (
