@@ -54,30 +54,33 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
 
   return (
     <div ref={itemRef} className="relative flex items-start mb-16">
+      {/* Circle indicator */}
       <div
         className={`w-4 h-4 rounded-full absolute -left-[7px] top-2 z-10 transition-colors duration-300 ${
           isActive ? "bg-primary-yellow" : "bg-gray-400"
         }`}
       />
+      {/* Vertical line */}
       <div
         className={`absolute left-0 top-6 w-[3px] h-full transition-colors duration-300 ${
           isActive ? "bg-primary-yellow" : "bg-gray-400"
         }`}
       />
-      <div className="flex flex-col gap-y-2 " style={{ marginLeft: "78.6px" }}>
+      {/* Content */}
+      <div className="flex flex-col gap-y-2 ml-[32px] xl:ml-[78.6px]">
         <Paragraph
-          className=" text-primary-yellow leading-[150%] tracking-[1.92px] font-extra-bold text-sm "
+          className="text-primary-yellow leading-[150%] tracking-[1.92px] font-extrabold text-sm"
           Txt={number}
         />
         <Heading
-          Variant={"h3"}
-          className={`text-2xl font-bold leading-[140%] tracking-[-0.24px] ${
+          Variant="h3"
+          className={` text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] ${
             isActive ? "text-primary-white" : "text-primary-light-white"
           }`}
           Txt={title}
         />
         <Paragraph
-          className={`text-base font-medium leading-[150%] ${
+          className={` text-sm xl:text-base font-medium leading-[150%] ${
             isActive ? "text-metal-gray" : "text-gray-500"
           }`}
           Txt={desc}
@@ -117,33 +120,32 @@ const Insights = () => {
   }, []);
 
   return (
-    <section className="h-auto w-full bg-primary-color py-[112px]">
-      <div className="container flex flex-row justify-between">
+    <section className="h-auto w-full bg-primary-color py-10 lg:py-16 2xl:py-20 3xl:py-28">
+      <div className="container flex flex-col 2xl:flex-row gap-10 xl:gap-y-14 items-center  justify-between">
         {/* Sticky Heading Section */}
-        <div className="flex flex-col gap-y-4 sticky top-[112px] self-start">
+        <div className="flex flex-col gap-y-3 xl:gap-y-4 2xl:sticky xl:top-[112px] items-center 2xl:items-start  2xl:self-start">
           <Heading
             Variant="h6"
             Txt="insights"
-            className={
-              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-            }
+            className="text-xs text-center 2xl:text-left uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
           />
-          <div className="flex flex-col gap-y-6">
+          <div className="flex flex-col gap-y-3 2xl:gap-y-6">
             <Heading
               Variant="h3"
               Txt="Here’s what we bring to the table"
-              className="text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[464px]"
+              className="text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[464px] text-center 2xl:text-left  "
             />
             <Paragraph
               Txt="Design is the output. Clear thinking is the foundation."
-              className="text-sm text-primary-light-white font-medium leading-[150%] "
+              className="text-sm text-primary-light-white font-medium leading-[150%] text-center 2xl:text-left  "
             />
           </div>
         </div>
 
         {/* Timeline */}
-        <div className="relative mt-12 pl-10 w-[808px]">
-          <div className="absolute left-0 ml-10 top-0 w-[3px] h-full bg-gray-400" />
+        <div className="relative mt-8 xl:mt-0 pl-5 xl:pl-10 w-full xl:w-[808px]">
+          {/* Vertical line always behind items */}
+          <div className="absolute left-0 ml-5 xl:ml-10 top-0 w-[3px] h-full bg-gray-400" />
           <div className="flex flex-col" ref={containerRef}>
             {items.map((item, index) => (
               <div key={item.id} className="timeline-item relative">

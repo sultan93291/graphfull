@@ -30,7 +30,7 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="h-auto w-full container  flex flex-col-reverse 2xl:flex-row justify-between gap-y-8 lg:gap-y-10  py-10  3xl:py-[64px] ">
+    <section className="h-auto w-full container  flex flex-col-reverse 2xl:flex-row justify-between gap-y-0 lg:gap-y-10  py-10  3xl:py-[64px] ">
       <div className="relative w-full h-[500px] xs:w-[335px]  sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px]  2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden">
         <video
           ref={videoRef}

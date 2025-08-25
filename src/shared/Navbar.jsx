@@ -194,7 +194,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navbar */}
-          <div className="hidden xl:flex flex-row gap-x-12 items-center relative">
+          <div className="hidden 2xl:flex flex-row gap-x-12 items-center relative">
             <ul className="flex flex-row gap-x-8">
               {navLinks.map((item, idx) => (
                 <li key={idx} className="relative">
@@ -248,7 +248,7 @@ const Navbar = () => {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative xl:hidden  w-8 h-8 flex flex-col justify-center items-center gap-1.5 cursor-pointer"
+            className="relative 2xl:hidden  w-8 h-8 flex flex-col justify-center items-center gap-1.5 cursor-pointer"
             aria-label="Toggle menu"
           >
             <span
