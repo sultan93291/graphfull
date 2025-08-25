@@ -64,10 +64,10 @@ const Testimonial = () => {
   const [nextEl, setNextEl] = useState(null);
 
   return (
-    <section className="h-auto w-full py-[112px] overflow-hidden">
-      <div className="container flex flex-col lg:flex-row justify-between items-start gap-x-20">
+    <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px] overflow-hidden">
+      <div className="container flex flex-col 3xl:flex-row justify-between items-start gap-x-20">
         {/* Left Section */}
-        <div className="flex flex-col gap-y-8 mb-12 lg:mb-0">
+        <div className="flex flex-col gap-y-4 lg:gap-y-8 mb-12 3xl:mb-0">
           <Heading
             Variant="h6"
             Txt="Feedback"
@@ -78,7 +78,7 @@ const Testimonial = () => {
           <Heading
             Variant="h3"
             Txt="Clients say it better than we could"
-            className="text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[424px]"
+            className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[424px]"
           />
           <Paragraph
             Txt="We take pride in the feedback from our clients and partners."
@@ -87,7 +87,7 @@ const Testimonial = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col gap-y-12 w-full max-w-[808px]">
+        <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full 2xl:max-w-[808px]">
           <Swiper
             ref={swiperRef}
             slidesPerView="auto"
@@ -96,6 +96,14 @@ const Testimonial = () => {
               delay: 1500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
+            }}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 1.4 },
+              1024: { slidesPerView: 2 },
+              1200: {
+                slidesPerView: "auto",
+              },
             }}
             spaceBetween={42}
             loop={true}
@@ -109,14 +117,15 @@ const Testimonial = () => {
               return (
                 <SwiperSlide
                   key={item.id}
-                  className="flex justify-center"
-                  style={{ width: "616px" }}
+                  className="flex justify-center w-auto xl:!w-[600px]  3xl:w-[616px]  "
                 >
-                  <div className="h-auto cursor-pointer w-full flex flex-col gap-y-12 bg-extra-blue rounded-[16px] p-8 text-white">
+                  <div className="h-auto cursor-pointer w-full flex flex-col gap-y-6 2xl:gap-y-12 bg-extra-blue rounded-[8px] lg:rounded-[16px] lg:p-8 p-6 text-white">
                     <Svg />
                     <Paragraph
                       Txt={item.quote}
-                      className={"text-lg text-metal-white italic font-normal leading-[150%] "}
+                      className={
+                        " text-base lg:text-lg text-metal-white italic font-normal leading-[150%] "
+                      }
                     />
                     <div className="flex items-center gap-5">
                       <img
@@ -128,13 +137,13 @@ const Testimonial = () => {
                         <Paragraph
                           Txt={item.name}
                           className={
-                            "text-base font-[600] leading-[150%] text-metal-white"
+                            " text-sm lg:text-base font-[600] leading-[150%] text-metal-white"
                           }
                         />
                         <Paragraph
                           Txt={item.position}
                           className={
-                            "text-base font-normal leading-[150%] text-metal-gray"
+                            " text-sm lg:text-base font-normal leading-[150%] text-metal-gray"
                           }
                         />
                       </div>
@@ -150,7 +159,7 @@ const Testimonial = () => {
             <div className="flex gap-x-4">
               <Button
                 ref={setPrevEl}
-                className="h-auto w-auto p-3 ease-in-out duration-300 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer"
+                className="h-auto w-auto p-2 lg:p-3 ease-in-out duration-300 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer"
                 btnTxt={
                   <>
                     <div className="block ease-in-out duration-300 group-hover:hidden">
@@ -165,7 +174,7 @@ const Testimonial = () => {
               />
               <Button
                 ref={setNextEl}
-                className="h-auto w-auto ease-in-out duration-300 p-3 group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer rotate-[180deg]"
+                className="h-auto w-auto ease-in-out duration-300 p-2 lg:p-3  group hover:bg-light-blue bg-extra-blue rounded-[8px] cursor-pointer rotate-[180deg]"
                 btnTxt={
                   <>
                     <div className="block ease-in-out duration-300 group-hover:hidden">
