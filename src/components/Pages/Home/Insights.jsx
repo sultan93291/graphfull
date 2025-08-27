@@ -37,14 +37,12 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
   useEffect(() => {
     if (isActive) {
       gsap.to(itemRef.current, {
-        opacity: 1,
         y: 0,
         duration: 0.6,
         ease: "power3.out",
       });
     } else {
       gsap.to(itemRef.current, {
-        opacity: 0.5,
         y: 50,
         duration: 0.4,
         ease: "power3.inOut",
@@ -56,13 +54,11 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
     <div ref={itemRef} className="relative flex items-start mb-16">
       {/* Circle indicator */}
       <div
-        className={`w-4 h-4 rounded-full absolute -left-[7px] top-2 z-10 transition-colors duration-300 ${
-          isActive ? "bg-primary-yellow" : "bg-gray-400"
-        }`}
+        className={`w-4 h-4  rounded-full absolute -left-[7px] top-2 z-20  duration-300 bg-primary-yellow `}
       />
       {/* Vertical line */}
       <div
-        className={`absolute left-0 top-6 w-[3px] h-full transition-colors duration-300 ${
+        className={`absolute left-0 top-6 w-[3px] h-full z-0 transition-colors duration-300 ${
           isActive ? "bg-primary-yellow" : "bg-gray-400"
         }`}
       />
@@ -74,15 +70,11 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
         />
         <Heading
           Variant="h3"
-          className={` text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] ${
-            isActive ? "text-primary-white" : "text-primary-light-white"
-          }`}
+          className={` text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white `}
           Txt={title}
         />
         <Paragraph
-          className={` text-sm xl:text-base font-medium leading-[150%] ${
-            isActive ? "text-metal-gray" : "text-gray-500"
-          }`}
+          className={` text-sm xl:text-base font-medium leading-[150%] text-metal-gray `}
           Txt={desc}
         />
       </div>

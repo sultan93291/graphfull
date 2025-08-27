@@ -21,10 +21,6 @@ const HomePage = () => {
       <Overview />
       <BreakDown />
       <Insights />
-      {/* 
-      
-      
-        */}
     </section>
   );
 };

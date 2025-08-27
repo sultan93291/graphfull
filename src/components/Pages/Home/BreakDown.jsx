@@ -199,22 +199,46 @@ const BreakDown = () => {
           </div>
         </div>
 
-        
-
         {/* Mobile Responsive View */}
         <div className="xl:hidden flex flex-col gap-4">
           {/* Dropdown for options */}
-          <select
-            value={selectedOption}
-            onChange={e => setSelectedOption(e.target.value)}
-            className="px-4 py-3 rounded-md font-bold bg-primary-color text-primary-white"
-          >
-            {comparisonData.options.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+          <div className="xl:hidden flex flex-col gap-4 relative">
+            {/* Dropdown for options */}
+            <select
+              value={selectedOption}
+              onChange={e => setSelectedOption(e.target.value)}
+              className="px-4 py-3 rounded-md font-bold bg-primary-color text-primary-white pr-10 w-full appearance-none"
+              style={{
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                appearance: "none",
+              }}
+            >
+              {comparisonData.options.map(option => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+
+            {/* Custom SVG arrow */}
+            <span className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </span>
+          </div>
 
           {/* Selected option details */}
           <div className="flex-1 flex flex-col gap-y-3">

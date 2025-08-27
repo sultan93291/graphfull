@@ -101,7 +101,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
 
-
   // Clear timeout on unmount
   useEffect(() => {
     return () => clearTimeout(timeoutRef.current);
@@ -128,14 +127,15 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  // Dropdown handlers
+  // ✅ Dropdown handlers (fixed smoothness)
   const handleMouseEnterNav = item => {
     clearTimeout(timeoutRef.current);
     setActiveItem(item);
   };
 
   const handleMouseLeaveNav = () => {
-    timeoutRef.current = setTimeout(() => setActiveItem(null), 150);
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setActiveItem(null), 80);
   };
 
   const handleMouseEnterDropdown = () => {
@@ -143,11 +143,15 @@ const Navbar = () => {
   };
 
   const handleMouseLeaveDropdown = () => {
-    timeoutRef.current = setTimeout(() => setActiveItem(null), 150);
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setActiveItem(null), 80);
   };
 
+  // ✅ GSAP animation fix
   useEffect(() => {
     if (!dropdownRef.current) return;
+
+    gsap.killTweensOf(dropdownRef.current);
 
     if (activeItem) {
       gsap.fromTo(
@@ -155,7 +159,7 @@ const Navbar = () => {
         {
           height: 0,
           opacity: 0,
-          y: -20,
+          y: -10,
           pointerEvents: "none",
           overflow: "hidden",
         },
@@ -164,8 +168,8 @@ const Navbar = () => {
           opacity: 1,
           y: 0,
           pointerEvents: "auto",
-          duration: 0.5,
-          ease: "power3.out",
+          duration: 0.35,
+          ease: "power2.out",
           onComplete: () => {
             dropdownRef.current.style.height = "auto";
             dropdownRef.current.style.overflow = "visible";
@@ -176,10 +180,10 @@ const Navbar = () => {
       gsap.to(dropdownRef.current, {
         height: 0,
         opacity: 0,
-        y: -20,
+        y: -10,
         pointerEvents: "none",
-        duration: 0.3,
-        ease: "power3.in",
+        duration: 0.25,
+        ease: "power2.in",
         overflow: "hidden",
       });
     }

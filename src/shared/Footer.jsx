@@ -100,15 +100,15 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-row xl:items-center items-start justify-between ">
+        <div className="flex flex-row xl:items-center items-start justify-between">
           <Link to={"/"} className="cursor-pointer">
             <img src={logo} alt="site logo" className="w-[127px] h-[25px]" />
           </Link>
-          <ul className="flex flex-row gap-x-3 items-center ">
-            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-green  ">
+          <ul className="flex flex-row gap-x-3 items-center">
+            <li className="flex cursor-pointer items-center hover:p-4 ease-in-out duration-300 justify-center p-2 xl:p-4 rounded-[8px] bg-primary-green animate-pulse-custom">
               <InstaSvg />
             </li>
-            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-yellow  ">
+            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-yellow animate-pulse-custom">
               <LinkdeinSvg />
             </li>
           </ul>
