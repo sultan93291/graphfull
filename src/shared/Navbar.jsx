@@ -10,7 +10,7 @@ import Paragraph from "../components/Paragraph/Paragraph";
 import gsap from "gsap";
 
 const navLinks = [
-  { label: "work", redirectLink: "/demo" },
+  { label: "work", redirectLink: "/work" },
   { label: "about", redirectLink: "/demo" },
   { label: "projects", redirectLink: "/projects" },
   {

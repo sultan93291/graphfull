@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Heading from "../Heading/Heading";
+import Heading from "../../Heading/Heading";
 
 const serviceArr = [
   "marketing ",
