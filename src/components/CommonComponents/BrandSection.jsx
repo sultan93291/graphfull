@@ -1,8 +1,9 @@
 import React from "react";
-import Heading from "../../Heading/Heading";
-import webflow from "../../../assets/img/brand/webflow.png";
-import relume from "../../../assets/img/brand/relume.png";
+
+import webflow from "../../assets/img/brand/webflow.png";
+import relume from "../../assets/img/brand/relume.png";
 import Marquee from "react-fast-marquee";
+import Heading from "../Heading/Heading";
 
 const BrandSection = () => {
   const brandImg = [

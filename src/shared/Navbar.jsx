@@ -11,7 +11,7 @@ import gsap from "gsap";
 
 const navLinks = [
   { label: "work", redirectLink: "/work" },
-  { label: "about", redirectLink: "/demo" },
+  { label: "about", redirectLink: "about-us" },
   { label: "projects", redirectLink: "/projects" },
   {
     label: "service",
