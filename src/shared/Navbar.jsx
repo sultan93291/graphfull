@@ -13,6 +13,7 @@ const navLinks = [
   { label: "work", redirectLink: "/work" },
   { label: "about", redirectLink: "about-us" },
   { label: "projects", redirectLink: "/projects" },
+  { label: "testimonial", redirectLink: "/testimonial" },
   {
     label: "service",
     redirectLink: "/demo",
