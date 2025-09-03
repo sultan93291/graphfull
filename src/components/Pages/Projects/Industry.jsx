@@ -43,34 +43,31 @@ const layout = [
 
 const Industry = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const sectionRef = useRef(null);
-  const imageRef = useRef(null);
+  const imagesRef = useRef(null);
 
   const toggleExpand = index => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
+  // Nested scroll: first scroll images container, then page
   useEffect(() => {
     const handleWheel = e => {
-      const section = sectionRef.current;
-      const images = imageRef.current;
-      if (!section || !images) return;
+      const container = imagesRef.current;
+      if (!container) return;
 
-      // Disable scroll-jack on small devices (< 1024px)
+      // Only apply for large screens
       if (window.innerWidth < 1024) return;
 
-      const rect = section.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (!inView) return;
+      const maxScroll = container.scrollHeight - container.clientHeight;
+      const atTop = container.scrollTop <= 0 && e.deltaY < 0;
+      const atBottom = container.scrollTop >= maxScroll && e.deltaY > 0;
 
-      const maxScroll = images.scrollHeight - images.clientHeight;
-      const atBottom = images.scrollTop >= maxScroll && e.deltaY > 0;
-      const atTop = images.scrollTop <= 0 && e.deltaY < 0;
-
-      if (!atBottom && !atTop) {
-        e.preventDefault();
-        images.scrollTop += e.deltaY;
+      // Scroll container if possible
+      if (!atTop && !atBottom) {
+        e.preventDefault(); // prevent page scroll
+        container.scrollTop += e.deltaY;
       }
+      // If atTop or atBottom, allow page to scroll naturally
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -78,10 +75,7 @@ const Industry = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="h-auto w-full bg-primary-color py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]"
-    >
+    <section className="h-auto w-full bg-primary-color py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]">
       <div className="container flex flex-col gap-y-12 md:gap-y-14 xl:flex-row gap-x-[80px]">
         {/* Left Column */}
         <div className="flex flex-col gap-y-8 w-full 3xl:min-w-[495px]">
@@ -96,7 +90,7 @@ const Industry = () => {
               <Heading
                 Variant="h3"
                 Txt="Short heading goes here"
-                className=" text-[24px] md:text-[32px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold"
+                className="text-[24px] md:text-[32px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold"
               />
               <div className="flex flex-row gap-x-2 items-center">
                 {tagLineArr.map((tag, idx) => (
@@ -121,22 +115,22 @@ const Industry = () => {
           </div>
 
           {/* Reviews */}
-          <div className="flex flex-col  gap-y-4  xl:gap-y-8 xl:max-h-[80vh] xl:overflow-y-auto">
+          <div className="flex flex-col gap-y-4 xl:gap-y-8 xl:max-h-[80vh] xl:overflow-y-auto">
             {cardArr.map((card, idx) => (
               <div
                 key={idx}
-                className="h-auto p-4 xl:p-8 w-auto  xl:max-w-[495px] bg-extra-blue rounded-[16px]"
+                className="h-auto p-4 xl:p-8 w-auto xl:max-w-[495px] bg-extra-blue rounded-[16px]"
               >
                 <Heading
                   Variant="h3"
                   Txt={"“"}
-                  className=" text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white"
+                  className="text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white"
                 />
                 <div className="flex flex-col gap-y-4">
                   <Heading
                     Variant="h3"
                     Txt={card.title}
-                    className=" text-lg xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white"
+                    className="text-lg xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white"
                   />
                   <Paragraph
                     Txt={
@@ -187,8 +181,8 @@ const Industry = () => {
 
         {/* Right Images */}
         <div
-          ref={imageRef}
-          className="w-full xl:max-h-[80vh] xl:overflow-hidden flex flex-col gap-4"
+          ref={imagesRef}
+          className="w-full xl:max-h-[80vh] xl:overflow-y-auto flex flex-col gap-4"
         >
           {layout.map((section, index) => (
             <div key={index}>
@@ -215,8 +209,8 @@ const Industry = () => {
                       alt={`Placeholder ${index}-${i}`}
                       className={`object-cover rounded-[11.3px] ${
                         section.cols === 3
-                          ? " h-[106px] md:h-[150px] lg:h-[200px] xl:h-[227px] w-full"
-                          : " h-[164px] md:h-[200px] lg:h-[250px] xl:h-[349px] w-full"
+                          ? "h-[106px] md:h-[150px] lg:h-[200px] xl:h-[227px] w-full"
+                          : "h-[164px] md:h-[200px] lg:h-[250px] xl:h-[349px] w-full"
                       }`}
                     />
                   ))}

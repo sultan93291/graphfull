@@ -11,7 +11,7 @@ const Testimonial = () => {
     <>
       <Hero />
       <BrandSection />
-      <Portfolio />
+      <Portfolio isBtn={true} />
       <Brands bgImg={brand_img} />
     </>
   );

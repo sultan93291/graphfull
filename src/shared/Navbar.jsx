@@ -24,7 +24,7 @@ const navLinks = [
   },
   {
     label: "industries",
-    redirectLink: "/demo",
+    redirectLink: "/industry",
     subItems: [{ label: "demo", redirectLink: "/demo" }],
   },
 ];

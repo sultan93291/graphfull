@@ -20,7 +20,7 @@ const portfolioData = [
   { img: dope },
 ];
 
-const Portfolio = () => {
+const Portfolio = ({ isBtn }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [videoReady, setVideoReady] = useState({});
@@ -56,30 +56,32 @@ const Portfolio = () => {
             </div>
           </div>
           <div>
-            <div
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              className={`hidden xl:flex items-center h-auto font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-secondary-blue overflow-hidden transition-all duration-300 ${
-                isHovering ? "w-36" : "w-10"
-              }`}
-            >
+            {isBtn && (
               <div
-                className={`flex-shrink-0 transition-opacity duration-300 ${
-                  isHovering ? "opacity-0" : "opacity-100"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                className={`hidden xl:flex items-center h-auto font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-secondary-blue overflow-hidden transition-all duration-300 ${
+                  isHovering ? "w-36" : "w-10"
                 }`}
               >
-                <CuteSmileFace />
+                <div
+                  className={`flex-shrink-0 transition-opacity duration-300 ${
+                    isHovering ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <CuteSmileFace />
+                </div>
+                <span
+                  className={`whitespace-nowrap transition-all duration-300 ${
+                    isHovering
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-2"
+                  }`}
+                >
+                  Book a Call
+                </span>
               </div>
-              <span
-                className={`whitespace-nowrap transition-all duration-300 ${
-                  isHovering
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-2"
-                }`}
-              >
-                Book a Call
-              </span>
-            </div>
+            )}
           </div>
         </div>
 
@@ -105,7 +107,7 @@ const Portfolio = () => {
                         className="text-2xl  text-primary-white font-extrabold leading-[140%] tracking-[-0.24px]"
                       />
                       <div className="flex flex-row gap-x-2 items-center">
-                        {[0,1,2,3].map((tag, idx) => (
+                        {[0, 1, 2, 3].map((tag, idx) => (
                           <div
                             key={idx}
                             className="h-auto w-auto px-3 py-2 rounded-[16px] bg-secondary-off-gray text-xs text-primary-light-white font-medium leading-[150%]"
