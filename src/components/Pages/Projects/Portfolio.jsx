@@ -38,9 +38,7 @@ const Portfolio = () => {
             <Heading
               Variant="h6"
               Txt="Portfolio"
-              className={
-                "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-              }
+              className={"small-heading "}
             />
             <div className="flex flex-col gap-y-6">
               <Heading

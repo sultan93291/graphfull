@@ -55,6 +55,10 @@
     margin-right: auto;
   }
 
+  .small-heading {
+    @apply text-xs uppercase text-[#C2CFDC] font-extrabold leading-[150%] tracking-[1.92px];
+  }
+
   .glass-effect {
     background: rgba(6, 12, 18, 0.756);
     backdrop-filter: blur(5px);
@@ -152,8 +156,8 @@
   }
 
   .grid-background {
-    background-color: #060c12 ;
-    background-image: linear-gradient(90deg, #0C1924 1px, transparent 1px),
+    background-color: #060c12;
+    background-image: linear-gradient(90deg, #0c1924 1px, transparent 1px),
       linear-gradient(0deg, #16213e 1px, transparent 1px);
     background-size: 44px 44px;
 

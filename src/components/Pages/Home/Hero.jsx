@@ -44,20 +44,23 @@ const Hero = () => {
       id: 2,
       img: illusion,
       colorSlug: "purple",
+      svg: FigmaIcon,
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
     },
     {
       id: 3,
       img: cookie,
-      colorSlug: "yellow",
+      colorSlug: "purple",
+      svg: FigmaIcon,
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
     },
     {
       id: 4,
       img: jar,
-      colorSlug: "yellow",
+      colorSlug: "green",
+      svg: FigmaIcon,
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
     },
@@ -73,6 +76,7 @@ const Hero = () => {
       id: 6,
       img: coffee,
       colorSlug: "green",
+      svg: FigmaIcon,
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
     },
@@ -80,6 +84,7 @@ const Hero = () => {
       id: 7,
       img: dope,
       colorSlug: "red",
+      svg: FigmaIcon,
       videoUrl:
         "https://res.cloudinary.com/dfogl3n5q/video/upload/v1754562722/full_stack_app/videos/company_overview/1.mp4",
     },
@@ -105,7 +110,7 @@ const Hero = () => {
           className="cursor-pointer  z-0 relative flex-shrink-0 m-2 rounded-[12px]"
           style={
             isMobile
-              ? { width: "154px", aspectRatio: "4.5 / 5" } // Mobile: use aspect ratio to prevent cropping
+              ? { width: "154px", aspectRatio: "4.5 / 5" } 
               : { width: "210.667px", height: "316px" }
           }
           onMouseEnter={() => {

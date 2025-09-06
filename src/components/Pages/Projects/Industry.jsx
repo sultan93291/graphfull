@@ -82,11 +82,7 @@ const Industry = () => {
           <div className="flex flex-col gap-y-6 xl:gap-y-[56px]">
             <GettaSvg />
             <div className="flex flex-col gap-y-5 xl:gap-y-8">
-              <Heading
-                Variant="h6"
-                Txt="Industry"
-                className="text-base capitalize text-primary-light-white font-extrabold"
-              />
+              <Heading Variant="h6" Txt="Industry" className="small-heading" />
               <Heading
                 Variant="h3"
                 Txt="Short heading goes here"
@@ -169,7 +165,7 @@ const Industry = () => {
                       <Heading
                         Variant="h6"
                         Txt={expandedIndex === idx ? "Show Less" : "Show More"}
-                        className="text-base capitalize text-metal-white font-extrabold"
+                        className="small-heading"
                       />
                     </div>
                   </div>

@@ -99,7 +99,7 @@ const Portfolio = ({ isBtn }) => {
                       <Heading
                         Variant="h6"
                         Txt={"FASHION & BEAUTY"}
-                        className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+                        className="small-heading"
                       />
                       <Heading
                         Variant="h3"

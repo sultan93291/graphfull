@@ -11,9 +11,10 @@ const ProjectCard = ({ item }) => {
   const handleMouseEnter = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
 
-    // Scale card and change background
+    // Scale card, increase width, and change background
     gsap.to(containerRef.current, {
       scale: 1.05,
+      width: "+=20", // <-- Increase width by 20px (adjust as needed)
       duration: 0.5,
       ease: "power2.out",
       backgroundColor: item.colorCode,
@@ -33,9 +34,10 @@ const ProjectCard = ({ item }) => {
   const handleMouseLeave = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
 
-    // Reset card scale and background
+    // Reset card scale, width, and background
     gsap.to(containerRef.current, {
       scale: 1,
+      width: "-=20",
       duration: 0.5,
       ease: "power2.in",
       backgroundImage: `linear-gradient(180deg, rgba(12, 25, 36, 0.10) 0%, rgba(12, 25, 36, 0.70) 50%), url(${item.bgImg})`,
@@ -60,7 +62,7 @@ const ProjectCard = ({ item }) => {
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className=" w-[335px] 4xl:w-[461px] h-[450px] 3xl:h-[630px] group rounded-[20px] relative cursor-pointer overflow-hidden"
+      className="w-[335px] 4xl:w-[461px] h-[450px] 3xl:h-[630px] group rounded-[20px] relative cursor-pointer overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(180deg, rgba(12, 25, 36, 0.10) 0%, rgba(12, 25, 36, 0.70) 50%), url(${item.bgImg})`,
         backgroundRepeat: "no-repeat",
@@ -100,7 +102,7 @@ const ProjectCard = ({ item }) => {
         {/* Button - visible by default, hidden on hover */}
         <button
           ref={btnRef}
-          className="text-xs itec uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+          className="text-xs itec uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
           style={{
             transform: "translateY(0px)",
             opacity: 1,

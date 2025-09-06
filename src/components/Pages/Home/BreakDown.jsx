@@ -154,11 +154,7 @@ const BreakDown = () => {
         {/* Header */}
         <div className="flex flex-row justify-between">
           <div className="flex flex-col gap-y-4">
-            <Heading
-              Variant="h6"
-              Txt="breakdown"
-              className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
-            />
+            <Heading Variant="h6" Txt="breakdown" className="small-heading" />
             <div className="flex flex-col gap-y-6">
               <Heading
                 Variant="h3"

@@ -25,9 +25,7 @@ const BrandSection = () => {
       <Heading
         Variant={"h6"}
         Txt={"trusted by 150+ brands"}
-        className={
-          "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-        }
+        className={"small-heading "}
       />
       <Marquee
         play={true}

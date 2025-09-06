@@ -102,13 +102,7 @@ const FeaturedProject = () => {
       <div className="container flex flex-col gap-y-10 xl:gap-y-12 2xl:gap-y-20">
         {/* Titles */}
         <div className="flex flex-col gap-y-3 xl:gap-y-6">
-          <Heading
-            Variant="h6"
-            Txt="Projects"
-            className={
-              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-            }
-          />
+          <Heading Variant="h6" Txt="Projects" className={"small-heading"} />
           <Heading
             Variant="h3"
             Txt="take a look"
@@ -135,7 +129,7 @@ const FeaturedProject = () => {
               },
               1440: {
                 slidesPerView: 2.8,
-                spaceBetween:32
+                spaceBetween: 32,
               },
             }}
             centeredSlides={false}

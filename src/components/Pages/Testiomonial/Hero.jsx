@@ -14,9 +14,7 @@ const Hero = () => {
               <Heading
                 Variant={"h6"}
                 Txt={"Built on trust"}
-                className={
-                  "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-                }
+                className={"small-heading"}
               />
               <div className="flex flex-col items-center gap-y-4">
                 <Heading

@@ -14,9 +14,7 @@ const Hero = () => {
             <Heading
               Variant={"h6"}
               Txt={"Creative done right"}
-              className={
-                "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-              }
+              className={"small-heading"}
             />
             <Heading
               Txt={"Design that tells your story"}

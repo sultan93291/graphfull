@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Heading from "../../Heading/Heading";
 
 const serviceArr = [
-  "marketing ",
+  "marketing",
   "email marketing",
   "web design",
   "ui/ux",
@@ -30,8 +30,9 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="h-auto w-full container  flex flex-col-reverse 2xl:flex-row justify-between gap-y-0 lg:gap-y-10  py-10  3xl:py-[64px] ">
-      <div className="relative w-full h-[500px] xs:w-[335px]  sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px]  2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden">
+    <section className="h-auto w-full container flex flex-col-reverse 2xl:flex-row justify-between gap-y-0 lg:gap-y-10 py-10 3xl:py-[64px]">
+      {/* Video Container */}
+      <div className="relative w-full h-[500px] xs:w-[335px] sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px] 2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden group">
         <video
           ref={videoRef}
           className="!w-full !h-full object-cover rounded-[24px]"
@@ -45,10 +46,11 @@ const ServiceSection = () => {
         <button
           onClick={togglePlay}
           aria-label={isPlaying ? "Pause video" : "Play video"}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
             flex items-center justify-center w-14 h-14 rounded-full cursor-pointer
-            bg-white/20 backdrop-blur-md border border-white/30 shadow-lg 
-            transition-transform hover:bg-white/30 hover:scale-110 active:scale-95 focus:outline-none"
+            bg-white/20 backdrop-blur-md border border-white/30 shadow-lg
+            transition-opacity duration-300 hover:bg-white/30 hover:scale-110 active:scale-95 focus:outline-none
+            ${isPlaying ? "opacity-0 group-hover:opacity-100" : "opacity-100"}`}
           style={{ zIndex: 10 }}
         >
           {isPlaying ? (
@@ -86,44 +88,32 @@ const ServiceSection = () => {
         </button>
       </div>
 
-      <div className="flex flex-col w-full 2xl:w-[605px] relative gap-y-12 py-[64px] ">
-        <div className="flex flex-col gap-y-4 3xl:gap-y-8 ">
+      {/* Services List */}
+      <div className="flex flex-col w-full 2xl:w-[605px] relative gap-y-12 py-[64px]">
+        <div className="flex flex-col gap-y-4 3xl:gap-y-8">
+          <Heading Variant="h6" Txt="SERVICES" className="small-heading" />
           <Heading
-            Variant={"h6"}
-            Txt={"SERVICES"}
-            className={
-              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-            }
-          />
-          <Heading
-            Variant={"h3"}
-            Txt={"Creative work we’re built to handle"}
-            className={
-              "md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px]  text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
-            }
+            Variant="h3"
+            Txt="Creative work we’re built to handle"
+            className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]"
           />
         </div>
-        <div className="flex flex-col w-full relative gap-y-6 xl:gap-y-8 ">
-          {serviceArr.map((service, idx) => {
-            console.log(service);
 
-            return (
-              <div
-                key={idx}
-                className="flex cursor-pointer group ease-in-out duration-500 w-full justify-between items-center flex-row"
-              >
-                <Heading
-                  Variant={"h6"}
-                  Txt={service}
-                  className={
-                    " text-lg xl:text-xl group-hover:text-[32px] xl:group-hover:text-[48px] ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-primary-gray "
-                  }
-                />
-                <Heading Variant={"h4"}>{service}</Heading>
-                <div className=" h-[22px] w-[22px] group-hover:w-10 group-hover:h-10  lg:group-hover:w-16 lg:group-hover:h-16 xl:group-hover:w-20 xl:group-hover:h-20 rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow "></div>
-              </div>
-            );
-          })}
+        <div className="flex flex-col w-full relative gap-y-6 xl:gap-y-8">
+          {serviceArr.map((service, idx) => (
+            <div
+              key={idx}
+              className="flex cursor-pointer group ease-in-out duration-500 w-full justify-between items-center flex-row"
+            >
+              <Heading
+                Variant="h6"
+                Txt={service}
+                className="text-lg xl:text-xl group-hover:text-[32px] xl:group-hover:text-[48px] ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-primary-gray hover:text-primary-white"
+              />
+              <Heading Variant="h4">{service}</Heading>
+              <div className="h-[22px] w-[22px] group-hover:w-10 group-hover:h-10 lg:group-hover:w-16 lg:group-hover:h-16 xl:group-hover:w-20 xl:group-hover:h-20 rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow"></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

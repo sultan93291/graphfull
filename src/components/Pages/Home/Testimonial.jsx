@@ -68,13 +68,7 @@ const Testimonial = () => {
       <div className="container flex flex-col 3xl:flex-row justify-between items-start gap-x-20">
         {/* Left Section */}
         <div className="flex flex-col gap-y-4 lg:gap-y-8 mb-12 3xl:mb-0">
-          <Heading
-            Variant="h6"
-            Txt="Feedback"
-            className={
-              "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
-            }
-          />
+          <Heading Variant="h6" Txt="Feedback" className={"small-heading"} />
           <Heading
             Variant="h3"
             Txt="Clients say it better than we could"

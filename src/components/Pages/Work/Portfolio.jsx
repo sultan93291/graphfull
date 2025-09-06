@@ -95,11 +95,7 @@ const Portfolio = () => {
       <div className="flex flex-col gap-y-[112px] items-center">
         <div className="container flex flex-col gap-y-20">
           <div className="flex flex-col gap-y-6 items-center">
-            <Heading
-              Variant="h6"
-              Txt="Portfolio"
-              className="text-xs text-center 2xl:text-left uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
-            />
+            <Heading Variant="h6" Txt="Portfolio" className="small-heading" />
             <div className="flex flex-col items-center gap-y-3 2xl:gap-y-6">
               <Heading
                 Variant="h3"

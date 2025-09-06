@@ -23,7 +23,7 @@ const Brands = ({
               <Heading
                 Variant="h6"
                 Txt="NEXT STEPS"
-                className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+                className="small-heading"
               />
 
               <div className="max-w-[768px] flex flex-col gap-y-6">
