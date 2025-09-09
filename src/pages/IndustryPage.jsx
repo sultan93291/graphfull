@@ -12,7 +12,7 @@ const IndustryPage = () => {
   return (
     <section className="bg-primary-color">
       <Hero />
-      <BrandSection />
+      <BrandSection isBgColr={false} />
       <ImageGallery />
       <ImageTagLine />
       <div className="pt-[60px]">

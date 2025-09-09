@@ -58,7 +58,7 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
       />
       {/* Vertical line */}
       <div
-        className={`absolute left-0 top-6 w-[3px] h-full z-0 transition-colors duration-300 ${
+        className={`absolute left-0 top-6 w-[3px] h-[200px] z-0 transition-colors duration-300 ${
           isActive ? "bg-primary-yellow" : "bg-gray-400"
         }`}
       />

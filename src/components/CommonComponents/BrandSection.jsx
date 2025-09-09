@@ -5,7 +5,7 @@ import relume from "../../assets/img/brand/relume.png";
 import Marquee from "react-fast-marquee";
 import Heading from "../Heading/Heading";
 
-const BrandSection = () => {
+const BrandSection = ({ isBgColr =true }) => {
   const brandImg = [
     webflow,
     relume,
@@ -21,7 +21,11 @@ const BrandSection = () => {
     relume,
   ];
   return (
-    <section className="h-auto  bg-[#0C1924] w-full py-10 2xl:py-20 flex flex-col items-center gap-y-4 lg:gap-y-6  xl:gap-y-12  ">
+    <section
+      className={`h-auto ${
+        isBgColr && "bg-[#0C1924]"
+      }   w-full py-10 2xl:py-20 flex flex-col items-center gap-y-4 lg:gap-y-6  xl:gap-y-12`}
+    >
       <Heading
         Variant={"h6"}
         Txt={"trusted by 150+ brands"}

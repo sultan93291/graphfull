@@ -10,8 +10,8 @@ const ImageTagLine = () => {
 
   return (
     <section className="h-auto w-auto bg-primary-color py-[112px]">
-      <div className="container flex flex-row justify-between ">
-        <div className="flex flex-col gap-y-8 max-w-[560px] ">
+      <div className="container items-center flex flex-row justify-between ">
+        <div className="flex  flex-col gap-y-8 max-w-[560px] ">
           <div className="flex flex-col gap-y-6 ">
             <Heading
               Variant="h6"
