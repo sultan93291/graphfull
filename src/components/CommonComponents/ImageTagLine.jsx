@@ -62,7 +62,7 @@ const ImageTagLine = () => {
         </div>
         <img
           src={bg_img}
-          className="w-[616x] h-[640px] rounded-[16px] object-cover transition-transform duration-500 group-hover:scale-105 "
+          className="w-[616x] h-[640px] rounded-[16px] object-cover cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg  "
           alt="not found"
         />
       </div>

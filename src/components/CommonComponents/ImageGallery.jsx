@@ -32,14 +32,14 @@ const ImageGallery = () => {
               <img
                 src={imgArr[0]}
                 alt="image-0"
-                className="w-full h-[640px] object-cover rounded-[16px]"
+                className="w-full h-[640px] object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
             <div className="h-[426px] w-full">
               <img
                 src={imgArr[1]}
                 alt="image-1"
-                className="w-full h-[426px] object-cover rounded-[16px]"
+                className="w-full h-[426px] object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
           </div>
@@ -50,14 +50,14 @@ const ImageGallery = () => {
               <img
                 src={imgArr[2]}
                 alt="image-2"
-                className="w-full h-full object-cover rounded-[16px]"
+                className="w-full h-full object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
             <div className="h-[640px] w-full">
               <img
                 src={imgArr[3]}
                 alt="image-3"
-                className="w-full h-full object-cover rounded-[16px]"
+                className="w-full h-full object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
           </div>

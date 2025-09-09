@@ -11,7 +11,7 @@ const ProjectDetialsCard = ({
     <div className="h-auto w-auto flex flex-col gap-y-6 relative  ">
       <img
         src={bgImg}
-        className=" w-full max-h-[356px] ojbect-cover rounded-[16px] "
+        className=" cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg w-full max-h-[356px] ojbect-cover rounded-[16px] "
         alt="not found"
       />
       <div className="flex flex-col gap-y-4 ">

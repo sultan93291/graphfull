@@ -14,7 +14,7 @@ const Brands = ({
           <img
             src={bgImg}
             alt="Brand background"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg  object-cover cursor-pointer  group-hover:scale-105"
           />
 
           {/* Overlay */}
