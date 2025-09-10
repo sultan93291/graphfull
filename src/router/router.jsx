@@ -6,6 +6,7 @@ import Work from "../pages/Work";
 import AboutUs from "../pages/AboutUs";
 import Testimonial from "../pages/Testimonial";
 import IndustryPage from "../pages/IndustryPage";
+import ContactUs from './../pages/ContactUs';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/industry",
         element: <IndustryPage />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
       },
     ],
   },

@@ -14,6 +14,7 @@ const navLinks = [
   { label: "about", redirectLink: "about-us" },
   { label: "projects", redirectLink: "/projects" },
   { label: "testimonial", redirectLink: "/testimonial" },
+  { label: "Contact us", redirectLink: "/contact-us" },
   {
     label: "service",
     redirectLink: "/demo",

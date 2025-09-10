@@ -14,7 +14,7 @@ const ProjectCard = ({ item }) => {
     // Scale card, increase width, and change background
     gsap.to(containerRef.current, {
       scale: 1.05,
-      width: "+=20", // <-- Increase width by 20px (adjust as needed)
+      width: "+=20", 
       duration: 0.5,
       ease: "power2.out",
       backgroundColor: item.colorCode,

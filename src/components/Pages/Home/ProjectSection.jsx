@@ -25,7 +25,7 @@ const projectList = [
     bgImg: dope,
     redirectLink: "/",
     btnTxt: "SEE PROJECT",
-    colorCode: "#FF61A6",
+    colorCode: "#ff6610",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const projectList = [
     bgImg: illusion,
     redirectLink: "/",
     btnTxt: "SEE PROJECT",
-    colorCode: "#108CFF",
+    colorCode: "#00df82",
   },
 ];
 
