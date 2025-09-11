@@ -173,3 +173,21 @@
   height: 0;
   width: 0;
 }
+
+
+/* Smooth shine effect */
+@keyframes shine {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: -100% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s ease-in-out infinite;
+}
