@@ -8,6 +8,7 @@ import BreakDown from "../components/Pages/Home/BreakDown";
 import Portfolio from "../components/Pages/AboutUs/Portfolio";
 import ImageTagLine from "../components/CommonComponents/ImageTagLine";
 import ClientSpeaks from "../components/Pages/Industry/ClientSpeaks";
+import Branding from "../components/Pages/Industry/Branding";
 
 const Service = () => {
   return (
@@ -22,8 +23,9 @@ const Service = () => {
         descreption="How does your brand talk, walk, and look? When every answer tracks back to one clear archetype, the result is instant recognition."
       />
       <ClientSpeaks />
-      <BreakDown />
       <Portfolio />
+      <Branding />
+      <BreakDown />
       <Testimonial />
       <Brands bgImg={brand_img} />
     </section>
