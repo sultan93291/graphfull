@@ -62,7 +62,7 @@ const Hero = () => {
         <img
           src={bg_img}
           alt="not found"
-          className=" rounded-[16px] w-full h-[738px] object-cover transition-transform duration-500 group-hover:scale-105"
+          className=" rounded-[16px] w-full h-[738px]  transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg  object-cover cursor-pointer  group-hover:scale-105 "
         />
       </div>
     </section>
