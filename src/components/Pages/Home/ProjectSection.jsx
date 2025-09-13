@@ -49,7 +49,7 @@ const ProjectSection = () => {
           Variant={"h3"}
           Txt={"From “we need something” to “this is great”"}
           className={
-            "md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
+            "md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px]  3xl:text-[40px] capitalize text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
           }
         />
       </div>

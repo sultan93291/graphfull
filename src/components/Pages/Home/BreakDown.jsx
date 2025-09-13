@@ -159,7 +159,7 @@ const BreakDown = () => {
               <Heading
                 Variant="h3"
                 Txt="Freelancer, agency, in-house or Graphfull?"
-                className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
+                className="md:text-[32px] text-[24px] lg:text-[28px] font-filson xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
               />
               <Paragraph
                 Txt="See the trade-offs of each model, so you can pick what matches your goals and budget"

@@ -1,17 +1,19 @@
+// src/layout/Navbar.jsx
 import React, { useRef, useState, useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import gsap from "gsap";
+
 import logo from "../assets/logo/logo.svg";
 import Button from "../components/Buttons/Button";
-import { Link, NavLink } from "react-router-dom";
 import { ArrowLeft, Dropdown } from "../SvgContainer/SvgContainer";
 import email from "../assets/img/navbar/email.jpeg";
 import marketing from "../assets/img/navbar/marketing.jpeg";
 import Heading from "../components/Heading/Heading";
 import Paragraph from "../components/Paragraph/Paragraph";
-import gsap from "gsap";
 
 const navLinks = [
   { label: "work", redirectLink: "/work" },
-  { label: "about", redirectLink: "about-us" },
+  { label: "about", redirectLink: "/about-us" },
   { label: "projects", redirectLink: "/projects" },
   { label: "testimonial", redirectLink: "/testimonial" },
   { label: "Contact us", redirectLink: "/contact-us" },
@@ -20,7 +22,7 @@ const navLinks = [
     redirectLink: "/service",
     subItems: [
       { label: "demo", redirectLink: "/demo" },
-      { label: "demo", redirectLink: "/demo" },
+      { label: "demo", redirectLink: "/demo-2" },
     ],
   },
   {
@@ -30,28 +32,33 @@ const navLinks = [
   },
 ];
 
-const subMenu = [
+const serviceSubMenu = [
   {
     menuList: [
       {
         title: "Branding",
         desc: "Strategic identities to resonate, adapt, and stand apart.",
+        link: "/service/branding",
       },
       {
         title: "Web Design",
         desc: "Modern, responsive websites built to convert.",
+        link: "/service/web-design",
       },
       {
         title: "UI/UX",
         desc: "User-first systems that make every interaction intuitive.",
+        link: "/service/ui-ux",
       },
       {
         title: "Email Marketing",
         desc: "On-brand designs that drive engagement and conversions.",
+        link: "/service/email-marketing",
       },
       {
         title: "Landing Pages",
         desc: "Conversion-optimized pages tailored for action.",
+        link: "/service/landing-pages",
       },
     ],
   },
@@ -60,18 +67,64 @@ const subMenu = [
       {
         title: "Presentations",
         desc: "Pitch decks, sales decks, internal comms, investor decks.",
+        link: "/service/presentations",
       },
       {
         title: "Social & Ad Creatives",
         desc: "Thumb-stopping visuals built for performance.",
+        link: "/service/social-creative",
       },
       {
         title: "Print & Packaging",
         desc: "Premium experiences that bring brands into the real world.",
+        link: "/service/print-packaging",
       },
       {
         title: "Video Editing",
         desc: "Short-form content, ads, explainers, reels, UGC.",
+        link: "/service/video-production",
+      },
+    ],
+  },
+];
+
+// Added links for industries so they can navigate
+const industriesMenu = [
+  {
+    menuList: [
+      {
+        title: "E-commerce",
+        desc: "Designs that drive clicks, carts, and conversions",
+        link: "/industry/ecommerce",
+      },
+      {
+        title: "Fashion & Beauty",
+        desc: "Bold, elevated visuals that turn heads",
+        link: "/industry/fashion-beauty",
+      },
+      {
+        title: "Health & Sustainability",
+        desc: "Visual identity for brands that do good",
+        link: "/industry/health-sustainability",
+      },
+    ],
+  },
+  {
+    menuList: [
+      {
+        title: "Food & Travel",
+        desc: "Crave-worthy branding that sparks exploration",
+        link: "/industry/food-travel",
+      },
+      {
+        title: "Technology & SaaS",
+        desc: "Modern design built for fast-moving products",
+        link: "/industry/technology-saas",
+      },
+      {
+        title: "Marketing & Advertising",
+        desc: "Assets made to perform across every channel",
+        link: "/industry/marketing-advertising",
       },
     ],
   },
@@ -103,6 +156,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
 
+  const navigate = useNavigate();
+
   // Clear timeout on unmount
   useEffect(() => {
     return () => clearTimeout(timeoutRef.current);
@@ -129,7 +184,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  // ✅ Dropdown handlers (fixed smoothness)
+  // Dropdown handlers
   const handleMouseEnterNav = item => {
     clearTimeout(timeoutRef.current);
     setActiveItem(item);
@@ -149,7 +204,7 @@ const Navbar = () => {
     timeoutRef.current = setTimeout(() => setActiveItem(null), 80);
   };
 
-  // ✅ GSAP animation fix
+  // GSAP animation
   useEffect(() => {
     if (!dropdownRef.current) return;
 
@@ -254,7 +309,7 @@ const Navbar = () => {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative 2xl:hidden  w-8 h-8 flex flex-col justify-center items-center gap-1.5 cursor-pointer"
+            className="relative 2xl:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5 cursor-pointer"
             aria-label="Toggle menu"
           >
             <span
@@ -280,7 +335,7 @@ const Navbar = () => {
           ref={dropdownRef}
           onMouseEnter={handleMouseEnterDropdown}
           onMouseLeave={handleMouseLeaveDropdown}
-          className="dropdown-wrapper absolute top-full left-0 w-full glass-effect border-b border-primary-light-white shadow-md flex gap-x-[60px] 3xl:gap-x-[120px]"
+          className="dropdown-wrapper absolute top-full left-0 w-full glass-effect border-b-[0.2px] border-primary-light-white shadow-md flex gap-x-[60px] 3xl:gap-x-[120px]"
           style={{
             overflow: "hidden",
             height: 0,
@@ -289,33 +344,63 @@ const Navbar = () => {
           }}
         >
           <div className="flex flex-row w-auto p-6 3xl:p-8 gap-x-12 3xl:gap-x-24 mx-auto">
-            {subMenu.map((menu, idx) => (
-              <div key={idx} className="flex flex-col gap-y-0 items-start">
-                <ul className="flex flex-col gap-y-6 3xl:gap-y-10">
-                  {menu.menuList.map((item, idx2) => (
-                    <li
-                      key={idx2}
-                      className="flex group cursor-pointer flex-col gap-y-4 3xl:gap-y-6"
-                    >
-                      <div className="flex flex-row gap-x-2">
-                        <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300"></div>
-                        <div className="flex flex-col gap-y-1">
-                          <Heading
-                            Variant={"h3"}
-                            Txt={item.title}
-                            className="text-primary-white text-sm font-bold leading-[150%]"
-                          />
-                          <Paragraph
-                            Txt={item.desc}
-                            className="text-primary-light-white text-xs font-noraml leading-[150%]"
-                          />
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {activeItem?.label === "industries"
+              ? industriesMenu.map((menu, idx) => (
+                  <div key={idx} className="flex flex-col gap-y-0 items-start">
+                    <ul className="flex flex-col gap-y-6 3xl:gap-y-10">
+                      {menu.menuList.map((item, idx2) => (
+                        <li key={idx2} className="group">
+                          <Link
+                            to={item.link || "#"}
+                            onClick={() => setActiveItem(null)}
+                            className="flex flex-row gap-x-2 cursor-pointer"
+                          >
+                            <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300"></div>
+                            <div className="flex flex-col gap-y-1">
+                              <Heading
+                                Variant={"h3"}
+                                Txt={item.title}
+                                className="text-primary-white text-sm font-bold leading-[150%]"
+                              />
+                              <Paragraph
+                                Txt={item.desc}
+                                className="text-primary-light-white text-xs font-normal leading-[150%]"
+                              />
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              : serviceSubMenu.map((menu, idx) => (
+                  <div key={idx} className="flex flex-col gap-y-0 items-start">
+                    <ul className="flex flex-col gap-y-6 3xl:gap-y-10">
+                      {menu.menuList.map((item, idx2) => (
+                        <li key={idx2} className="group">
+                          <Link
+                            to={item.link}
+                            onClick={() => setActiveItem(null)}
+                            className="flex flex-row gap-x-2 cursor-pointer"
+                          >
+                            <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300"></div>
+                            <div className="flex flex-col gap-y-1">
+                              <Heading
+                                Variant={"h3"}
+                                Txt={item.title}
+                                className="text-primary-white text-sm font-bold leading-[150%]"
+                              />
+                              <Paragraph
+                                Txt={item.desc}
+                                className="text-primary-light-white text-xs font-normal leading-[150%]"
+                              />
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
           </div>
 
           <div className="flex bg-extra-blue py-6 3xl:py-8 pl-4 3xl:pl-8 pr-[50px] 3xl:pr-[96px] flex-col gap-y-6 w-[30%]">
@@ -329,7 +414,7 @@ const Navbar = () => {
                   <img
                     src={article.img}
                     alt="not found"
-                    className="  h-[80px]  w-[120px] rounded-[6px] 3xl:rounded-[8px] object-cover"
+                    className="h-[80px] w-[120px] rounded-[6px] 3xl:rounded-[8px] object-cover"
                     style={{ flex: "0 0 auto" }}
                   />
                   <Heading

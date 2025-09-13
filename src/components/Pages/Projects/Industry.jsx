@@ -86,7 +86,7 @@ const Industry = () => {
               <Heading
                 Variant="h3"
                 Txt="Short heading goes here"
-                className="text-[24px] md:text-[32px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold"
+                className="text-[24px] md:text-[32px] lg:text-[28px] xl:text-[36px] font-filson 3xl:text-[40px] capitalize text-primary-white font-bold"
               />
               <div className="flex flex-row gap-x-2 items-center">
                 {tagLineArr.map((tag, idx) => (

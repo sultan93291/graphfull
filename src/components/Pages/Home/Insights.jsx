@@ -121,7 +121,7 @@ const Insights = () => {
             <Heading
               Variant="h3"
               Txt="Here’s what we bring to the table"
-              className="text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[464px] text-center 2xl:text-left  "
+              className="text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] font-filson 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[464px] text-center 2xl:text-left  "
             />
             <Paragraph
               Txt="Design is the output. Clear thinking is the foundation."

@@ -107,7 +107,7 @@ const FeaturedProject = () => {
             Variant="h3"
             Txt="take a look"
             className={
-              " md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px]  text-primary-white capitalize font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
+              " md:text-[32px] text-[24px] lg:text-[28px] font-filson xl:text-[36px] 3xl:text-[40px]  text-primary-white capitalize font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]  "
             }
           />
         </div>

@@ -20,7 +20,7 @@ const Hero = () => {
                 <Heading
                   Variant="h3"
                   Txt="Great work is just the beginning"
-                  className="text-primary-white md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[350px] text-center"
+                  className="text-primary-white md:text-[32px] text-[24px] font-filson lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[350px] text-center"
                 />
                 <Paragraph
                   Txt="The real story is how it feels to work with us."

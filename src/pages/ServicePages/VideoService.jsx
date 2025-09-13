@@ -1,16 +1,15 @@
-import React from "react";
-import CommonHero from "../components/CommonComponents/CommonHero";
-import BrandSection from "../components/CommonComponents/BrandSection";
-import brand_img from "../assets/img/slider-img/illusion.png";
-import Brands from "../components/CommonComponents/Brands";
-import Testimonial from "../components/Pages/Home/Testimonial";
-import BreakDown from "../components/Pages/Home/BreakDown";
-import Portfolio from "../components/Pages/AboutUs/Portfolio";
-import ImageTagLine from "../components/CommonComponents/ImageTagLine";
-import ClientSpeaks from "../components/Pages/Industry/ClientSpeaks";
-import Branding from "../components/Pages/Industry/Branding";
+import Brands from "@/components/CommonComponents/Brands";
+import BrandSection from "@/components/CommonComponents/BrandSection";
+import CommonHero from "@/components/CommonComponents/CommonHero";
+import ImageTagLine from "@/components/CommonComponents/ImageTagLine";
+import Testimonial from "@/components/CommonComponents/Testimonial";
+import Portfolio from "@/components/Pages/AboutUs/Portfolio";
+import BreakDown from "@/components/Pages/Home/BreakDown";
+import Branding from "@/components/Pages/Industry/Branding";
+import ClientSpeaks from "@/components/Pages/Industry/ClientSpeaks";
+import brand_img from "../../assets/img/slider-img/illusion.png";
 
-const Service = () => {
+const VideoService = () => {
   return (
     <section className=" bg-primary-color">
       <CommonHero />
@@ -32,4 +31,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default VideoService;

@@ -100,7 +100,7 @@ const Portfolio = () => {
               <Heading
                 Variant="h3"
                 Txt="Our Creative Showcase"
-                className="text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] text-center max-w-[464px]"
+                className="text-[24px] md:text-[28px] lg:text-[32px] font-filson xl:text-[36px] font-filson 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] text-center max-w-[464px]"
               />
               <Paragraph
                 Txt="Explore our diverse range of design projects."

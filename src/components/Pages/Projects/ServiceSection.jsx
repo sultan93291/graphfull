@@ -95,7 +95,7 @@ const ServiceSection = () => {
           <Heading
             Variant="h3"
             Txt="Creative work we’re built to handle"
-            className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]"
+            className="md:text-[32px] font-filson text-[24px] lg:text-[28px] font-filson xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]"
           />
         </div>
 

@@ -44,7 +44,7 @@ const Portfolio = () => {
               <Heading
                 Variant="h3"
                 Txt="See more projects"
-                className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[150%] tracking-[-0.4px] "
+                className="md:text-[32px] text-[24px] font-filson lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[150%] tracking-[-0.4px] "
               />
             </div>
           </div>

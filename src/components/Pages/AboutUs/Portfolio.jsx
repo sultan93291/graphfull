@@ -47,7 +47,7 @@ const Portfolio = ({ isBtn }) => {
               <Heading
                 Variant="h3"
                 Txt="What happens when strategy meets design"
-                className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
+                className="md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
               />
               <Paragraph
                 Txt="Consistent identities, faster launches, stronger recall"

@@ -72,7 +72,7 @@ const Testimonial = () => {
           <Heading
             Variant="h3"
             Txt="Clients say it better than we could"
-            className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[424px]"
+            className="md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] font-filson 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[424px]"
           />
           <Paragraph
             Txt="We take pride in the feedback from our clients and partners."

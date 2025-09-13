@@ -163,7 +163,7 @@ const Hero = () => {
           <Heading
             Variant="h3"
             Txt="Design that makes sense, and makes moves"
-            className="text-primary-white md:text-[32px] text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[496px]"
+            className="text-primary-white font-filson md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[496px]"
           />
           <Paragraph
             Txt="Senior team delivering thoughtful design with clarity and purpose"

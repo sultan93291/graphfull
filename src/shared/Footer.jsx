@@ -35,14 +35,14 @@ const Footer = () => {
                 Txt={"Why leave it here?"}
                 Variant={"h2"}
                 className={
-                  " text-[28px] 3xl:text-[40px] font-bold leading-[120%] tracking-[-0.4px] text-primary-light-white "
+                  " text-[28px] 3xl:text-[40px] font-bold leading-[120%] font-filson tracking-[-0.4px] text-primary-light-white "
                 }
               />
               <Heading
                 Txt={"Let’s connect."}
                 Variant={"h2"}
                 className={
-                  "text-[28px] 3xl:text-[40px] font-bold leading-[120%] tracking-[-0.4px] text-primary-green "
+                  "text-[28px] 3xl:text-[40px] font-filson font-bold leading-[120%] tracking-[-0.4px] text-primary-green "
                 }
               />
             </div>

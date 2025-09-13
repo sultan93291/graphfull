@@ -81,7 +81,7 @@ const ProjectCard = ({ item }) => {
           />
           <Heading
             Txt={item.quote}
-            className="text-2xl text-primary-white font-bold leading-[140%] tracking-[-0.24px] max-w-[352px]"
+            className="text-2xl font-filson text-primary-white font-bold leading-[140%] tracking-[-0.24px] max-w-[352px]"
             Variant="h5"
           />
         </div>
