@@ -7,9 +7,9 @@ import { SmileFace } from "../../../SvgContainer/SvgContainer";
 const Hero = () => {
   const [isHovering, setisHovering] = useState(false);
   return (
-    <section className="h-auto w-full py-[112px] bg-primary-color ">
-      <div className="  flex flex-col gap-y-20 relative   ">
-        <div className="flex container flex-row justify-between w-full ">
+    <section className="h-auto w-full pb-[64px]  xl:py-[64px] 2xl:py-[112px] bg-primary-color ">
+      <div className="  flex flex-col-reverse xl:flex-col gap-y-12 xl:gap-y-20 relative   ">
+        <div className="flex container flex-col gap-y-6 xl:flex-row justify-between w-full ">
           <div className="flex flex-col gap-y-8 ">
             <Heading
               Variant={"h6"}
@@ -22,7 +22,7 @@ const Hero = () => {
               Txt={"Medium length hero heading goes here"}
               Variant={"h2"}
               className={
-                "text-[48px] font-bold text-primary-white leading-[120%] tracking-[-0.48px] max-w-[516px] "
+                "text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[48px] font-bold text-primary-white leading-[120%] tracking-[-0.48px] max-w-[516px] "
               }
             />
           </div>
@@ -32,7 +32,7 @@ const Hero = () => {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
               }
               className={
-                "text-lg text-primary-light-white font-normal leading-[150%] max-w-[616px]  "
+                " text-base xl:text-lg text-primary-light-white font-normal leading-[150%] max-w-[616px]  "
               }
             />
             <div
@@ -64,7 +64,7 @@ const Hero = () => {
         <img
           src={bg_img}
           alt="not found"
-          className="  w-full h-[738px] object-cover  transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer"
+          className="  w-full max-h-[420px] xl:max-h-[550px] 2xl:max-h-[738px] object-cover  transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer"
         />
       </div>
     </section>

@@ -10,8 +10,8 @@ const ImageGallery = () => {
   const imgArr = [img1, img2, img3, img4];
 
   return (
-    <section className="h-auto w-auto py-[112px] bg-primary-color  ">
-      <div className="flex flex-col gap-y-20 items-center container  ">
+    <section className="h-auto w-auto py-[64px] 2xl:py-[112px] bg-primary-color  ">
+      <div className="flex flex-col gap-y-12 lg:gap-y-20 items-center container  ">
         <div className="flex flex-col items-center gap-y-8  ">
           <Heading
             Variant="h3"
@@ -21,39 +21,39 @@ const ImageGallery = () => {
           <Paragraph
             Txt={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
             className={
-              "text-lg text-primary-light-white font-normal leading-[150%] max-w-[616px]  "
+              "text-lg text-primary-light-white text-center lg:text-left font-normal leading-[150%] max-w-[616px]  "
             }
           />
         </div>
-        <div className="grid grid-cols-2 gap-8 w-full  ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full  ">
           {/* Left column */}
           <div className="flex flex-col gap-8">
-            <div className="h-[640px] w-full">
+            <div className=" w-full">
               <img
                 src={imgArr[0]}
                 alt="image-0"
-                className="w-full h-[640px] object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
+                className="w-full max-h-[335px] lg:max-h-[640px] object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
-            <div className="h-[426px] w-full">
+            <div className=" w-full">
               <img
                 src={imgArr[1]}
                 alt="image-1"
-                className="w-full h-[426px] object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
+                className="w-full max-h-[188px] lg:max-h-[426px] object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
           </div>
 
           {/* Right column */}
           <div className="flex flex-col gap-8">
-            <div className=" h-[426px] w-full">
+            <div className=" max-h-[188px] lg:max-h-[426px] w-full">
               <img
                 src={imgArr[2]}
                 alt="image-2"
                 className="w-full h-full object-cover rounded-[16px] transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer "
               />
             </div>
-            <div className="h-[640px] w-full">
+            <div className="max-h-[335px] lg:max-h-[640px] w-full">
               <img
                 src={imgArr[3]}
                 alt="image-3"
