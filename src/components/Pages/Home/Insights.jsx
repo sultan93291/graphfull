@@ -112,7 +112,7 @@ const Insights = () => {
   }, []);
 
   return (
-    <section className="h-auto w-full bg-primary-color py-10 lg:py-16 2xl:py-20 3xl:py-28">
+    <section className="h-auto w-full bg-primary-color py-16 2xl:py-20 3xl:py-28">
       <div className="container flex flex-col 2xl:flex-row gap-10 xl:gap-y-14 items-center  justify-between">
         {/* Sticky Heading Section */}
         <div className="flex flex-col gap-y-3 xl:gap-y-4 2xl:sticky xl:top-[112px] items-center 2xl:items-start  2xl:self-start">
@@ -130,8 +130,8 @@ const Insights = () => {
           </div>
         </div>
 
-        {/* Timeline */}
-        <div className="relative mt-8 xl:mt-0 pl-5 xl:pl-10 w-full xl:w-[808px]">
+       
+        <div className="relative my-8 xl:mt-0 pl-5 xl:pl-10 w-full xl:w-[808px]">
           {/* Vertical line always behind items */}
           <div className="absolute left-0 ml-5 xl:ml-10 top-0 w-[3px] h-full bg-gray-400" />
           <div className="flex flex-col" ref={containerRef}>
