@@ -1,5 +1,6 @@
 import React from "react";
 import Heading from "../Heading/Heading";
+import { ArrowSvg } from "@/SvgContainer/SvgContainer";
 
 const ProjectDetialsCard = ({
   bgImg,
@@ -11,7 +12,7 @@ const ProjectDetialsCard = ({
     <div className="h-auto w-auto flex flex-col gap-y-6 relative  ">
       <img
         src={bgImg}
-        className=" cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg w-full max-h-[356px] ojbect-cover rounded-[16px] "
+        className=" cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg w-full max-h-[188px] md:max-h-[250px] xl:max-h-[356px] ojbect-cover rounded-[16px] "
         alt="not found"
       />
       <div className="flex flex-col gap-y-4 ">
@@ -38,6 +39,9 @@ const ProjectDetialsCard = ({
           </div>
         ))}
       </div>
+      <button className="text-xs xl:hidden flex items-center gap-x-2 cursor-pointer uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]">
+        View project <ArrowSvg />
+      </button>
     </div>
   );
 };

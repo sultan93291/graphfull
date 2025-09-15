@@ -7,7 +7,7 @@ const Brands = ({
   bgImg
 }) => {
   return (
-    <section className="w-full py-[112px] bg-primary-color">
+    <section className="w-full py-[64px] 2xl:py-[112px] bg-primary-color">
       <div className="relative w-full container h-auto">
         <div className="relative w-full h-[600px] rounded-[16px] overflow-hidden group">
           {/* Background Image */}
@@ -19,7 +19,7 @@ const Brands = ({
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] rounded-[16px]">
-            <div className="flex flex-col justify-end h-full p-[64px] gap-y-8">
+            <div className="flex flex-col justify-end h-full py-8 px-4 sm:px-8   2xl:p-[64px] gap-y-8">
               <Heading
                 Variant="h6"
                 Txt="NEXT STEPS"
