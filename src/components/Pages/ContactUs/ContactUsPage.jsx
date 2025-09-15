@@ -16,13 +16,11 @@ import yellow1 from "../../../assets/img/smile-faces/yellow-confiedence.png";
 
 const ContactUsPage = () => {
   return (
-    <section className="w-full relative overflow-hidden bg-primary-color py-[164px] ">
+    <section className="w-full relative overflow-hidden bg-primary-color py-[64px] xl:py-[80px] 2xl:py-[164px] ">
       {/* ImageTrail as background */}
       <div className="absolute inset-0 z-0">
         <ImageTrail
-          items={[
-            blue1, blue2 , blue3 , green1 , green2 , orange1 , yellow1
-          ]}
+          items={[blue1, blue2, blue3, green1, green2, orange1, yellow1]}
           variant={2}
         />
       </div>
@@ -43,7 +41,7 @@ const ContactUsPage = () => {
                   backgroundColor: "rgba(159, 173, 185, 0.05)",
                   border: "1px solid rgba(159, 173, 185, 0.00)",
                 }}
-                className="w-full p-4 rounded-[12px] outline-none text-base shadow-md text-primary-light-white font-normal leading-[150%]"
+                className="w-full py-2 px-3 lg:px-0 lg:py-0 lg:p-4 rounded-[12px] outline-none text-base shadow-md text-primary-light-white font-normal leading-[150%]"
               />
               <textarea
                 placeholder="Enter your message"
@@ -51,10 +49,10 @@ const ContactUsPage = () => {
                   backgroundColor: "rgba(159, 173, 185, 0.05)",
                   border: "1px solid rgba(159, 173, 185, 0.00)",
                 }}
-                className="w-full p-4 rounded-[12px] outline-none text-base shadow-md text-primary-light-white font-normal leading-[150%] h-[180px]"
+                className="w-full py-2 px-3 lg:px-0 lg:py-0 lg:p-4 rounded-[12px] outline-none text-base shadow-md text-primary-light-white font-normal leading-[150%] h-[180px]"
               ></textarea>
               <Button
-                className="px-5 py-2 bg-primary-green text-primary-dark-blue font-bold rounded-[8px] cursor-pointer transition ease-in-out duration-500 hover:bg-transparent border border-transparent hover:border-primary-green hover:text-primary-green w-fit"
+                className=" w-full px-6 py-2.5 lg:px-5 lg:py-2 bg-primary-green text-primary-dark-blue font-bold rounded-[8px] cursor-pointer transition ease-in-out duration-500 hover:bg-transparent border border-transparent hover:border-primary-green hover:text-primary-green xs:w-fit"
                 btnTxt="Submit"
               />
             </div>
