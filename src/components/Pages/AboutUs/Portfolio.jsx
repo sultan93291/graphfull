@@ -34,7 +34,7 @@ const Portfolio = ({ isBtn }) => {
 
   return (
     <section className="h-auto w-full bg-primary-color">
-      <div className="flex flex-col gap-y-20 py-[112px]">
+      <div className="flex flex-col gap-y-20 py-[64px] 2xl:py-[112px] ">
         {/* Section Heading */}
         <div className="flex flex-row container justify-between">
           <div className="flex flex-col gap-y-4">
@@ -93,7 +93,7 @@ const Portfolio = ({ isBtn }) => {
               const isReady = videoReady[key] === true;
 
               return (
-                <div className="flex flex-col gap-y-6 ">
+                <div className="flex flex-col gap-y-[30px] lg:gap-y-6 ">
                   <div className="flex flex-col px-6 gap-y-[26px] ">
                     <div className="flex flex-col gap-y-4 ">
                       <Heading
@@ -104,13 +104,13 @@ const Portfolio = ({ isBtn }) => {
                       <Heading
                         Variant="h3"
                         Txt={"Army Pink"}
-                        className="text-2xl  text-primary-white font-extrabold leading-[140%] tracking-[-0.24px]"
+                        className=" text-xl lg:text-2xl  text-primary-white font-extrabold leading-[140%] tracking-[-0.24px]"
                       />
-                      <div className="flex flex-row gap-x-2 items-center">
-                        {[0, 1, 2, 3].map((tag, idx) => (
+                      <div className="flex flex-wrap items-center gap-2 w-[210px] lg:w-[270px] xl:w-[300px] 3xl:w-[480px] 4xl:w-[520px] ">
+                        {[0, 1, 2, 3].map(tag => (
                           <div
-                            key={idx}
-                            className="h-auto w-auto px-3 py-2 rounded-[16px] bg-secondary-off-gray text-xs text-primary-light-white font-medium leading-[150%]"
+                            key={tag}
+                            className="px-3 py-2.5 rounded-[16px] bg-secondary-off-gray text-xs text-primary-light-white font-medium leading-[150%]"
                           >
                             Services
                           </div>
