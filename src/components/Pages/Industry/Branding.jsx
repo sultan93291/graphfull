@@ -25,14 +25,17 @@ const Branding = () => {
 
   // Hook to track if section is in view
   const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger only once when the section is in view
-    triggerMargin: "0px", // Trigger when the section is just visible
+    triggerOnce: true, 
+    triggerMargin: "0px", 
   });
 
   return (
-    <section className="h-auto w-auto bg-primary-color py-[112px] " ref={ref}>
+    <section
+      className="h-auto w-auto bg-primary-color py-[64px] 2xl:py-[112px] "
+      ref={ref}
+    >
       <div className="container">
-        <div className="flex flex-col gap-y-20 ">
+        <div className="flex flex-col gap-y-12 xl:gap-y-20 ">
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-y-4">
               <Heading
@@ -75,11 +78,11 @@ const Branding = () => {
               </div>
             </div>
           </div>
-          <div className=" grid grid-cols-3 gap-x-12 items-center ">
+          <div className=" grid grid-cols-1 2xl:grid-cols-3 gap-y-4 gap-x-12 items-center ">
             {overView.map((item, idx) => (
               <div
                 key={idx}
-                className="h-auto w-auto p-8 flex flex-col gap-y-6 ease-in-out duration-500 group hover:bg-extra-blue border-l-[8px] border-transparent hover:border-solid hover:shadow-md cursor-pointer hover:border-primary-green rounded-[16px]"
+                className="h-auto w-auto p-6 border-primary-green bg-extra-blue  lg:p-8 flex flex-row justify-between  2xl:flex-col gap-y-6 ease-in-out duration-500 group hover:bg-extra-blue border-l-[8px] xl:border-transparent hover:border-solid hover:shadow-md cursor-pointer hover:border-primary-green rounded-[16px]"
               >
                 <Heading
                   Variant={"h2"}
@@ -96,11 +99,11 @@ const Branding = () => {
                       +
                     </>
                   }
-                  className="font-filson text-[80px] font-bold leading-[120%] tracking-[-0.04] text-primary-white group-hover:text-primary-green ease-in-out duration-500"
+                  className="font-filson text-[32px] lg:text-[40px] text-primary-green xl:text-[60px] 2xl:text-[80px] font-bold leading-[120%] tracking-[-0.04] xl:text-primary-white group-hover:text-primary-green ease-in-out duration-500"
                 />
                 <Paragraph
                   Txt={item.title}
-                  className="text-xl text-primary-light-white font-bold leading-[150%] group-hover:text-primary-green ease-in-out duration-500"
+                  className=" text-xs lg:text-base xl:text-lg text-primary-green max-w-[176px] xl:max-w-[340px] 2xl:text-xl xl:text-primary-light-white font-bold leading-[150%] group-hover:text-primary-green ease-in-out duration-500"
                 />
               </div>
             ))}

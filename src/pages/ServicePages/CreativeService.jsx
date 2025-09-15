@@ -2,7 +2,7 @@ import Brands from "@/components/CommonComponents/Brands";
 import BrandSection from "@/components/CommonComponents/BrandSection";
 import CommonHero from "@/components/CommonComponents/CommonHero";
 import ImageTagLine from "@/components/CommonComponents/ImageTagLine";
-import Testimonial from "@/components/CommonComponents/Testimonial";
+import Testimonial from "@/components/Pages/Home/Testimonial";
 import Portfolio from "@/components/Pages/AboutUs/Portfolio";
 import BreakDown from "@/components/Pages/Home/BreakDown";
 import Branding from "@/components/Pages/Industry/Branding";

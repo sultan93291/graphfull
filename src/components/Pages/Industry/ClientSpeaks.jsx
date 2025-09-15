@@ -35,9 +35,9 @@ const ClientSpeaks = ({
   bgImg = bg_img,
 }) => {
   return (
-    <section className="h-auto w-auto bg-primary-color py-[112px]">
+    <section className="h-auto w-auto bg-primary-color py-[64px] 2xl:py-[112px]">
       <div className="container">
-        <div className="flex flex-row gap-x-10">
+        <div className="flex flex-col gap-y-12 xl:flex-row gap-x-10">
           <div className="flex flex-col gap-y-8 max-w-[703px]">
             {/* Title remains as normal text */}
             <Heading
@@ -48,7 +48,7 @@ const ClientSpeaks = ({
 
             {/* Apply ShinyText only for clientFeedback */}
             <Heading
-              className="text-[40px] capitalize text-primary-white font-bold leading-[150%] tracking-[-0.4px]"
+              className="md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold leading-[150%] tracking-[-0.4px]"
               Variant="h4"
               Txt={<ShinyText text={clientFeedback} />}
             />
@@ -77,7 +77,7 @@ const ClientSpeaks = ({
           </div>
           <img
             src={bgImg}
-            className="w-[568px] h-[320px] object-cover rounded-[16px] cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg"
+            className="xl:max-w-[568px] lg:w-full max-h-[188px] sm:max-h-[250px] lg:max-h-[320px] object-cover rounded-[16px] cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg"
             alt="not found"
           />
         </div>

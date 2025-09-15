@@ -2,12 +2,12 @@ import Brands from "@/components/CommonComponents/Brands";
 import BrandSection from "@/components/CommonComponents/BrandSection";
 import CommonHero from "@/components/CommonComponents/CommonHero";
 import ImageTagLine from "@/components/CommonComponents/ImageTagLine";
-import Testimonial from "@/components/CommonComponents/Testimonial";
 import Portfolio from "@/components/Pages/AboutUs/Portfolio";
 import BreakDown from "@/components/Pages/Home/BreakDown";
 import Branding from "@/components/Pages/Industry/Branding";
 import ClientSpeaks from "@/components/Pages/Industry/ClientSpeaks";
 import brand_img from "../../assets/img/slider-img/illusion.png";
+import Testimonial from "@/components/Pages/Home/Testimonial";
 
 const Service = () => {
   return (

@@ -71,7 +71,7 @@ const CommonHero = ({
 
   return (
     <section
-      className="h-[900px] w-full"
+      className=" max-h-auto 2xl:max-h-[900px] w-full"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${bgImg})`,
         backgroundRepeat: "no-repeat",
@@ -79,9 +79,9 @@ const CommonHero = ({
         backgroundPosition: "center",
       }}
     >
-      <div className="h-auto w-full py-[205px]  ">
+      <div className="h-auto w-full py-[65px] 2xl:py-[205px]  ">
         <div className="flex flex-col gap-y-20">
-          <div className="flex flex-col gap-y-8 container  ">
+          <div className="flex flex-col gap-y-5 lg:gap-y-8 container  ">
             <Heading Variant="h6" Txt={title} className="small-heading" />
 
             <Heading
@@ -118,30 +118,58 @@ const CommonHero = ({
               </span>
             </div>
           </div>
-          <Marquee gradient={false} speed={50} pauseOnHover>
-            {items.map((item, idx) => {
-              return (
-                <div
-                  style={{
-                    backgroundColor: "rgba(16, 32, 45, 0.60)",
-                  }}
-                  className="h-auto mx-1.5 cursor-pointer w-auto p-2.5 flex flex-row items-center rounded-[8px]  gap-x-4"
-                  key={idx}
-                >
-                  <img
-                    src={item.img}
-                    className="w-[71px] h-10 rounded-[8px]"
-                    alt="not found"
-                  />
-                  <Heading
-                    Variant="h6"
-                    Txt={item.title}
-                    className="text-base font-bold text-metal-white leading-[150%] "
-                  />
-                </div>
-              );
-            })}
-          </Marquee>
+          <div className="flex flex-col gap-y-4 ">
+            <Marquee gradient={false} speed={50} pauseOnHover direction="right">
+              {items.map((item, idx) => {
+                return (
+                  <div
+                    style={{
+                      backgroundColor: "rgba(16, 32, 45, 0.60)",
+                    }}
+                    className="h-auto mx-1.5 cursor-pointer w-auto p-2.5 flex flex-row items-center rounded-[8px]  gap-x-4"
+                    key={idx}
+                  >
+                    <img
+                      src={item.img}
+                      className="w-[71px] h-10 rounded-[8px]"
+                      alt="not found"
+                    />
+                    <Heading
+                      Variant="h6"
+                      Txt={item.title}
+                      className=" text-sm lg:text-base font-bold text-metal-white leading-[150%] "
+                    />
+                  </div>
+                );
+              })}
+            </Marquee>
+            <div className="2xl:hidden">
+              <Marquee gradient={false} speed={50} pauseOnHover>
+                {items.map((item, idx) => {
+                  return (
+                    <div
+                      style={{
+                        backgroundColor: "rgba(16, 32, 45, 0.60)",
+                      }}
+                      className="h-auto mx-1.5 cursor-pointer w-auto p-2.5 flex flex-row items-center rounded-[8px]  gap-x-4"
+                      key={idx}
+                    >
+                      <img
+                        src={item.img}
+                        className="w-[71px] h-10 rounded-[8px]"
+                        alt="not found"
+                      />
+                      <Heading
+                        Variant="h6"
+                        Txt={item.title}
+                        className=" text-sm lg:text-base font-bold text-metal-white leading-[150%] "
+                      />
+                    </div>
+                  );
+                })}
+              </Marquee>
+            </div>
+          </div>
         </div>
       </div>
     </section>

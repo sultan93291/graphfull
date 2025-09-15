@@ -16,14 +16,16 @@ const ImageTagLine = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <section className="h-auto w-auto bg-primary-color py-[112px]">
+    <section className="h-auto w-auto bg-primary-color py-[64px] 2xl:py-[112px]">
       <div
         className={`container items-center flex ${
-          isReverse ? "flex-row-reverse" : "flex-row"
+          isReverse
+            ? " flex-col gap-y-12 xl:flex-row-reverse"
+            : " flex-col gap-y-12  xl:flex-row"
         }  justify-between`}
       >
         <div className="flex  flex-col gap-y-8 max-w-[560px] ">
-          <div className="flex flex-col gap-y-6 ">
+          <div className="flex flex-col gap-y-5 lg:gap-y-6 ">
             <Heading
               Variant="h6"
               Txt={title}
@@ -72,7 +74,7 @@ const ImageTagLine = ({
         </div>
         <img
           src={bgImg}
-          className="w-[616x] h-[640px] rounded-[16px] object-cover cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg  "
+          className=" max-w-[550px] xl:max-w-[640x] max-h-[348px] xl:max-h-[400px] w-full xl:w-auto  2xl:max-h-[640px] rounded-[16px] object-cover cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg  "
           alt="not found"
         />
       </div>
