@@ -66,8 +66,8 @@ const testimonials = [
 
 const Testimonial = () => {
   return (
-    <section className="w-full bg-primary-color  py-20">
-      <div className="container  flex flex-col items-center">
+    <section className="w-full bg-primary-color pb-12 pt-[64px] 2xl:pb-0 2xl:py-20">
+      <div className="  flex flex-col items-center">
         <ScrollStack
           className="max-w-[1040px] w-full"
           stackPosition="28vh"
@@ -85,45 +85,46 @@ const Testimonial = () => {
               return (
                 <ScrollStackItem
                   key={item.id}
-                  itemClassName="bg-[#0C1924] border border-white/5 text-white p-8 sm:p-12 h-[340px] sm:h-[360px] lg:h-[380px]"
+                  itemClassName="bg-[#0C1924] border border-white/5 text-white p-6 lg:p-8 xl:p-12 "
                 >
-                  <div className="h-full flex flex-col justify-between">
-                    <div className="flex flex-col gap-6">
+                  <div className="h-auto flex flex-col justify-between">
+                    <div className="flex flex-col gap-y-[78px] lg:gap-6">
                       <Svg />
-                      <div className="flex flex-col gap-2">
-                        <Heading
-                          Variant="h4"
-                          Txt={item.title}
-                          className="text-[24px] font-bold leading-[130%]"
-                        />
-                        <Paragraph
-                          Txt={item.quote}
-                          className="text-base italic font-normal leading-[150%] text-metal-white"
-                        />
-                      </div>
-
-                      <div className="flex justify-between items-center mt-4">
-                        <div className="flex items-center gap-4">
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-12 h-12 object-cover rounded-[12px]"
+                      <div className="flex flex-col gap-y-8">
+                        <div className="flex flex-col gap-y-6 lg:gap-2">
+                          <Heading
+                            Variant="h4"
+                            Txt={item.title}
+                            className="text-2xl font-bold leading-[130%]"
                           />
-                          <div className="flex flex-col gap-1">
-                            <Paragraph
-                              Txt={item.name}
-                              className="text-sm font-semibold text-metal-white"
-                            />
-                            <Paragraph
-                              Txt={item.position}
-                              className="text-sm font-normal text-metal-gray"
-                            />
-                          </div>
+                          <Paragraph
+                            Txt={item.quote}
+                            className="text-base italic font-normal leading-[150%] text-metal-white"
+                          />
                         </div>
-                        <button className="flex items-center gap-2 text-xs uppercase font-extrabold text-white hover:text-primary-green transition-all duration-300 cursor-pointer ">
-                          <span>See Project</span>
-                          <ArrowLeft />
-                        </button>
+                        <div className="flex justify-between items-center ">
+                          <div className="flex items-center gap-4">
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-12 h-12 object-cover rounded-[12px]"
+                            />
+                            <div className="flex flex-col gap-1">
+                              <Paragraph
+                                Txt={item.name}
+                                className="text-sm font-semibold text-metal-white"
+                              />
+                              <Paragraph
+                                Txt={item.position}
+                                className="text-sm font-normal text-metal-gray"
+                              />
+                            </div>
+                          </div>
+                          <button className=" hidden lg:flex items-center gap-2 text-xs uppercase font-extrabold text-white hover:text-primary-green transition-all duration-300 cursor-pointer ">
+                            <span>See Project</span>
+                            <ArrowLeft />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

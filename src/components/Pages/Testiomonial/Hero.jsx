@@ -7,9 +7,9 @@ import Testimonial from "../../CommonComponents/Testimonial";
 const Hero = () => {
   return (
     <section className="h-auto bg-primary-color  w-auto  ">
-      <div className=" flex flex-col  gap-y-20  ">
+      <div className=" flex flex-col py-[64px]  2xl:gap-y-20  ">
         <div className=" grid-background   ">
-          <div className="  flex flex-col py-[64px] gap-y-[56px] container items-center  ">
+          <div className="  flex flex-col py-[64px] gap-y-12 lg:gap-y-[56px] container items-center  ">
             <div className="flex flex-col gap-y-8 items-center ">
               <Heading
                 Variant={"h6"}
