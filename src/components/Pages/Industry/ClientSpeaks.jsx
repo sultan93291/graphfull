@@ -37,7 +37,7 @@ const ClientSpeaks = ({
   return (
     <section className="h-auto w-auto bg-primary-color py-[64px] 2xl:py-[112px]">
       <div className="container">
-        <div className="flex flex-col gap-y-12 xl:flex-row gap-x-10">
+        <div className="flex flex-col gap-y-12 xl:flex-row justify-between">
           <div className="flex flex-col gap-y-8 max-w-[703px]">
             {/* Title remains as normal text */}
             <Heading

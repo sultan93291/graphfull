@@ -11,6 +11,7 @@ import marketing from "../assets/img/navbar/marketing.jpeg";
 import Heading from "../components/Heading/Heading";
 import Paragraph from "../components/Paragraph/Paragraph";
 
+
 const navLinks = [
   { label: "work", redirectLink: "/work" },
   { label: "about", redirectLink: "/about-us" },
@@ -192,7 +193,7 @@ const Navbar = () => {
 
   const handleMouseLeaveNav = () => {
     clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => setActiveItem(null), 80);
+    timeoutRef.current = setTimeout(() => setActiveItem(null), 120);
   };
 
   const handleMouseEnterDropdown = () => {
@@ -201,7 +202,7 @@ const Navbar = () => {
 
   const handleMouseLeaveDropdown = () => {
     clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => setActiveItem(null), 80);
+    timeoutRef.current = setTimeout(() => setActiveItem(null), 120);
   };
 
   // GSAP animation
@@ -426,7 +427,10 @@ const Navbar = () => {
               ))}
             </div>
             <Button
-              className="flex flex-row gap-x-3 text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white"
+              onClick={() => {
+                navigate("service")
+              }}
+              className="flex cursor-pointer flex-row gap-x-3 text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white"
               btnTxt={
                 <>
                   See all <ArrowLeft />

@@ -55,19 +55,16 @@ const Industry = () => {
       const container = imagesRef.current;
       if (!container) return;
 
-      // Only apply for large screens
-      if (window.innerWidth < 1024) return;
+      const containerHeight = container.scrollHeight - container.clientHeight;
+      const scrollTop = container.scrollTop;
 
-      const maxScroll = container.scrollHeight - container.clientHeight;
-      const atTop = container.scrollTop <= 0 && e.deltaY < 0;
-      const atBottom = container.scrollTop >= maxScroll && e.deltaY > 0;
-
-      // Scroll container if possible
-      if (!atTop && !atBottom) {
-        e.preventDefault(); // prevent page scroll
+      // If not at top or bottom, prevent page scroll and scroll the container
+      if (scrollTop > 0 && scrollTop < containerHeight) {
+        e.preventDefault();
         container.scrollTop += e.deltaY;
       }
-      // If atTop or atBottom, allow page to scroll naturally
+
+      // If at the top or bottom, allow page scroll
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });

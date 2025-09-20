@@ -2,11 +2,14 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import Heading from "../Heading/Heading";
 import { ArrowSvg } from "../../SvgContainer/SvgContainer";
+import { useNavigate } from "react-router-dom";
+
 
 const ProjectCard = ({ item }) => {
   const containerRef = useRef(null);
   const descRef = useRef(null);
   const btnRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
@@ -101,8 +104,11 @@ const ProjectCard = ({ item }) => {
 
         {/* Button - visible by default, hidden on hover */}
         <button
+          onClick={() => {
+            navigate("/projects")
+          }}
           ref={btnRef}
-          className="text-xs itec uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+          className="text-xs cursor-pointer itec uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
           style={{
             transform: "translateY(0px)",
             opacity: 1,

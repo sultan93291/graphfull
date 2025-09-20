@@ -105,10 +105,10 @@ const Footer = () => {
             <img src={logo} alt="site logo" className="w-[127px] h-[25px]" />
           </Link>
           <ul className="flex flex-row gap-x-3 items-center">
-            <li className="flex cursor-pointer items-center hover:p-4 ease-in-out duration-300 justify-center p-2 xl:p-4 rounded-[8px] bg-primary-green animate-pulse-custom">
+            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-green hover:bg-primary-light-green hover:scale-110 hover:shadow-lg transition-transform ease-in-out duration-300 animate-pulse-custom">
               <InstaSvg />
             </li>
-            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-yellow animate-pulse-custom">
+            <li className="flex cursor-pointer items-center justify-center p-2 xl:p-4 rounded-[8px] bg-primary-yellow hover:bg-primary-light-yellow hover:scale-110 hover:shadow-lg transition-transform ease-in-out duration-300 animate-pulse-custom">
               <LinkdeinSvg />
             </li>
           </ul>

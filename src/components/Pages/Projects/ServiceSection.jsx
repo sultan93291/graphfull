@@ -108,7 +108,7 @@ const ServiceSection = () => {
               <Heading
                 Variant="h6"
                 Txt={service}
-                className="text-lg xl:text-xl group-hover:text-[32px] xl:group-hover:text-[48px] ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-white xl:text-primary-gray hover:text-primary-white"
+                className="text-lg xl:text-xl group-hover:text-[32px] xl:group-hover:text-[48px] ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-white xl:text-primary-gray group-hover:text-primary-white"
               />
               <Heading Variant="h4">{service}</Heading>
               <div className="h-[22px] w-[22px] group-hover:w-10 group-hover:h-10 lg:group-hover:w-16 lg:group-hover:h-16 xl:group-hover:w-20 xl:group-hover:h-20 rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow"></div>

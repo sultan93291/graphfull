@@ -33,7 +33,7 @@
   /* Font family */
   /* add your custom fonts here */
   --font-family-nunito: "Nunito", sans-serif;
-  --font-filson : "filson-soft", sans-serif;
+  --font-filson: "filson-soft", sans-serif;
 
   /* Breakpoints */
   /* customize your breakpoints if needed */
@@ -59,6 +59,11 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* .images-container {
+    scroll-behavior: smooth;
+    overflow-y: auto; 
+  } */
 
   .small-heading {
     @apply text-xs uppercase text-[#C2CFDC] font-extrabold leading-[150%] tracking-[1.92px];
