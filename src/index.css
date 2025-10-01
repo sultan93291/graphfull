@@ -21,6 +21,7 @@
   --color-secondary-off-gray: #9fadb926;
   --color-extra-blue: #10202de6;
   --color-secondary-blue: #108cff;
+  ---color-rgba-gray: rgba(159, 173, 185, 0.15);
 
   /* Container */
   /* customize your container from here */
@@ -70,7 +71,7 @@
   }
 
   .glass-effect {
-    background: rgba(6, 12, 18, 0.756);
+    background: rgba(6, 12, 18, 0.80);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }

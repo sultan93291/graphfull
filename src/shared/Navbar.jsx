@@ -336,12 +336,13 @@ const Navbar = () => {
           ref={dropdownRef}
           onMouseEnter={handleMouseEnterDropdown}
           onMouseLeave={handleMouseLeaveDropdown}
-          className="dropdown-wrapper absolute top-full left-0 w-full glass-effect border-b-[0.2px] border-primary-light-white shadow-md flex gap-x-[60px] 3xl:gap-x-[120px]"
+          className="dropdown-wrapper absolute top-full left-0 w-full glass-effect   shadow-md flex gap-x-[60px] 3xl:gap-x-[120px]"
           style={{
             overflow: "hidden",
             height: 0,
             opacity: 0,
             pointerEvents: "none",
+            borderBottom: "0.1px solid #9fadb9",
           }}
         >
           <div className="flex flex-row w-auto p-6 3xl:p-8 gap-x-12 3xl:gap-x-24 mx-auto">
@@ -356,7 +357,7 @@ const Navbar = () => {
                             onClick={() => setActiveItem(null)}
                             className="flex flex-row gap-x-2 cursor-pointer"
                           >
-                            <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300"></div>
+                            <div className="w-5 h-5 rounded-[4px] bg-[#9FADB926] group-hover:bg-[#00DF82] ease-in-out duration-300"></div>
                             <div className="flex flex-col gap-y-1">
                               <Heading
                                 Variant={"h3"}
@@ -384,7 +385,7 @@ const Navbar = () => {
                             onClick={() => setActiveItem(null)}
                             className="flex flex-row gap-x-2 cursor-pointer"
                           >
-                            <div className="w-5 h-5 rounded-[4px] bg-primary-light-white group-hover:bg-primary-green ease-in-out duration-300"></div>
+                            <div className="w-5 h-5 rounded-[4px] bg-[#9FADB926] group-hover:bg-[#00DF82] ease-in-out duration-300"></div>
                             <div className="flex flex-col gap-y-1">
                               <Heading
                                 Variant={"h3"}
@@ -428,7 +429,7 @@ const Navbar = () => {
             </div>
             <Button
               onClick={() => {
-                navigate("service")
+                navigate("service");
               }}
               className="flex cursor-pointer flex-row gap-x-3 text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white"
               btnTxt={
