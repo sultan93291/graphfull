@@ -22,6 +22,7 @@
   --color-extra-blue: #10202de6;
   --color-secondary-blue: #108cff;
   ---color-rgba-gray: rgba(159, 173, 185, 0.15);
+  --color-light-gray:rgba(159, 173, 185, 0.20);
 
   /* Container */
   /* customize your container from here */
@@ -75,10 +76,7 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
-  /* .dropdown-wrapper {
-    padding: 40px 96px;
-    overflow: hidden;
-  } */
+
 
   @keyframes scrollDown {
     0% {

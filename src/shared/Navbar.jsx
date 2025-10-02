@@ -342,7 +342,7 @@ const Navbar = () => {
             height: 0,
             opacity: 0,
             pointerEvents: "none",
-            borderBottom: "0.1px solid #9fadb9",
+            borderBottom: "1px solid rgba(159, 173, 185, 0.20)",
           }}
         >
           <div className="flex flex-row w-auto p-6 3xl:p-8 gap-x-12 3xl:gap-x-24 mx-auto">

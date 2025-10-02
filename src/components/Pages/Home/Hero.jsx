@@ -159,21 +159,21 @@ const Hero = () => {
   return (
     <section className="flex py-10 2xl:py-0 flex-col 2xl:flex-row gap-y-10 justify-between 2xl:items-center container">
       <div className="flex flex-col gap-y-8">
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-6 items-center md:items-start">
           <Heading
             Variant="h3"
             Txt="Design that makes sense, and makes moves"
-            className="text-primary-white font-filson md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[496px]"
+            className="text-primary-white font-filson md:text-[32px] text-center md:text-left  text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] font-bold leading-[120%] max-w-[496px]"
           />
           <Paragraph
             Txt="Senior team delivering thoughtful design with clarity and purpose"
-            className="text-primary-light-white text-sm font-medium leading-[150%]"
+            className="text-primary-light-white text-sm font-medium leading-[150%] text-center md:text-left max-w-[279px] xl:max-w-full "
           />
         </div>
         <div
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
-          className={`flex items-center font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
+          className={` items-center font-bold hidden md:flex justify-start cursor-pointer p-2 rounded-[8px] bg-primary-yellow overflow-hidden transition-all duration-300 ${
             isHovering ? "w-36" : "w-10"
           }`}
         >

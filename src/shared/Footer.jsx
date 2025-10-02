@@ -90,7 +90,7 @@ const Footer = () => {
                 return (
                   <Link
                     to={item?.redirectLink}
-                    className="text-sm text-primary-light-white font-medium leading-[150%] ease-in-out duration-300 hover:text-primary-yellow "
+                    className="text-sm text-primary-light-white font-medium leading-[150%] ease-in-out duration-300 hover:text-primary-white "
                     key={idx}
                   >
                     {item?.label}
