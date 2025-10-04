@@ -116,7 +116,11 @@ const Insights = () => {
       <div className="container flex flex-col 2xl:flex-row gap-10 xl:gap-y-14 items-center  justify-between">
         {/* Sticky Heading Section */}
         <div className="flex flex-col gap-y-3 xl:gap-y-4 2xl:sticky xl:top-[112px] items-center 2xl:items-start  2xl:self-start">
-          <Heading Variant="h6" Txt="insights" className="small-heading" />
+          <Heading
+            Variant="h6"
+            Txt="insights"
+            className="small-heading !text-[#62707D] "
+          />
           <div className="flex flex-col gap-y-3 2xl:gap-y-6">
             <Heading
               Variant="h3"
@@ -130,7 +134,6 @@ const Insights = () => {
           </div>
         </div>
 
-       
         <div className="relative my-8 xl:mt-0 pl-5 xl:pl-10 w-full xl:w-[808px]">
           {/* Vertical line always behind items */}
           <div className="absolute left-0 ml-5 xl:ml-10 top-0 w-[3px] h-full bg-gray-400" />

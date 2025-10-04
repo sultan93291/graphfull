@@ -102,7 +102,11 @@ const FeaturedProject = () => {
       <div className="container flex flex-col gap-y-10 xl:gap-y-12 2xl:gap-y-20">
         {/* Titles */}
         <div className="flex flex-col gap-y-3 xl:gap-y-6">
-          <Heading Variant="h6" Txt="Projects" className={"small-heading"} />
+          <Heading
+            Variant="h6"
+            Txt="Projects"
+            className={"small-heading !text-[#62707D] "}
+          />
           <Heading
             Variant="h3"
             Txt="take a look"

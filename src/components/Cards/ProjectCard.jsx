@@ -4,7 +4,6 @@ import Heading from "../Heading/Heading";
 import { ArrowSvg } from "../../SvgContainer/SvgContainer";
 import { useNavigate } from "react-router-dom";
 
-
 const ProjectCard = ({ item }) => {
   const containerRef = useRef(null);
   const descRef = useRef(null);
@@ -14,35 +13,47 @@ const ProjectCard = ({ item }) => {
   const handleMouseEnter = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
 
-    // Scale card, increase width, and change background
+    // Animate card background + scale
     gsap.to(containerRef.current, {
       scale: 1.05,
-      width: "+=20", 
-      duration: 0.5,
-      ease: "power2.out",
+      width: "+=20",
+      duration: 0.6,
+      ease: "power3.out",
       backgroundColor: item.colorCode,
       backgroundImage: "none",
     });
 
-    // Hide description and button
-    gsap.to([descRef.current, btnRef.current], {
+    // Hide paragraph smoothly (no space taken)
+    gsap.to(descRef.current, {
+      height: 0,
       opacity: 0,
       y: 20,
-      pointerEvents: "none",
       duration: 0.5,
-      ease: "power2.out",
+      ease: "power3.inOut",
+      onStart: () => {
+        descRef.current.style.overflow = "hidden";
+      },
+    });
+
+    // Hide button smoothly
+    gsap.to(btnRef.current, {
+      opacity: 0,
+      y: 50,
+      pointerEvents: "none",
+      duration: 0.6,
+      ease: "power3.inOut",
     });
   };
 
   const handleMouseLeave = () => {
     gsap.killTweensOf([containerRef.current, descRef.current, btnRef.current]);
 
-    // Reset card scale, width, and background
+    // Reset card background + scale
     gsap.to(containerRef.current, {
       scale: 1,
       width: "-=20",
-      duration: 0.5,
-      ease: "power2.in",
+      duration: 0.6,
+      ease: "power3.inOut",
       backgroundImage: `linear-gradient(180deg, rgba(12, 25, 36, 0.10) 0%, rgba(12, 25, 36, 0.70) 50%), url(${item.bgImg})`,
       backgroundColor: "transparent",
       backgroundRepeat: "no-repeat",
@@ -50,14 +61,30 @@ const ProjectCard = ({ item }) => {
       backgroundPosition: "center",
     });
 
-    // Show description and button
-    gsap.to([descRef.current, btnRef.current], {
+    // Show paragraph again smoothly
+    gsap.to(descRef.current, {
+      height: "auto",
       opacity: 1,
       y: 0,
-      pointerEvents: "auto",
-      duration: 0.7,
-      ease: "power2.out",
+      duration: 0.6,
+      ease: "power3.out",
+      onStart: () => {
+        descRef.current.style.overflow = "visible";
+      },
     });
+
+    // Show button smoothly
+    gsap.fromTo(
+      btnRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        pointerEvents: "auto",
+        duration: 0.8,
+        ease: "power3.out",
+      }
+    );
   };
 
   return (
@@ -89,26 +116,29 @@ const ProjectCard = ({ item }) => {
           />
         </div>
 
-        {/* Description - visible by default, hidden on hover */}
-        <Heading
+        {/* Description - visible by default, collapsed on hover */}
+        <div
           ref={descRef}
-          Txt={item.descreption}
-          className="text-base group-hover:hidden ease-in-out duration-300 text-primary-white font-normal leading-[150%] max-w-[352px]"
           style={{
             transform: "translateY(0px)",
             opacity: 1,
-            pointerEvents: "auto",
+            height: "auto",
+            overflow: "visible",
           }}
-          Variant="h5"
-        />
+        >
+          <Heading
+            Txt={item.descreption}
+            className="text-base text-primary-white font-normal leading-[150%] max-w-[352px]"
+            Variant="h5"
+          />
+        </div>
 
-        {/* Button - visible by default, hidden on hover */}
+        {/* Button */}
         <button
           onClick={() => {
-            navigate("/projects")
+            navigate("/projects");
           }}
-          ref={btnRef}
-          className="text-xs cursor-pointer itec uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+          className="text-xs cursor-pointer uppercase group-hover:text-white text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
           style={{
             transform: "translateY(0px)",
             opacity: 1,

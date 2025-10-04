@@ -44,12 +44,16 @@ const ProjectSection = () => {
   return (
     <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px] container flex flex-col gap-y-20 items-center  ">
       <div className="flex flex-col gap-y-4 items-center ">
-        <Heading Variant={"h6"} Txt={"PROJECTS"} className={"small-heading "} />
+        <Heading
+          Variant={"h6"}
+          Txt={"PROJECTS"}
+          className={"small-heading !text-[#62707D] "}
+        />
         <Heading
           Variant={"h3"}
           Txt={"From “we need something” to “this is great”"}
           className={
-            "md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px]  3xl:text-[40px] capitalize text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
+            "md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px]  3xl:text-[40px]  text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[560px] text-center "
           }
         />
       </div>

@@ -2,113 +2,16 @@ import React, { useRef } from "react";
 import Heading from "../../Heading/Heading";
 import Paragraph from "../../Paragraph/Paragraph";
 import CountUp from "react-countup";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import animationData from "../../../assets/UJ23XW8UR3.lottie";
 
 const OverviewArr = [
   { title: "Brands we worked with", value: 170, suffix: "+" },
   { title: "Projects we conducted", value: 240, suffix: "+" },
-  { title: null, value: null, slug: true },
   { title: "Deliverables last year", value: 9000, suffix: "+" },
   { title: "In-house work", value: 100, suffix: "%" },
   { title: "LinkedIn recommendations", value: 15, suffix: "+" },
-];
-
-const getRandomX = () => (Math.random() - 0.5) * 300;
-
-const elements = [
-  {
-    type: "rect",
-    props: {
-      x: "391.878",
-      y: "197.868",
-      width: "40.1627",
-      height: "41.1423",
-      rx: "8",
-      transform: "rotate(-180 391.878 197.868)",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "rect",
-    props: {
-      x: "126",
-      y: "111",
-      width: "39",
-      height: "40",
-      rx: "8",
-      transform: "rotate(-180 126 111)",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "rect",
-    props: {
-      x: "39.2289",
-      y: "197.868",
-      width: "38.2036",
-      height: "38.2036",
-      rx: "8",
-      transform: "rotate(-180 39.2289 197.868)",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "rect",
-    props: {
-      x: "259.634",
-      y: "153.788",
-      width: "38.2036",
-      height: "38.2036",
-      rx: "8",
-      transform: "rotate(-180 259.634 153.788)",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "rect",
-    props: {
-      width: "82.2846",
-      height: "81.3051",
-      rx: "8",
-      transform: "matrix(4.37114e-08 -1 -1 -4.37114e-08 259.634 241.95)",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "path",
-    props: {
-      d: "M18.6015 241.987C10.9236 241.987 7.0846 241.987 4.37593 240.061C3.42895 239.387 2.60133 238.559 1.92769 237.612C0.000968933 234.904 0.000930786 231.065 0.000930786 223.387C0.000930786 215.708 0.000930786 211.869 1.92769 209.16C2.60132 208.213 3.42897 207.386 4.37593 206.712C7.0846 204.785 10.9236 204.785 18.6015 204.785H43.3427C44.0615 204.785 44.6425 204.202 44.6425 203.483V178.558C44.6425 170.702 44.6421 166.774 46.6543 164.027C47.2832 163.169 48.0409 162.412 48.8994 161.783C51.6458 159.771 55.5739 159.771 63.4296 159.771C71.2855 159.771 75.2135 159.771 77.9599 161.783C78.8183 162.412 79.5751 163.169 80.2041 164.027C82.2163 166.774 82.2168 170.702 82.2168 178.558V203.483C82.2168 204.202 82.7978 204.785 83.5166 204.785H108.259C115.937 204.785 119.776 204.785 122.484 206.712C123.431 207.386 124.259 208.213 124.933 209.16C126.859 211.869 126.859 215.708 126.859 223.387C126.859 231.065 126.859 234.904 124.933 237.612C124.259 238.559 123.431 239.387 122.484 240.061C119.776 241.987 115.937 241.987 108.259 241.987H18.6015Z",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "path",
-    props: {
-      d: "M43.8822 89.4453C43.8822 81.7674 43.8822 77.9284 45.8089 75.2197C46.4826 74.2727 47.3102 73.4451 48.2572 72.7715C50.9658 70.8449 54.8048 70.8447 62.4828 70.8447C70.1607 70.8447 73.9997 70.8449 76.7083 72.7715C77.6553 73.4451 78.4829 74.2727 79.1566 75.2197C81.0833 77.9284 81.0833 81.7674 81.0833 89.4453L81.0833 99.8584C81.0833 107.401 81.0833 111.172 83.4265 113.515C85.7696 115.858 89.5409 115.858 97.0833 115.858L107.497 115.858C115.176 115.858 119.015 115.858 121.724 117.785C122.671 118.459 123.499 119.286 124.172 120.233C126.099 122.942 126.099 126.782 126.099 134.46C126.099 136.88 126.099 138.919 126.038 140.661C126.099 142.425 126.099 144.484 126.099 146.922L126.099 178.916C126.099 186.772 126.099 190.7 124.086 193.446C123.457 194.305 122.701 195.061 121.842 195.69C119.096 197.703 115.168 197.703 107.312 197.703C99.4558 197.703 95.528 197.703 92.7816 195.69C91.9232 195.061 91.1664 194.305 90.5374 193.446C88.5252 190.7 88.5247 186.772 88.5247 178.916L88.5247 169.061C88.5247 161.518 88.5247 157.747 86.1816 155.404C83.8385 153.061 80.0672 153.061 72.5247 153.061L62.4837 153.061C54.8055 153.061 50.9659 153.061 48.2572 151.134C47.3102 150.46 46.4825 149.633 45.8089 148.686C43.8824 145.977 43.8822 142.138 43.8822 134.46C43.8822 131.251 43.8841 128.713 44.0247 126.647C43.8841 124.582 43.8822 122.044 43.8822 118.835L43.8822 89.4453Z",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "path",
-    props: {
-      d: "M263.552 89.1235C263.552 81.4458 263.552 77.6066 265.479 74.8979C266.152 73.9509 266.98 73.1224 267.927 72.4487C270.636 70.522 274.475 70.522 282.153 70.522C289.831 70.522 293.67 70.5223 296.379 72.4487C297.326 73.1224 298.154 73.9509 298.827 74.8979C300.754 77.6066 300.754 81.4455 300.754 89.1235L300.754 99.5366C300.754 107.079 300.754 110.85 303.097 113.193C305.44 115.537 309.212 115.537 316.754 115.537L327.168 115.537C334.846 115.537 338.685 115.537 341.394 117.463C342.341 118.137 343.168 118.965 343.842 119.912C345.769 122.62 345.769 126.459 345.769 134.137C345.769 136.558 345.769 138.597 345.708 140.339C345.768 142.103 345.769 144.162 345.769 146.6L345.769 178.594C345.769 186.45 345.769 190.378 343.757 193.125C343.128 193.983 342.371 194.74 341.513 195.369C338.766 197.381 334.838 197.381 326.982 197.381C319.126 197.381 315.198 197.381 312.451 195.369C311.593 194.74 310.836 193.983 310.207 193.125C308.195 190.378 308.195 186.45 308.195 178.594L308.195 168.739C308.195 161.196 308.195 157.425 305.851 155.082C303.508 152.739 299.737 152.739 292.195 152.739L282.154 152.739C274.475 152.739 270.636 152.739 267.927 150.812C266.98 150.138 266.152 149.311 265.479 148.364C263.552 145.655 263.552 141.815 263.552 134.137C263.552 130.93 263.555 128.393 263.695 126.328C263.555 124.262 263.552 121.723 263.552 118.513L263.552 89.1235Z",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "path",
-    props: {
-      d: "M215.485 134.113C215.485 141.791 215.485 145.631 213.558 148.339C212.884 149.286 212.057 150.114 211.11 150.788C208.401 152.714 204.562 152.714 196.884 152.714L186.843 152.714C179.3 152.714 175.529 152.714 173.186 155.058C170.843 157.401 170.843 161.172 170.843 168.714L170.843 223.212C170.843 231.068 170.842 234.996 168.83 237.743C168.201 238.601 167.444 239.358 166.586 239.987C163.84 241.999 159.912 242 152.056 242C144.2 242 140.272 241.999 137.526 239.987C136.667 239.358 135.91 238.601 135.281 237.743C133.269 234.996 133.269 231.068 133.269 223.212L133.269 145.832C133.269 143.568 133.271 141.63 133.32 139.953C133.271 138.291 133.269 136.368 133.269 134.113C133.269 126.435 133.269 122.596 135.195 119.887C135.869 118.94 136.697 118.113 137.644 117.439C140.352 115.512 144.191 115.512 151.869 115.512L196.884 115.512C204.562 115.512 208.401 115.512 211.11 117.439C212.057 118.113 212.884 118.94 213.558 119.887C215.485 122.596 215.485 126.435 215.485 134.113Z",
-      fill: "#0C1924",
-    },
-  },
-  {
-    type: "path",
-    props: {
-      d: "M284.113 159.665C291.791 159.665 295.63 159.665 298.339 161.592C299.286 162.265 300.114 163.093 300.787 164.04C302.714 166.749 302.714 170.588 302.714 178.267V188.308C302.714 195.85 302.714 199.621 305.057 201.964C307.4 204.308 311.171 204.308 318.714 204.308H373.212C381.068 204.308 384.996 204.308 387.742 206.32C388.601 206.949 389.357 207.706 389.986 208.564C391.999 211.311 391.999 215.239 391.999 223.095C391.999 230.951 391.999 234.879 389.986 237.625C389.357 238.483 388.601 239.24 387.742 239.869C384.996 241.881 381.068 241.882 373.212 241.882H295.832C293.566 241.882 291.626 241.879 289.947 241.831C288.287 241.88 286.366 241.882 284.113 241.882C276.435 241.882 272.595 241.882 269.887 239.955C268.94 239.281 268.112 238.454 267.439 237.507C265.512 234.798 265.512 230.959 265.512 223.281V178.267C265.512 170.588 265.512 166.749 267.439 164.04C268.112 163.093 268.94 162.265 269.887 161.592C272.595 159.665 276.435 159.665 284.113 159.665Z",
-      fill: "#0C1924",
-    },
-  },
 ];
 
 const Overview = () => {
@@ -116,81 +19,85 @@ const Overview = () => {
   const isInView = useInView(svgRef, { once: true });
 
   return (
-    <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px] ">
+    <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]">
       <div className="flex flex-col-reverse gap-y-12 xl:flex-row container gap-x-20 items-center">
+        {/* Grid of stats + Lottie */}
         <div className="grid grid-cols-2 gap-4 w-full 2xl:max-w-[820px]">
-          {OverviewArr.map((Overview, idx) => {
-            if (!Overview.slug) {
-              return (
-                <div
-                  key={idx}
-                  className="h-auto gap-y-2.5 w-full max-w-[392px] 3xl:min-w-[392px] p-6 rounded-[16px] bg-extra-blue shadow-md flex flex-col 2xl:gap-y-[56px] items-center 2xl:items-start justify-center "
-                >
-                  <Heading
-                    Variant="h6"
-                    Txt={Overview?.title}
-                    className={
-                      "text-sm capitalize text-center max-w-[120px]  2xl:text-left   text-primary-light-white font-[600] leading-[150%]  "
-                    }
-                  />
-                  <div className="flex items-end  w-full relative justify-end">
-                    <Paragraph
-                      className=" text-[32px] items-baseline-start 2xl:text-[80px] font-bold leading-[120%] text-primary-white tracking-[-0.8px]"
-                      Txt={
-                        <CountUp
-                          end={Overview?.value}
-                          duration={2.5}
-                          separator=","
-                          suffix={Overview?.suffix}
-                          enableScrollSpy
-                          scrollSpyOnce
-                        />
-                      }
+          {OverviewArr.map((Overview, idx) => (
+            <div
+              key={idx}
+              className={`w-full 
+                aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] 
+                p-6 rounded-[16px] bg-extra-blue shadow-md flex flex-col 
+                gap-y-2.5 2xl:gap-y-[56px] items-center sm:items-start justify-center
+                ${
+                  idx == OverviewArr.length - 1 &&
+                  `w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] 
+   col-span-2 sm:col-span-1 items-center justify-center flex 
+   max-h-[120px] sm:max-h-[200px] md:max-h-[320px]`
+                }
+`}
+            >
+              <Heading
+                Variant="h6"
+                Txt={Overview?.title}
+                className="text-sm capitalize text-center sm:text-left max-w-[80px] sm:max-w-[160px] 
+                md:text-left text-primary-light-white font-[600] leading-[150%]  "
+              />
+              <div
+                className={`flex items-end w-full relative ${
+                  idx == OverviewArr.length - 1
+                    ? "justify-center sm:justify-end"
+                    : "justify-end"
+                } `}
+              >
+                <Paragraph
+                  className="text-[32px] lg:text-[48px] 2xl:text-[80px] font-filson font-bold leading-[120%] 
+                  text-primary-white tracking-[-0.8px]"
+                  Txt={
+                    <CountUp
+                      end={Overview?.value}
+                      duration={2.5}
+                      separator=","
+                      suffix={Overview?.suffix}
+                      enableScrollSpy
+                      scrollSpyOnce
                     />
-                  </div>
-                </div>
-              );
-            } else {
-              return (
-                <svg
-                  ref={svgRef}
-                  key={idx}
-                  viewBox="0 0 392 242"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid meet"
-                  className="h-auto w-auto max-w-[392px]"
-                >
-                  {isInView &&
-                    elements.reverse().map((el, index) => (
-                      <motion.g
-                        key={index}
-                        initial={{ y: -400, x: getRandomX(), opacity: 0 }}
-                        animate={{ y: 0, x: 0, opacity: 1 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 70,
-                          damping: 18,
-                          mass: 1.2,
-                          delay: Math.random() * 2,
-                        }}
-                      >
-                        {React.createElement(el.type, { ...el.props })}
-                      </motion.g>
-                    ))}
-                </svg>
-              );
-            }
-          })}
+                  }
+                />
+              </div>
+            </div>
+          ))}
+
+          {/* Lottie → always last */}
+          <div
+            className="
+              w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] 
+              col-span-2 sm:col-span-1 order-last
+            "
+          >
+            <DotLottieReact
+              className="w-full h-full"
+              src={animationData}
+              loop
+              autoplay
+              renderConfig={{ autoResize: true }}
+              layout={{ fit: "cover", align: [0.5, 0.5] }}
+            />
+          </div>
         </div>
 
+        {/* Right side text */}
         <div className="flex flex-col gap-y-3 lg:gap-y-6 items-center max-w-[384px]">
           <Heading
-            className=" text-2xl text-center xl:text-left 2xl:text-[32px] font-medium leading-[120%] tracking-[-0.32px] text-primary-white"
+            className="text-2xl text-center xl:text-left 2xl:text-[32px] font-filson font-medium 
+            leading-[120%] tracking-[-0.32px] text-primary-white"
             Variant="h4"
             Txt={"Numbers don’t define us. But they do say a lot."}
           />
           <Paragraph
-            className="text-sm text-center xl:text-left font-medium leading-[150%] text-primary-light-white tracking-[-0.32px]"
+            className="text-sm text-center xl:text-left font-medium leading-[150%] 
+            text-primary-light-white tracking-[-0.32px]"
             Txt={
               "Every project has a face, a brand, and a goal. This is the work we show up for, and we’ve done it more than once."
             }
