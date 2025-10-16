@@ -7,12 +7,12 @@ import Hero from "../components/Pages/AboutUs/Hero";
 
 const AboutUs = () => {
   return (
-    <>
+    <section className=" bg-primary-color">
       <Hero/>
       <BrandSection isBgColr={false} />
       <Portfolio isBtn={true} />
       <Brands bgImg={brand_img} />
-    </>
+    </section>
   );
 };
 
