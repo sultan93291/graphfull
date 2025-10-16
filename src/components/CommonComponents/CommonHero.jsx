@@ -80,9 +80,9 @@ const CommonHero = ({
       }}
     >
       <div className="h-auto w-full py-[65px] 2xl:py-[205px]  ">
-        <div className="flex flex-col gap-y-20">
+        <div className="flex flex-col gap-y-[156px] md:gap-y-20">
           <div className="flex flex-col gap-y-5 lg:gap-y-8 container  ">
-            <Heading Variant="h6" Txt={title} className="small-heading" />
+            <Heading Variant="h6" Txt={title} className="small-heading !text-primary-light-white " />
 
             <Heading
               Variant="h3"
@@ -125,8 +125,9 @@ const CommonHero = ({
                   <div
                     style={{
                       backgroundColor: "rgba(16, 32, 45, 0.60)",
+                      backdropFilter: "blur(25px)", 
                     }}
-                    className="h-auto mx-1.5 cursor-pointer w-auto p-2.5 flex flex-row items-center rounded-[8px]  gap-x-4"
+                    className="h-auto mx-1.5 cursor-pointer w-auto p-2.5 flex flex-row items-center rounded-[8px] gap-x-4"
                     key={idx}
                   >
                     <img
@@ -137,7 +138,7 @@ const CommonHero = ({
                     <Heading
                       Variant="h6"
                       Txt={item.title}
-                      className=" text-sm lg:text-base font-bold text-metal-white leading-[150%] "
+                      className="text-sm lg:text-base font-bold text-metal-white leading-[150%]"
                     />
                   </div>
                 );

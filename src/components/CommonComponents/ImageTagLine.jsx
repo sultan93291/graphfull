@@ -16,30 +16,30 @@ const ImageTagLine = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <section className="h-auto w-auto bg-primary-color py-[64px] 2xl:py-[112px]">
+    <section className="h-auto w-full bg-primary-black py-[64px] 2xl:py-[112px]">
       <div
-        className={`container items-center flex ${
+        className={`container h-auto w-full   gap-x-20 gap-y-12 flex ${
           isReverse
-            ? " flex-col gap-y-12 xl:flex-row-reverse"
-            : " flex-col gap-y-12  xl:flex-row"
-        }  justify-between`}
+            ? "flex-col items-center xl:flex-row-reverse"
+            : "flex-col items-center xl:flex-row"
+        }`}
       >
-        <div className="flex  flex-col gap-y-8 max-w-[560px] ">
-          <div className="flex flex-col gap-y-5 lg:gap-y-6 ">
+        <div className="flex flex-col gap-y-8 w-full xl:w-1/2">
+          <div className="flex flex-col gap-y-5 lg:gap-y-6">
             <Heading
               Variant="h6"
               Txt={title}
-              className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+              className="text-xs uppercase text-metal-gray font-extrabold leading-[150%] tracking-[1.92px] max-w-[560px]"
             />
             <div className="flex flex-col gap-y-4 ">
               <Heading
                 Variant="h3"
                 Txt={subTitle}
-                className="text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[48px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
+                className="text-[32px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[48px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
               />
               <Paragraph
                 Txt={short_descreption}
-                className="text-xl text-metal-white font-normal leading-[140%] tracking-[-0.02px] "
+                className="text-xl text-metal-white font-normal leading-[140%] tracking-[-0.02px]"
               />
               <Paragraph
                 Txt={descreption}
@@ -74,7 +74,7 @@ const ImageTagLine = ({
         </div>
         <img
           src={bgImg}
-          className=" max-w-[550px] xl:max-w-[640x] max-h-[348px] xl:max-h-[400px] w-full xl:w-auto  2xl:max-h-[640px] rounded-[16px] object-cover cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg  "
+          className="max-w-[550px] xl:max-w-[640px] max-h-[348px] xl:max-h-[400px] w-full xl:w-auto 2xl:max-h-[640px] h-full rounded-[16px] object-cover cursor-pointer transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg"
           alt="not found"
         />
       </div>

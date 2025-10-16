@@ -41,7 +41,7 @@ const Branding = () => {
               <Heading
                 Variant="h6"
                 Txt="proof in numbers"
-                className="small-heading"
+                className="small-heading !text-metal-gray !font-extrabold  "
               />
               <div className="flex flex-col gap-y-6">
                 <Heading
