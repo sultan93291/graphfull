@@ -9,7 +9,7 @@ const AboutUs = () => {
   return (
     <>
       <Hero/>
-      <BrandSection />
+      <BrandSection isBgColr={false} />
       <Portfolio isBtn={true} />
       <Brands bgImg={brand_img} />
     </>
