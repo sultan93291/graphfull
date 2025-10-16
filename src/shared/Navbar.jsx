@@ -11,24 +11,77 @@ import marketing from "../assets/img/navbar/marketing.jpeg";
 import Heading from "../components/Heading/Heading";
 import Paragraph from "../components/Paragraph/Paragraph";
 
-
 const navLinks = [
   { label: "work", redirectLink: "/work" },
   { label: "about", redirectLink: "/about-us" },
   { label: "projects", redirectLink: "/projects" },
   { label: "testimonial", redirectLink: "/testimonial" },
   {
-    label: "service",
+    label: "services",
     redirectLink: "/service",
     subItems: [
-      { label: "demo", redirectLink: "/demo" },
-      { label: "demo", redirectLink: "/demo-2" },
+      {
+        title: "Branding",
+        desc: "Strategic identities to resonate, adapt, and stand apart.",
+        link: "/service/branding",
+      },
+      {
+        title: "Web Design",
+        desc: "Modern, responsive websites built to convert.",
+        link: "/service/web-design",
+      },
+      {
+        title: "UI/UX",
+        desc: "User-first systems that make every interaction intuitive.",
+        link: "/service/ui-ux",
+      },
+      {
+        title: "Email Marketing",
+        desc: "On-brand designs that drive engagement and conversions.",
+        link: "/service/email-marketing",
+      },
+      {
+        title: "Landing Pages",
+        desc: "Conversion-optimized pages tailored for action.",
+        link: "/service/landing-pages",
+      },
     ],
   },
   {
     label: "industries",
     redirectLink: "/industry",
-    subItems: [{ label: "demo", redirectLink: "/demo" }],
+    subItems: [
+      {
+        title: "E-commerce",
+        desc: "Designs that drive clicks, carts, and conversions",
+        link: "/industry/ecommerce",
+      },
+      {
+        title: "Fashion & Beauty",
+        desc: "Bold, elevated visuals that turn heads",
+        link: "/industry/fashion-beauty",
+      },
+      {
+        title: "Health & Sustainability",
+        desc: "Visual identity for brands that do good",
+        link: "/industry/health-sustainability",
+      },
+      {
+        title: "Food & Travel",
+        desc: "Crave-worthy branding that sparks exploration",
+        link: "/industry/food-travel",
+      },
+      {
+        title: "Technology & SaaS",
+        desc: "Modern design built for fast-moving products",
+        link: "/industry/technology-saas",
+      },
+      {
+        title: "Marketing & Advertising",
+        desc: "Assets made to perform across every channel",
+        link: "/industry/marketing-advertising",
+      },
+    ],
   },
   { label: "Contact us", redirectLink: "/contact-us" },
 ];
@@ -156,6 +209,7 @@ const Navbar = () => {
   const timeoutRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
+  const [expandedItem, setExpandedItem] = useState(null);
 
   const navigate = useNavigate();
 
@@ -459,15 +513,19 @@ const Navbar = () => {
               {item.subItems ? (
                 <div className="flex flex-col">
                   <div
-                    onClick={() =>
-                      setOpenSubMenu(openSubMenu === idx ? null : idx)
-                    }
-                    className="flex flex-row gap-x-2 items-center cursor-pointer select-none px-4 py-0"
+                    onClick={() => {
+                      setOpenSubMenu(openSubMenu === idx ? null : idx),
+                        setExpandedItem(openSubMenu === idx ? null : idx);
+                    }}
+                    className="flex  flex-row gap-x-2 items-center cursor-pointer select-none px-4 py-0"
                   >
                     <NavLink
                       to={item.redirectLink || "#"}
-                      className="text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white hover:text-primary-yellow ease-in-out duration-300"
-                      onClick={() => setActiveItem(null)}
+                      className={`text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase  hover:text-primary-yellow ease-in-out duration-300 ${
+                        expandedItem === idx
+                          ? "text-white"
+                          : "text-primary-light-white"
+                      }`}
                     >
                       {item.label}
                     </NavLink>
@@ -481,15 +539,15 @@ const Navbar = () => {
                   </div>
 
                   {openSubMenu === idx && (
-                    <ul className="flex flex-col gap-y-2 ml-6 mt-2">
+                    <ul className="flex flex-col gap-y-2 ml-4  mt-2">
                       {item.subItems.map((sub, subIdx) => (
                         <li key={subIdx}>
                           <NavLink
-                            to={sub.redirectLink}
+                            to={sub.link}
                             className="text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white hover:text-primary-yellow ease-in-out duration-300"
                             onClick={() => setIsOpen(false)}
                           >
-                            {sub.label}
+                            {sub.title}
                           </NavLink>
                         </li>
                       ))}

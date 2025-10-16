@@ -30,7 +30,7 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="h-auto w-full container flex flex-col-reverse 2xl:flex-row justify-between gap-y-0 lg:gap-y-10 py-10 3xl:py-[64px]">
+    <section className="h-auto w-full container flex flex-col 2xl:flex-row justify-between gap-y-0 lg:gap-y-10 py-10 3xl:py-[64px]">
       {/* Video Container */}
       <div className="relative w-full h-[500px] xs:w-[335px] sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px] 2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden group">
         <video
@@ -90,15 +90,6 @@ const ServiceSection = () => {
 
       {/* Services List */}
       <div className="flex flex-col w-full 2xl:w-[605px] relative gap-y-12 py-[64px] items-center justify-center ">
-        {/* <div className="flex flex-col gap-y-4 3xl:gap-y-8">
-          <Heading Variant="h6" Txt="SERVICES" className="small-heading" />
-          <Heading
-            Variant="h3"
-            Txt="Creative work we’re built to handle"
-            className="md:text-[32px] font-filson text-[24px] lg:text-[28px]  xl:text-[36px] 3xl:text-[40px] text-primary-white font-bold leading-[120%] tracking-[-0.4px] max-w-[450px]"
-          />
-        </div> */}
-
         <div className="flex flex-col w-full relative gap-y-6 xl:gap-y-8">
           {serviceArr.map((service, idx) => (
             <div
@@ -108,7 +99,7 @@ const ServiceSection = () => {
               <Heading
                 Variant="h6"
                 Txt={service}
-                className="text-lg xl:text-xl   ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-white xl:text-primary-gray group-hover:text-primary-white"
+                className="text-lg xl:text-xl   ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-white  group-hover:text-primary-white"
               />
               <Heading Variant="h4">{service}</Heading>
               <div className="h-[22px] w-[22px] group-hover:w-10 group-hover:h-10 lg:group-hover:w-16 lg:group-hover:h-16  rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow"></div>

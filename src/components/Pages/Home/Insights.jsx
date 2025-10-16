@@ -33,9 +33,9 @@ const items = [
 
 const TimelineItem = ({ number, title, desc }) => {
   return (
-    <div  className="relative flex items-start mb-16">
+    <div  className="relative flex items-start mb-10 md:mb-16">
   
-      <div className="flex flex-col gap-y-2 ml-[32px] xl:ml-[78.6px]">
+      <div className="flex flex-col gap-y-2 md:ml-[32px] lg:ml-[78.6px]">
         <Paragraph
           className="text-primary-yellow leading-[150%] tracking-[1.92px] font-extrabold text-2xl"
           Txt={number}
