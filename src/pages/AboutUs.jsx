@@ -10,7 +10,7 @@ const AboutUs = () => {
     <>
       <Hero/>
       <BrandSection />
-      <Portfolio/>
+      <Portfolio isBtn={true} />
       <Brands bgImg={brand_img} />
     </>
   );

@@ -41,7 +41,7 @@ const Portfolio = ({ isBtn }) => {
             <Heading
               Variant="h6"
               Txt="Portfolio"
-              className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+              className="text-xs uppercase text-metal-gray font-extrabold leading-[150%] tracking-[1.92px]"
             />
             <div className="flex flex-col gap-y-6">
               <Heading
@@ -60,7 +60,7 @@ const Portfolio = ({ isBtn }) => {
               <div
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
-                className={`hidden xl:flex items-center h-auto font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-secondary-blue overflow-hidden transition-all duration-300 ${
+                className={` hidden xl:flex items-center h-auto font-bold justify-start cursor-pointer p-2 rounded-[8px] bg-secondary-blue overflow-hidden transition-all duration-300 ${
                   isHovering ? "w-36" : "w-10"
                 }`}
               >
@@ -94,12 +94,12 @@ const Portfolio = ({ isBtn }) => {
 
               return (
                 <div className="flex flex-col gap-y-[30px] lg:gap-y-6 ">
-                  <div className="flex flex-col px-6 gap-y-[26px] ">
+                  <div className="flex flex-col px-6 gap-y-6 md:gap-y-[26px] ">
                     <div className="flex flex-col gap-y-4 ">
                       <Heading
                         Variant="h6"
                         Txt={"FASHION & BEAUTY"}
-                        className="small-heading"
+                        className="small-heading !text-metal-gray !font-extrabold !tracking-[1.92px] !leading-[150%]  "
                       />
                       <Heading
                         Variant="h3"
@@ -107,10 +107,10 @@ const Portfolio = ({ isBtn }) => {
                         className=" text-xl lg:text-2xl  text-primary-white font-extrabold leading-[140%] tracking-[-0.24px]"
                       />
                       <div className="flex flex-wrap items-center gap-2 w-[210px] lg:w-[270px] xl:w-[300px] 3xl:w-[480px] 4xl:w-[520px] ">
-                        {[0, 1, 2, 3].map(tag => (
+                        {[0, 1, 2].map(tag => (
                           <div
                             key={tag}
-                            className="px-3 py-2.5 rounded-[16px] bg-secondary-off-gray text-xs text-primary-light-white font-medium leading-[150%]"
+                            className="px-3 py-1.5 rounded-[16px] bg-secondary-off-gray text-[10px] md:text-xs text-primary-light-white font-medium leading-[150%]"
                           >
                             Services
                           </div>
@@ -120,7 +120,7 @@ const Portfolio = ({ isBtn }) => {
                   </div>
                   <div
                     key={key}
-                    className="relative mx-4 w-[209px] lg:w-[270px] xl:w-[300px] 3xl:w-[480px] 4xl:w-[520px] h-[314px] lg:h-[350px] xl:h-[400px] 3xl:h-[650px] 4xl:h-[780px] rounded-[16px] overflow-hidden cursor-pointer flex-shrink-0"
+                    className="relative mx-4 w-[250px] lg:w-[270px] xl:w-[300px] 3xl:w-[480px] 4xl:w-[520px] h-[314px] lg:h-[350px] xl:h-[400px] 3xl:h-[650px] 4xl:h-[780px] rounded-[16px] overflow-hidden cursor-pointer flex-shrink-0"
                     onMouseEnter={() => {
                       setHoveredIndex(key);
                       setVideoReady(prev => ({ ...prev, [key]: false }));

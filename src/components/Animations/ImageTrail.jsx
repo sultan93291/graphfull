@@ -1107,7 +1107,7 @@ export default function ImageTrail({ items = [], variant = 1 }) {
     >
       {items.map((url, i) => (
         <div
-          className="content__img w-[66px] h-[67px] rounded-[15px] absolute top-0 left-0 opacity-0 overflow-hidden [will-change:transform,filter]"
+          className="content__img w-[45px] h-[45px] rounded-[7.65px] absolute top-0 left-0 opacity-0 overflow-hidden [will-change:transform,filter]"
           key={i}
         >
           <div

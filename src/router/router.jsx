@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Service />, // main service landing page
+            element: <Service />, 
           },
           {
             path: "branding",

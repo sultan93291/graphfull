@@ -23,7 +23,7 @@ const Brands = ({
               <Heading
                 Variant="h6"
                 Txt="NEXT STEPS"
-                className="small-heading"
+                className="small-heading !text-[#9FADB9]"
               />
 
               <div className="max-w-[768px] flex flex-col gap-y-6">
@@ -39,7 +39,7 @@ const Brands = ({
               </div>
 
               <Button
-                className="h-auto w-auto max-w-[130px] px-5 py-2 bg-primary-yellow text-primary-dark-blue font-bold rounded-[8px] cursor-pointer transition-all duration-500 hover:bg-transparent border-[1px] border-transparent hover:border-solid hover:border hover:border-primary-yellow hover:text-primary-yellow"
+                className="h-auto w-auto text-sm md:text-base max-w-[130px] px-3 md:px-5 py-2 bg-primary-yellow text-primary-dark-blue font-bold rounded-[8px] cursor-pointer transition-all duration-500 hover:bg-transparent border-[1px] border-transparent hover:border-solid hover:border hover:border-primary-yellow hover:text-primary-yellow"
                 btnTxt={"Book a call"}
               />
             </div>

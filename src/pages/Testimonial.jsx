@@ -10,7 +10,6 @@ const Testimonial = () => {
   return (
     <>
       <Hero />
-      <BrandSection />
       <Portfolio isBtn={true} />
       <Brands bgImg={brand_img} />
     </>

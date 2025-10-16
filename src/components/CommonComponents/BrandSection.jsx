@@ -48,7 +48,6 @@ const BrandSection = ({ isBgColr =true }) => {
       </Marquee>
       <Marquee
         play={true}
-        pauseOnHover={true}
         direction="right"
         gradient={false}
       >

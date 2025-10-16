@@ -68,7 +68,7 @@
   } */
 
   .small-heading {
-    @apply text-xs uppercase text-[#C2CFDC] font-extrabold leading-[150%] tracking-[1.92px];
+    @apply text-xs uppercase text-[#C2CFDC]  font-extrabold leading-[150%] tracking-[1.92px];
   }
 
   .glass-effect {

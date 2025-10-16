@@ -86,7 +86,7 @@ const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
 
   // Number of projects to show initially
-  const initialCount = 4;
+  const initialCount = 10;
   const displayedProjects = showAll
     ? projectDetails
     : projectDetails.slice(0, initialCount);
@@ -96,7 +96,11 @@ const Portfolio = () => {
       <div className="flex flex-col gap-y-[40px] sm:gap-y-20 xl:gap-y-[112px] items-center">
         <div className="container flex flex-col  gap-y-[64px] lg:gap-y-20">
           <div className="flex flex-col gap-y-6 items-center">
-            <Heading Variant="h6" Txt="Portfolio" className="small-heading" />
+            <Heading
+              Variant="h6"
+              Txt="Portfolio"
+              className="small-heading !text-metal-gray !font-extrabold !tracking-[1.92px] !leading-[150%]  "
+            />
             <div className="flex flex-col items-center gap-y-3 2xl:gap-y-6">
               <Heading
                 Variant="h3"
@@ -132,11 +136,7 @@ const Portfolio = () => {
         <Button
           onClick={() => setShowAll(!showAll)}
           className="h-auto xl:hidden w-[95%]  xs:w-auto  xs:max-w-[130px] px-5 py-2 bg-primary-green text-primary-dark-blue font-bold rounded-[8px] cursor-pointer transition-all duration-500 hover:bg-transparent border-[1px] border-transparent hover:border-solid hover:border hover:border-primary-green hover:text-primary-green"
-          btnTxt={
-            <>
-              {showAll ? "View Less" : "View More"} 
-            </>
-          }
+          btnTxt={<>{showAll ? "View Less" : "View More"}</>}
         />
       </div>
     </section>
