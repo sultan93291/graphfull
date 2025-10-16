@@ -31,46 +31,18 @@ const items = [
   },
 ];
 
-const TimelineItem = ({ number, title, desc, isActive }) => {
-  const itemRef = useRef(null);
-
-  useEffect(() => {
-    if (isActive) {
-      gsap.to(itemRef.current, {
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out",
-      });
-    } else {
-      gsap.to(itemRef.current, {
-        y: 50,
-        duration: 0.4,
-        ease: "power3.inOut",
-      });
-    }
-  }, [isActive]);
-
+const TimelineItem = ({ number, title, desc }) => {
   return (
-    <div ref={itemRef} className="relative flex items-start mb-16">
-      {/* Circle indicator */}
-      <div
-        className={`w-4 h-4  rounded-full absolute -left-[7px] top-2 z-20  duration-300 bg-primary-yellow `}
-      />
-      {/* Vertical line */}
-      <div
-        className={`absolute left-0 top-6 w-[3px] h-[200px] z-0 transition-colors duration-300 ${
-          isActive ? "bg-primary-yellow" : "bg-gray-400"
-        }`}
-      />
-      {/* Content */}
+    <div  className="relative flex items-start mb-16">
+  
       <div className="flex flex-col gap-y-2 ml-[32px] xl:ml-[78.6px]">
         <Paragraph
-          className="text-primary-yellow leading-[150%] tracking-[1.92px] font-extrabold text-sm"
+          className="text-primary-yellow leading-[150%] tracking-[1.92px] font-extrabold text-2xl"
           Txt={number}
         />
         <Heading
           Variant="h3"
-          className={` text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white `}
+          className={` text-xl xl:text-2xl font-bold leading-[140%] tracking-[-0.24px] text-primary-white font-filson `}
           Txt={title}
         />
         <Paragraph
@@ -83,34 +55,6 @@ const TimelineItem = ({ number, title, desc, isActive }) => {
 };
 
 const Insights = () => {
-  const containerRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const children = containerRef.current.querySelectorAll(".timeline-item");
-      let newActive = 0;
-
-      children.forEach((child, index) => {
-        const rect = child.getBoundingClientRect();
-        const containerHeight = window.innerHeight;
-        if (
-          rect.top < containerHeight * 0.6 &&
-          rect.bottom > containerHeight * 0.3
-        ) {
-          newActive = index;
-        }
-      });
-
-      setActiveIndex(newActive);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section className="h-auto w-full bg-primary-color py-16 2xl:py-20 3xl:py-28">
       <div className="container flex flex-col 2xl:flex-row gap-10 xl:gap-y-14 items-center  justify-between">
@@ -134,17 +78,14 @@ const Insights = () => {
           </div>
         </div>
 
-        <div className="relative my-8 xl:mt-0 pl-5 xl:pl-10 w-full xl:w-[808px]">
-          {/* Vertical line always behind items */}
-          <div className="absolute left-0 ml-5 xl:ml-10 top-0 w-[3px] h-full bg-gray-400" />
-          <div className="flex flex-col" ref={containerRef}>
+        <div className="relative my-8 xl:mt-0 pl-5 xl:pl-10 w-full xl:w-[808px]">        
+          <div className="flex flex-col">
             {items.map((item, index) => (
               <div key={item.id} className="timeline-item relative">
                 <TimelineItem
                   number={index + 1}
                   title={item.title}
                   desc={item.desc}
-                  isActive={index === activeIndex}
                 />
               </div>
             ))}
