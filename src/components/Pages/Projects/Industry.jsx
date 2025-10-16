@@ -49,27 +49,49 @@ const Industry = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  // Nested scroll: first scroll images container, then page
-  useEffect(() => {
-    const handleWheel = e => {
-      const container = imagesRef.current;
-      if (!container) return;
+useEffect(() => {
+  const container = imagesRef.current;
+  if (!container) return;
 
-      const containerHeight = container.scrollHeight - container.clientHeight;
-      const scrollTop = container.scrollTop;
+  let scrollTimeout;
+  let isLocked = false;
 
-      // If not at top or bottom, prevent page scroll and scroll the container
-      if (scrollTop > 0 && scrollTop < containerHeight) {
-        e.preventDefault();
-        container.scrollTop += e.deltaY;
-      }
+  const handleWheel = e => {
+    const { scrollTop, scrollHeight, clientHeight } = container;
+    const atBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
-      // If at the top or bottom, allow page scroll
-    };
+    const isScrollable = scrollHeight > clientHeight;
+    if (!isScrollable) return;
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, []);
+
+    if (e.deltaY > 0 && !atBottom) {
+      e.preventDefault();
+
+      if (isLocked) return;
+      isLocked = true;
+
+
+      container.scrollBy({
+        top: e.deltaY * 3, 
+        behavior: "smooth",
+      });
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isLocked = false;
+      }, 1); 
+    }
+
+  };
+
+  window.addEventListener("wheel", handleWheel, { passive: false });
+
+  return () => {
+    window.removeEventListener("wheel", handleWheel);
+    clearTimeout(scrollTimeout);
+  };
+}, []);
+
 
   return (
     <section className="h-auto w-full bg-primary-color py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]">
@@ -175,7 +197,7 @@ const Industry = () => {
         {/* Right Images */}
         <div
           ref={imagesRef}
-          className="w-full xl:max-h-[80vh] xl:overflow-y-auto flex flex-col gap-4"
+          className="w-full xl:max-h-[120vh] xl:overflow-y-auto flex flex-col gap-4"
         >
           {layout.map((section, index) => (
             <div key={index}>

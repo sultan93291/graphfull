@@ -15,7 +15,7 @@ const Hero = () => {
               Variant={"h6"}
               Txt={"Industry"}
               className={
-                "text-xs uppercase  text-metal-white font-extrabold leading-[150%] tracking-[1.92px] "
+                "text-xs uppercase  text-metal-gray font-extrabold leading-[150%] tracking-[1.92px] "
               }
             />
             <Heading
