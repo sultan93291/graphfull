@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const FooterNavLink = {
   leftSideLink: [
     { label: "Work", redirectLink: "/work" },
-    { label: "About", redirectLink: "/about" },
+    { label: "About", redirectLink: "/about-us" },
     { label: "Feedback", redirectLink: "/feedback" },
   ],
   rightSideLink: [
