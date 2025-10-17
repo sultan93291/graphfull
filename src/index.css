@@ -74,7 +74,7 @@
   .glass-effect {
     background: rgba(6, 12, 18, 0.80);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(24px);
   }
 
 

@@ -11,7 +11,7 @@ import Testimonial from "@/components/Pages/Home/Testimonial";
 
 const Service = () => {
   return (
-    <section className=" bg-primary-color">
+    <section className=" bg-primary-color  ">
       <CommonHero />
       <BrandSection isBgColr={false} />
       <ImageTagLine

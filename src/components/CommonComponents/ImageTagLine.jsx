@@ -18,7 +18,7 @@ const ImageTagLine = ({
   return (
     <section className="h-auto w-full bg-primary-black py-[64px] 2xl:py-[112px]">
       <div
-        className={`container h-auto w-full   gap-x-20 gap-y-12 flex ${
+        className={`container items-center   h-auto w-full justify-between gap-y-12 flex ${
           isReverse
             ? "flex-col items-center xl:flex-row-reverse"
             : "flex-col items-center xl:flex-row"
@@ -29,21 +29,21 @@ const ImageTagLine = ({
             <Heading
               Variant="h6"
               Txt={title}
-              className="text-xs uppercase text-metal-gray font-extrabold leading-[150%] tracking-[1.92px] max-w-[560px]"
+              className="text-xs uppercase text-metal-gray font-extrabold leading-[150%] tracking-[1.92px] "
             />
-            <div className="flex flex-col gap-y-4 ">
+            <div className="flex flex-col gap-y-4   ">
               <Heading
                 Variant="h3"
                 Txt={subTitle}
-                className="text-[32px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[48px] text-primary-white font-bold leading-[120%] tracking-[-0.4px]"
+                className=" md:text-[28px] lg:text-[32px]  text-primary-white font-bold leading-[120%] tracking-[-0.32px] max-w-[520px]  "
               />
               <Paragraph
                 Txt={short_descreption}
-                className="text-xl text-metal-white font-normal leading-[140%] tracking-[-0.02px]"
+                className="text-xl text-metal-white font-normal leading-[140%] tracking-[-0.02px] max-w-[520px] "
               />
               <Paragraph
                 Txt={descreption}
-                className="text-base text-primary-light-white font-normal leading-[150%]"
+                className="text-base text-primary-light-white font-normal leading-[150%] max-w-[600px] "
               />
             </div>
           </div>
