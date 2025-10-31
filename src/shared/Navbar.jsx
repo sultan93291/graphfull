@@ -397,6 +397,7 @@ const Navbar = () => {
             opacity: 0,
             pointerEvents: "none",
             borderBottom: "1px solid rgba(159, 173, 185, 0.20)",
+            background: "rgba(6,12,18,0.6)",
           }}
         >
           <div className="flex flex-row w-auto p-6 3xl:p-8 gap-x-12 3xl:gap-x-24 mx-auto">
@@ -498,8 +499,11 @@ const Navbar = () => {
 
       {/* Glass Effect Sidebar */}
       <div
+        style={{
+          background: "rgba(6,12,18,0.6)",
+        }}
         ref={sidebarRef}
-        className={`fixed flex flex-col gap-y-8 py-5 px-5 top-0 left-0 h-full w-[280px] z-[99] shadow-lg transform transition-transform duration-500 ease-in-out backdrop-blur-md bg-[rgba(6,12,18,0.6)] ${
+        className={`fixed flex flex-col gap-y-8 py-5 px-5 top-0 left-0 h-full w-[280px] z-[99] shadow-lg transform transition-transform duration-500 ease-in-out backdrop-blur-md  ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
