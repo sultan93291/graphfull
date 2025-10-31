@@ -390,7 +390,7 @@ const Navbar = () => {
           ref={dropdownRef}
           onMouseEnter={handleMouseEnterDropdown}
           onMouseLeave={handleMouseLeaveDropdown}
-          className="dropdown-wrapper absolute top-full left-0 w-full glass-effect   shadow-md flex gap-x-[60px] 3xl:gap-x-[120px]"
+          className="dropdown-wrapper absolute top-full left-0 w-full backdrop-blur-md   shadow-md flex gap-x-[60px] 3xl:gap-x-[120px]"
           style={{
             overflow: "hidden",
             height: 0,
@@ -499,7 +499,7 @@ const Navbar = () => {
       {/* Glass Effect Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed flex flex-col gap-y-8 py-5 px-5 top-0 left-0 h-full w-[280px] bg-primary-color glass-effect z-[99] shadow-lg transform transition-transform duration-500 ease-in-out ${
+        className={`fixed flex flex-col gap-y-8 py-5 px-5 top-0 left-0 h-full w-[280px] z-[99] shadow-lg transform transition-transform duration-500 ease-in-out backdrop-blur-md bg-[rgba(6,12,18,0.6)] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

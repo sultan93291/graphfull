@@ -71,12 +71,6 @@
     @apply text-xs uppercase text-[#C2CFDC]  font-extrabold leading-[150%] tracking-[1.92px];
   }
 
-  .glass-effect {
-    background: rgba(6, 12, 18, 0.80);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(24px);
-  }
-
 
   @keyframes scrollDown {
     0% {
