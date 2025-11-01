@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import buttonImg from "../../assets/img/button.png"; 
 
 const Squares = ({
   direction = "right",
@@ -6,7 +7,7 @@ const Squares = ({
   borderColor = "#0C1924",
   squareSize = 40,
   hoverFillColor = "#000",
-  children, 
+  children,
 }) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);
@@ -14,11 +15,18 @@ const Squares = ({
   const numSquaresY = useRef(0);
   const gridOffset = useRef({ x: 0, y: 0 });
   const hoveredSquareRef = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.src = buttonImg;
+    img.onload = () => {
+      imgRef.current = img;
+    };
 
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth;
@@ -31,10 +39,7 @@ const Squares = ({
     resizeCanvas();
 
     const drawGrid = () => {
-      if (!ctx) return;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
       const startY = Math.floor(gridOffset.current.y / squareSize) * squareSize;
 
@@ -43,37 +48,38 @@ const Squares = ({
           const squareX = x - (gridOffset.current.x % squareSize);
           const squareY = y - (gridOffset.current.y % squareSize);
 
-          if (
+          const isHovered =
             hoveredSquareRef.current &&
             Math.floor((x - startX) / squareSize) ===
               hoveredSquareRef.current.x &&
-            Math.floor((y - startY) / squareSize) === hoveredSquareRef.current.y
-          ) {
-            ctx.fillStyle = hoverFillColor;
-            ctx.fillRect(squareX, squareY, squareSize, squareSize);
+            Math.floor((y - startY) / squareSize) ===
+              hoveredSquareRef.current.y;
+
+          if (isHovered) {
+            if (imgRef.current) {
+              const imgSize = squareSize * 0.8;
+              const offset = (squareSize - imgSize) / 2;
+              ctx.drawImage(
+                imgRef.current,
+                squareX + offset,
+                squareY + offset,
+                imgSize,
+                imgSize
+              );
+            } else {
+              ctx.fillStyle = hoverFillColor;
+              ctx.fillRect(squareX, squareY, squareSize, squareSize);
+            }
           }
 
           ctx.strokeStyle = borderColor;
           ctx.strokeRect(squareX, squareY, squareSize, squareSize);
         }
       }
-
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2,
-        canvas.height / 2,
-        0,
-        canvas.width / 2,
-        canvas.height / 2,
-        Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
-      );
-      gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
     const updateAnimation = () => {
-      const effectiveSpeed = Math.max(speed, 0.1);
+      const effectiveSpeed = Math.max(speed, 0.3);
       switch (direction) {
         case "right":
           gridOffset.current.x =
@@ -120,13 +126,7 @@ const Squares = ({
         (mouseY + gridOffset.current.y - startY) / squareSize
       );
 
-      if (
-        !hoveredSquareRef.current ||
-        hoveredSquareRef.current.x !== hoveredSquareX ||
-        hoveredSquareRef.current.y !== hoveredSquareY
-      ) {
-        hoveredSquareRef.current = { x: hoveredSquareX, y: hoveredSquareY };
-      }
+      hoveredSquareRef.current = { x: hoveredSquareX, y: hoveredSquareY };
     };
 
     const handleMouseLeave = () => {
@@ -149,9 +149,10 @@ const Squares = ({
     <div className="relative">
       <canvas
         ref={canvasRef}
-        className="w-full h-[483px] z-50  border-none block"
+        className="w-full h-[483px] z-0 border-none block pointer-events-auto"
       ></canvas>
-      <div className="absolute z-0 inset-0 flex flex-col items-center justify-center">
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
         {children}
       </div>
     </div>
