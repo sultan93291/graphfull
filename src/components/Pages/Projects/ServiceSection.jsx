@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Heading from "../../Heading/Heading";
-
 
 const serviceArr = [
   "marketing",
@@ -18,6 +17,17 @@ const ServiceSection = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true; // ensures autoplay works
+      video
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(err => console.log("Autoplay blocked:", err));
+    }
+  }, []);
+
   const togglePlay = () => {
     if (!videoRef.current) return;
 
@@ -32,15 +42,13 @@ const ServiceSection = () => {
 
   return (
     <section className="h-auto w-full container flex flex-col 2xl:flex-row justify-between gap-y-0 lg:gap-y-10 pt-20 pb-4 3xl:py-[64px]">
-      {/* Video Container */}
       <div className="relative w-full h-[500px] xs:w-[335px] sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px] 2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden group">
         <video
           ref={videoRef}
           className="!w-full !h-full object-cover rounded-[24px]"
-          src={`https://admin.graphfull.com/uploads/portfolio/videos/1761980840.mp4`}
+          src="https://admin.graphfull.com/uploads/portfolio/videos/1761980840.mp4"
           muted
           loop
-          autoPlay
           playsInline
           type="video/mp4"
         />
@@ -59,13 +67,11 @@ const ServiceSection = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
               stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              aria-hidden="true"
             >
               <rect x="6" y="4" width="4" height="16" />
               <rect x="14" y="4" width="4" height="16" />
@@ -75,13 +81,11 @@ const ServiceSection = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              viewBox="0 0 24 24"
               fill="none"
               stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              aria-hidden="true"
             >
               <polygon points="5 3 19 12 5 21 5 3" />
             </svg>
@@ -90,7 +94,7 @@ const ServiceSection = () => {
       </div>
 
       {/* Services List */}
-      <div className="flex flex-col w-full 2xl:w-[605px] relative gap-y-12 py-[64px] items-center justify-center ">
+      <div className="flex flex-col w-full 2xl:w-[605px] relative gap-y-12 py-[64px] items-center justify-center">
         <div className="flex flex-col w-full relative gap-y-6 xl:gap-y-8">
           {serviceArr.map((service, idx) => (
             <div
@@ -100,10 +104,9 @@ const ServiceSection = () => {
               <Heading
                 Variant="h6"
                 Txt={service}
-                className="text-lg xl:text-xl   ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-white  group-hover:text-primary-white"
+                className="text-lg xl:text-xl ease-in-out duration-500 font-bold tracking-[-0.02px] capitalize leading-[140%] text-white group-hover:text-primary-white"
               />
-              <Heading Variant="h4">{service}</Heading>
-              <div className="h-[22px] w-[22px] group-hover:w-10 group-hover:h-10 lg:group-hover:w-16 lg:group-hover:h-16  rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow"></div>
+              <div className="h-[22px] w-[22px] group-hover:w-10 group-hover:h-10 lg:group-hover:w-16 lg:group-hover:h-16 rounded-[8px] ease-in-out duration-500 bg-primary-gray group-hover:bg-primary-yellow"></div>
             </div>
           ))}
         </div>
