@@ -57,7 +57,7 @@ const ProjectSection = () => {
           }
         />
       </div>
-      <div className="flex flex-row flex-wrap 3xl:flex-nowrap items-center justify-center 3xl:justify-normal gap-6 3xl:gap-8 ">
+      <div className="flex flex-row flex-wrap 3xl:flex-nowrap items-center justify-center 3xl:justify-normal gap-12 3xl:gap-8 ">
         {projectList.map(item => (
           <ProjectCard key={item.id} item={item} />
         ))}

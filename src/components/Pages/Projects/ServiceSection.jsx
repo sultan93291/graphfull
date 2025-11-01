@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Heading from "../../Heading/Heading";
 
+
 const serviceArr = [
   "marketing",
   "email marketing",
@@ -30,13 +31,13 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="h-auto w-full container flex flex-col 2xl:flex-row justify-between gap-y-0 lg:gap-y-10 py-10 3xl:py-[64px]">
+    <section className="h-auto w-full container flex flex-col 2xl:flex-row justify-between gap-y-0 lg:gap-y-10 pt-20 pb-4 3xl:py-[64px]">
       {/* Video Container */}
       <div className="relative w-full h-[500px] xs:w-[335px] sm:w-full 2xl:w-[450px] 3xl:!w-[555px] sm:h-[350px] lg:h-[500px] 2xl:!h-[832px] rounded-[15px] 3xl:rounded-[24px] overflow-hidden group">
         <video
           ref={videoRef}
           className="!w-full !h-full object-cover rounded-[24px]"
-          src="https://firebasestorage.googleapis.com/v0/b/alap-b18ad.appspot.com/o/Graphfull-Mascot%2Bresize.mp4?alt=media&token=9860e4fd-09d7-4b7b-a567-cbae8b858841"
+          src={`https://admin.graphfull.com/uploads/portfolio/videos/1761980840.mp4`}
           muted
           loop
           autoPlay

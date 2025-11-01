@@ -15,7 +15,7 @@ const navLinks = [
   { label: "work", redirectLink: "/work" },
   { label: "about", redirectLink: "/about-us" },
   { label: "projects", redirectLink: "/projects" },
-  { label: "testimonial", redirectLink: "/testimonial" },
+  { label: "TESTIMONIALS", redirectLink: "/testimonial" },
   {
     label: "services",
     redirectLink: "/service",
@@ -323,9 +323,9 @@ const Navbar = () => {
                       <NavLink
                         to={item.redirectLink || "#"}
                         className={({ isActive }) =>
-                          `text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase hover:text-primary-yellow ease-in-out duration-300 ${
+                          `text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase hover:text-white ease-in-out duration-300 ${
                             isActive
-                              ? "text-primary-yellow"
+                              ? "text-primary-white"
                               : "text-primary-light-white"
                           }`
                         }
@@ -339,9 +339,9 @@ const Navbar = () => {
                     <NavLink
                       to={item.redirectLink || "#"}
                       className={({ isActive }) =>
-                        `text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase hover:text-primary-yellow ease-in-out duration-300 ${
+                        `text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase hover:text-white ease-in-out duration-300 ${
                           isActive
-                            ? "text-primary-yellow"
+                            ? "text-white"
                             : "text-primary-light-white"
                         }`
                       }
@@ -548,7 +548,7 @@ const Navbar = () => {
                         <li key={subIdx}>
                           <NavLink
                             to={sub.link}
-                            className="text-xs font-extrabold leading-[150%] tracking-[1.92px] uppercase text-primary-light-white hover:text-primary-yellow ease-in-out duration-300"
+                            className="text-xs font-extrabold leading-[150%] tracking-[1.92px] capitalize text-primary-light-white hover:text-white ease-in-out duration-300"
                             onClick={() => setIsOpen(false)}
                           >
                             {sub.title}

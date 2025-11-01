@@ -22,19 +22,19 @@ const Overview = () => {
     <section className="h-auto w-full py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]">
       <div className="flex flex-col-reverse gap-y-12 xl:flex-row container gap-x-20 items-center">
         {/* Grid of stats + Lottie */}
-        <div className="grid grid-cols-2 gap-4 w-full 2xl:max-w-[820px]">
+        <div
+          ref={svgRef}
+          className="grid grid-cols-2 gap-4 w-full 2xl:max-w-[820px]"
+        >
           {OverviewArr.map((Overview, idx) => (
             <div
               key={idx}
               className={`w-full 
-                aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] 
                 p-6 rounded-[16px] bg-extra-blue shadow-md flex flex-col 
-                gap-y-2.5 2xl:gap-y-[56px] items-center sm:items-start justify-center
+                gap-y-2.5 2xl:gap-y-[40px] items-center sm:items-start justify-center min-h-[160px] sm:min-h-[200px] md:min-h-[220px]
                 ${
                   idx == OverviewArr.length - 1 &&
-                  `w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] 
-   col-span-2 sm:col-span-1 items-center justify-center flex 
-   max-h-[120px] sm:max-h-[200px] md:max-h-[320px]`
+                  `col-span-2 sm:col-span-1 items-center justify-center flex`
                 }
 `}
             >
@@ -42,14 +42,14 @@ const Overview = () => {
                 Variant="h6"
                 Txt={Overview?.title}
                 className="text-sm capitalize text-center sm:text-left max-w-[80px] sm:max-w-[160px] 
-                md:text-left text-primary-light-white font-[600] leading-[150%]  "
+                md:text-left text-primary-light-white font-[600] leading-[150%]"
               />
               <div
                 className={`flex items-end w-full relative ${
                   idx == OverviewArr.length - 1
                     ? "justify-center sm:justify-end"
                     : "justify-end"
-                } `}
+                }`}
               >
                 <Paragraph
                   className="text-[32px] lg:text-[48px] 2xl:text-[80px] font-filson font-bold leading-[120%] 
@@ -72,12 +72,11 @@ const Overview = () => {
           {/* Lottie → always last */}
           <div
             className="
-              w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] 
-              col-span-2 sm:col-span-1 order-last
+              w-full col-span-2 sm:col-span-1 order-last flex items-center justify-center min-h-[160px] sm:min-h-[200px] md:min-h-[220px]
             "
           >
             <DotLottieReact
-              className="w-full h-full"
+              className="w-full h-full max-h-[240px] sm:max-h-[280px] md:max-h-[320px]"
               src={animationData}
               loop
               autoplay
