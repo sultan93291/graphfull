@@ -18,7 +18,7 @@ const IndustryPage = () => {
       <div className="pt-[60px]">
         <Testimonial />
       </div>
-      <Portfolio />
+      <Portfolio isBtn={true} />
       <Brands bgImg={brand_img} />
     </section>
   );

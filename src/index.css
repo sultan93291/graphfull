@@ -170,6 +170,14 @@
     color: #fff;
     padding: 20px;
   }
+
+  @media (max-width: 1023px) {
+  .no-mobile-bg {
+    background-image: none !important;
+    background: #10202de6;
+  }
+}
+
 }
 
 ::-webkit-scrollbar {

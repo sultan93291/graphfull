@@ -42,14 +42,14 @@ const ClientSpeaks = ({
             <Heading
               Variant="h6"
               Txt={title}
-              className="text-xs uppercase text-metal-white font-extrabold leading-[150%] tracking-[1.92px]"
+              className="text-xs uppercase !text-[#62707D] font-extrabold leading-[150%] tracking-[1.92px]"
             />
 
             {/* Apply ShinyText only for clientFeedback */}
             <Heading
               className="md:text-[32px] font-filson text-[24px] lg:text-[28px] xl:text-[36px] 3xl:text-[40px] capitalize text-primary-white font-bold leading-[150%] tracking-[-0.4px]"
               Variant="h4"
-              Txt={<ShinyText text={clientFeedback} />}
+              Txt={clientFeedback}
             />
 
             <div className="flex items-center gap-5">

@@ -22,7 +22,7 @@ const Hero = () => {
               Txt={"Medium length hero heading goes here"}
               Variant={"h2"}
               className={
-                "text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[48px] font-bold text-primary-white leading-[120%] tracking-[-0.48px] max-w-[516px] "
+                "text-[24px] font-filson md:text-[28px] lg:text-[32px] xl:text-[36px] 3xl:text-[48px] font-bold text-primary-white leading-[120%] tracking-[-0.48px] max-w-[516px] "
               }
             />
           </div>

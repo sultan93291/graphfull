@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { GettaSvg } from "../../../SvgContainer/SvgContainer";
 import Heading from "../../Heading/Heading";
 import Paragraph from "./../../Paragraph/Paragraph";
@@ -43,61 +43,16 @@ const layout = [
 
 const Industry = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const imagesRef = useRef(null);
 
   const toggleExpand = index => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-useEffect(() => {
-  const container = imagesRef.current;
-  if (!container) return;
-
-  let scrollTimeout;
-  let isLocked = false;
-
-  const handleWheel = e => {
-    const { scrollTop, scrollHeight, clientHeight } = container;
-    const atBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
-
-    const isScrollable = scrollHeight > clientHeight;
-    if (!isScrollable) return;
-
-
-    if (e.deltaY > 0 && !atBottom) {
-      e.preventDefault();
-
-      if (isLocked) return;
-      isLocked = true;
-
-
-      container.scrollBy({
-        top: e.deltaY * 3, 
-        behavior: "smooth",
-      });
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        isLocked = false;
-      }, 1); 
-    }
-
-  };
-
-  window.addEventListener("wheel", handleWheel, { passive: false });
-
-  return () => {
-    window.removeEventListener("wheel", handleWheel);
-    clearTimeout(scrollTimeout);
-  };
-}, []);
-
-
   return (
     <section className="h-auto w-full bg-primary-color py-[40px] xl:py-[60px] 2xl:py-[80px] 3xl:py-[120px]">
       <div className="container flex flex-col gap-y-12 md:gap-y-14 xl:flex-row gap-x-[80px]">
-        {/* Left Column */}
-        <div className="flex flex-col gap-y-8 w-full 3xl:min-w-[495px]">
+        {/* Left Column (Sticky) */}
+        <div className="flex flex-col gap-y-8 w-full 3xl:min-w-[495px] xl:sticky xl:top-20 self-start">
           <div className="flex flex-col gap-y-6 xl:gap-y-[56px]">
             <GettaSvg />
             <div className="flex flex-col gap-y-5 xl:gap-y-8">
@@ -107,7 +62,7 @@ useEffect(() => {
                 Txt="Short heading goes here"
                 className="text-[24px] md:text-[32px] lg:text-[28px] xl:text-[36px] font-filson 3xl:text-[40px] capitalize text-primary-white font-bold"
               />
-              <div className="flex flex-row gap-x-2 items-center">
+              <div className="flex flex-row gap-x-2 items-center flex-wrap">
                 {tagLineArr.map((tag, idx) => (
                   <div
                     key={idx}
@@ -194,11 +149,8 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Right Images */}
-        <div
-          ref={imagesRef}
-          className="w-full xl:max-h-[120vh] xl:overflow-y-auto flex flex-col gap-4"
-        >
+        {/* Right Images (naturally scrolls with page) */}
+        <div className="w-full flex flex-col gap-4 xl:max-h-none xl:overflow-visible">
           {layout.map((section, index) => (
             <div key={index}>
               {section.type === "single" ? (
